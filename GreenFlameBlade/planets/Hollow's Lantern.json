@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "name": "Hollow's Lantern",
+  "starSystem": "SolarSystem",
+  "Props": {
+    "details": [
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/CrashedShip.prefab",
+        "position": {
+          "x": -10.82077,
+          "y": -103.4213,
+          "z": 63.9962
+        },
+        "rotation": {
+          "x": 57.27839,
+          "y": 210.6421,
+          "z": 196.389
+        },
+        "keepLoaded": true
+      },
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone3/Sector_HiddenGorge/Sector_DreamFireHouse_Zone3/Interactables_DreamFireHouse_Zone3/DreamFireChamber_DFH_Zone3/MummyCircle/MummyPivot (11)/Prefab_IP_SleepingMummy_v2/Mummy_IP_Anim",
+        "position": {
+          "x": -12.36457,
+          "y": -102.1993,
+          "z": 63.36483
+        },
+        "rotation": {
+          "x": 86.2957,
+          "y": 85.2097,
+          "z": 58.5508
+        }
+      }
+    ],
+    "slideShows": [
+      {
+        "type": "standingVisionTorch",
+        "slides": [
+          {
+            "imagePath": "slides/Dummy.png",
+            "backdropAudio": "Reel_1_Backdrop_A",
+            "beatAudio": "Reel_1_Beat_A",
+            "playTimeDuration": 10,
+            "blackFrameDuration": 1
+          }
+        ],
+        "position": {
+          "x": -11.45,
+          "y": -104.1743,
+          "z": 62.0275
+        },
+        "rotation": {
+          "x": 320.8311,
+          "y": 15.7146,
+          "z": 147.479
+        }
+      }
+    ]
+  }
+}

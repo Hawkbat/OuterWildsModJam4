@@ -1,0 +1,105 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "name": "Ring World",
+  "starSystem": "SolarSystem",
+  "Props": {
+    "details": [
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone3/Sector_HiddenGorge/Sector_DreamFireHouse_Zone3/Interactables_DreamFireHouse_Zone3/DreamFireChamber_DFH_Zone3/MummyCircle/MummyPivot (11)/Prefab_IP_SleepingMummy_v2/Mummy_IP_Anim",
+        "position": {
+          "x": -12.36457,
+          "y": -102.1993,
+          "z": 63.36483
+        },
+        "rotation": {
+          "x": 86.2957,
+          "y": 85.2097,
+          "z": 58.5508
+        }
+      },
+      {
+        "rename": "SignalBlockerAntenna",
+        "position": {
+          "x": -19.10234,
+          "y": 173.4037,
+          "z": 133.8865
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        }
+      },
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone3/Sector_HiddenGorge/Sector_DreamFireHouse_Zone3/Geo_DreamFireHouse_Zone3/Props_IP_DreamFire_Antenna",
+        "activationCondition": "SIGNAL_BLOCKER_FIXED",
+        "blinkWhenActiveChanged": false,
+        "parentPath": "Sector_RingWorld/SignalBlockerAntenna",
+        "isRelativeToParent": true,
+        "scale": 2,
+        "rename": "AntennaFixed"
+      },
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone4/Sector_BlightedShore/Sector_JammingControlRoom_Zone4/Interactables_JammingControlRoom_Zone4/BurnedInterface/Props_IP_DreamFire_Antenna",
+        "deactivationCondition": "SIGNAL_BLOCKER_FIXED",
+        "blinkWhenActiveChanged": false,
+        "parentPath": "Sector_RingWorld/SignalBlockerAntenna",
+        "isRelativeToParent": true,
+        "scale": 2,
+        "rename": "AntennaBroken"
+      },
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/WraithPlanetShip.prefab",
+        "scale": 200,
+        "keepLoaded": true
+      }
+    ],
+    "slideShows": [
+      {
+        "type": "slideReel",
+        "reelCondition": "rusted",
+        "reelModel": "sixSlides",
+        "slides": [
+          {
+            "imagePath": "slides/Dummy.png",
+            "backdropAudio": "Reel_1_Backdrop_A",
+            "beatAudio": "Reel_1_Beat_A"
+          }
+        ],
+        "position": {
+          "x": 179.7773,
+          "y": 143.8948,
+          "z": -150.9731
+        },
+        "rotation": {
+          "x": 287.0032,
+          "y": 215.7085,
+          "z": 269.9995
+        }
+      },
+      {
+        "type": "slideReel",
+        "reelCondition": "rusted",
+        "reelModel": "sixSlides",
+        "slides": [
+          {
+            "imagePath": "slides/Dummy.png",
+            "backdropAudio": "Reel_1_Backdrop_A",
+            "beatAudio": "Reel_1_Beat_A"
+          }
+        ],
+        "position": {
+          "x": 172.0503,
+          "y": -75.87384,
+          "z": -227.6682
+        },
+        "rotation": {
+          "x": 53.59019,
+          "y": 22.9495,
+          "z": 49.27388
+        }
+      }
+    ]
+  }
+}

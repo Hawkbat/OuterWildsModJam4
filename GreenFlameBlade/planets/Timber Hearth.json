@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "name": "Timber Hearth",
+  "starSystem": "SolarSystem",
+  "Props": {
+    "details": [
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/Compass.prefab",
+        "position": {
+          "x": 19.87878,
+          "y": -39.65436,
+          "z": 186.1689
+        },
+        "rotation": {
+          "x": 340.8439,
+          "y": 90.17999,
+          "z": 109.7385
+        }
+      },
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/Wraith.prefab",
+        "position": {
+          "x": 26.81019,
+          "y": -44.93804,
+          "z": 183.5574
+        },
+        "rotation": {
+          "x": 21.83161,
+          "y": 272.5033,
+          "z": 255.105
+        }
+      }
+    ]
+  }
+}

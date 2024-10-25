@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "name": "Wraith Dream",
+  "starSystem": "SolarSystem",
+  "Base": {
+    "surfaceSize": 2000
+  },
+  "Dream": {
+    "inDreamWorld": true
+  },
+  "Orbit": {
+    "isStatic": true,
+    "staticPosition": {
+      "x": 0,
+      "y": 30000,
+      "z": 0
+    }
+  },
+  "Props": {
+    "details": [
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/WraithDreamDimension.prefab"
+      }
+    ]
+  }
+}

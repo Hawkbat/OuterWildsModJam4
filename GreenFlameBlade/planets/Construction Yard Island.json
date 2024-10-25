@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "name": "Construction Yard Island",
+  "starSystem": "SolarSystem",
+  "Props": {
+    "details": [
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/NomaiCrystalItem.prefab",
+        "position": {
+          "x": -4.9224,
+          "y": 8.9694,
+          "z": 36.7538
+        },
+        "rotation": {
+          "x": 0,
+          "y": 270,
+          "z": 76
+        }
+      }
+    ]
+  }
+}
