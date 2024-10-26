@@ -8,14 +8,28 @@
         "assetBundle": "assetbundles/greenflameblade",
         "path": "Assets/GreenFlameBlade/Compass.prefab",
         "position": {
-          "x": 19.87878,
-          "y": -39.65436,
-          "z": 186.1689
+          "x": 15.91297,
+          "y": -40.64035,
+          "z": 186.3141
         },
         "rotation": {
-          "x": 340.8439,
-          "y": 90.17999,
-          "z": 109.7385
+          "x": 61.43098,
+          "y": 135.0775,
+          "z": 131.8432
+        }
+      },
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/OwlkSample.prefab",
+        "position": {
+          "x": 14.3734,
+          "y": -42.8725,
+          "z": 185.3644
+        },
+        "rotation": {
+          "x": 23.9101,
+          "y": 92.9263,
+          "z": 19.9995
         }
       }
     ]
