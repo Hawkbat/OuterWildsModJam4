@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
-  "name": "Wraith Dream",
+  "name": "Ringed Planet",
   "starSystem": "SolarSystem",
   "Base": {
     "surfaceSize": 2000
@@ -23,5 +23,23 @@
         "path": "Assets/GreenFlameBlade/WraithDreamDimension.prefab"
       }
     ]
+  },
+  "ShipLog": {
+    "xmlFile": "planets/Wraith Dream.xml",
+    "spriteFolder": "planets/sprites",
+    "mapMode": {
+      "manualPosition": {
+        "x": 1000,
+        "y": 150
+      },
+      "manualNavigationPosition": {
+        "x": 4,
+        "y": 2
+      },
+      "revealedSprite": "planets/UI_WraithShip.png",
+      "outlineSprite": "planets/UI_WraithShip_Outline.png",
+      "invisibleWhenHidden": false,
+      "scale": 1
+    }
   }
 }

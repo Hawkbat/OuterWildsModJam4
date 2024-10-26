@@ -43,7 +43,7 @@ namespace GreenFlameBlade
                 // Attach compass targets to existing objects
                 foreach (var campfire in FindObjectsOfType<Campfire>())
                 {
-                    if (campfire.transform.root.name == "DreamWorld_Body") continue;
+                    if (campfire.transform.root.name == "DreamWorld_Body" || campfire.transform.root.name == "Ship_Body") continue;
                     CompassTarget.Make(campfire.transform.parent.gameObject, campfire is DreamCampfire ? CompassFrequency.DreamFire : CompassFrequency.Campfire);
                     campfire.transform.parent.gameObject.AddComponent<CampfireCompassTargetController>();
                 }

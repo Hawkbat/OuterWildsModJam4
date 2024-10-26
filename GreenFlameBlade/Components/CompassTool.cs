@@ -11,6 +11,8 @@ namespace GreenFlameBlade.Components
         RenderTexture _snapshotTexture;
         ScreenPrompt _scanPrompt;
         Quaternion _needleTargetRot;
+        CompassTarget _potentialTarget;
+        CompassTarget _currentTarget;
 
         public CompassFrequency GetFrequency() => _frequency;
 
@@ -63,12 +65,12 @@ namespace GreenFlameBlade.Components
                 }
             }
 
-            CompassTarget target = null;
+            _potentialTarget = null;
 
             var collider = Locator.GetToolModeSwapper()._firstPersonManipulator._lastHitCollider;
             if (collider != null)
             {
-                target = collider.GetComponentInParent<CompassTarget>();
+                _potentialTarget = collider.GetComponentInParent<CompassTarget>();
             }
 
             if (_scanPrompt == null)
@@ -76,11 +78,12 @@ namespace GreenFlameBlade.Components
                 _scanPrompt = new ScreenPrompt(InputLibrary.toolActionSecondary, GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("CompassToolScanPrompt") + "   <CMD>");
                 Locator.GetPromptManager().AddScreenPrompt(_scanPrompt, PromptPosition.Center);
             }
-            _scanPrompt.SetVisibility(target != null);
+            _scanPrompt.SetVisibility(_potentialTarget != null);
 
-            var isScanning = target != null && isInItemToolMode && OWInput.IsNewlyPressed(InputLibrary.toolActionSecondary, InputMode.Character);
+            var isScanning = _potentialTarget != null && isInItemToolMode && OWInput.IsNewlyPressed(InputLibrary.toolActionSecondary, InputMode.Character);
             if (isScanning)
             {
+                _frequency = _potentialTarget.GetFrequency();
                 if (_snapshotTexture == null)
                 {
                     _snapshotTexture = new RenderTexture(512, 512, 16);
@@ -91,15 +94,14 @@ namespace GreenFlameBlade.Components
                 _snapshotCamera.targetTexture = _snapshotTexture;
                 _snapshotCamera.Render();
                 _screenRenderer.material.SetTexture("_EmissionMap", _snapshotTexture);
-                _frequency = target.GetFrequency();
                 Locator.GetPlayerAudioController().PlayProbeSnapshot();
                 Locator.GetPlayerAudioController().PlayLockOn();
             }
 
-            target = null;
-
             var targets = GreenFlameBlade.Instance.GetCompassTargets(_frequency);
             var minDist = float.PositiveInfinity;
+
+            _currentTarget = null;
 
             foreach (var t in targets)
             {
@@ -107,13 +109,13 @@ namespace GreenFlameBlade.Components
                 if (dist < minDist)
                 {
                     minDist = dist;
-                    target = t;
+                    _currentTarget = t;
                 }
             }
 
-            if (target != null)
+            if (_currentTarget != null)
             {
-                _needleTargetRot = Quaternion.LookRotation(target.GetTargetPosition() - _needle.transform.position, transform.up);
+                _needleTargetRot = Quaternion.LookRotation(_currentTarget.GetTargetPosition() - _needle.transform.position, transform.up);
             }
             else
             {

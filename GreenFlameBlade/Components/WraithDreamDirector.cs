@@ -14,6 +14,7 @@ namespace GreenFlameBlade.Components
 
         WraithDiorama[] _dioramas;
         WraithDioramaChoice[] _choices;
+        bool _inWraithDream;
 
         void Awake()
         {
@@ -29,21 +30,38 @@ namespace GreenFlameBlade.Components
             GlobalMessenger.RemoveListener("ExitDreamWorld", OnExitDreamWorld);
         }
 
+        void Update()
+        {
+            if (_inWraithDream && Vector3.Distance(transform.position, Locator.GetPlayerTransform().position) > 20f)
+            {
+                Locator.GetPlayerBody().WarpToPositionRotation(transform.position + transform.up, transform.rotation);
+            }
+        }
+
         void OnEnterDreamWorld()
         {
-            DreamWraith.Get().Warp(_wraithInitialPoint);
-            _initialChoice.SetActivation(true);
+            _inWraithDream = Locator.GetDreamWorldController()._dreamArrivalPoint.transform.root.name == "RingedPlanet_Body";
+            if (_inWraithDream)
+            {
+                DreamWraith.Get().Warp(_wraithInitialPoint, false);
+                _initialChoice.SetActivation(true);
+            }
         }
 
         void OnExitDreamWorld()
         {
-            DreamWraith.Get().Warp(_wraithInitialPoint);
-            foreach (var diorama in _dioramas) {
-                diorama.SetActivation(false);
-            }
-            foreach (var choice in _choices)
+            if (_inWraithDream)
             {
-                choice.SetActivation(false);
+                _inWraithDream = false;
+                DreamWraith.Get().Warp(_wraithInitialPoint, true);
+                foreach (var diorama in _dioramas)
+                {
+                    diorama.SetImmediateActivation(false);
+                }
+                foreach (var choice in _choices)
+                {
+                    choice.SetImmediateActivation(false);
+                }
             }
         }
     }

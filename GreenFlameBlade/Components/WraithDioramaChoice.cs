@@ -1,16 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace GreenFlameBlade.Components
 {
     public class WraithDioramaChoice : MonoBehaviour
     {
-        const float OPTION_ACTIVATION_DELAY = 0.5f;
+        const float ACTIVATION_WARP_DELAY = 0.5f;
+        const float SELECTED_DEACTIVATION_DELAY = 0.5f;
+        const float OPTION_ACTIVATION_DELAY = 0.25f;
 
         [SerializeField] Transform _wraithTargetPoint;
-        WraithDioramaChoiceOption[] _options;
+        WraithDiorama[] _options;
         bool _active;
         float _transitionTime;
-        WraithDioramaChoiceOption _selected;
+        WraithDiorama _selected;
 
         public bool IsActivated() => _active;
 
@@ -20,61 +23,99 @@ namespace GreenFlameBlade.Components
             {
                 _active = active;
                 _transitionTime = 0f;
-                _selected = null;
-                enabled = true;
-                gameObject.SetActive(true);
-                if (_wraithTargetPoint != null)
+                if (active)
                 {
-                    DreamWraith.Get().Warp(_wraithTargetPoint);
+                    _selected = null;
+                }
+                enabled = true;
+                if (active && _wraithTargetPoint != null)
+                {
+                    DreamWraith.Get().Warp(_wraithTargetPoint, false);
+                }
+            }
+        }
+
+        public void SetImmediateActivation(bool active)
+        {
+            if (active != _active)
+            {
+                _active = active;
+                _transitionTime = OPTION_ACTIVATION_DELAY * _options.Length;
+                if (active)
+                {
+                    _selected = null;
+                }
+                enabled = false;
+                if (active && _wraithTargetPoint != null)
+                {
+                    DreamWraith.Get().Warp(_wraithTargetPoint, true);
                 }
             }
         }
 
         void Awake()
         {
-            _options = GetComponentsInChildren<WraithDioramaChoiceOption>();
+            _options = GetComponentsInChildren<WraithDiorama>();
             foreach (var option in _options)
             {
-                option.OnChoiceSelected.AddListener(OnChoiceSelected);
+                option.OnProximityTriggered += OnChoiceSelected;
+            }
+        }
+
+        void OnDestroy()
+        {
+            foreach (var option in _options)
+            {
+                option.OnProximityTriggered -= OnChoiceSelected;
             }
         }
 
         void Update()
         {
+            _transitionTime += Time.deltaTime;
             if (_active)
             {
                 for (int i = 0; i < _options.Length; i++)
                 {
-                    if (_transitionTime >= OPTION_ACTIVATION_DELAY * i)
+                    if (_transitionTime >= ACTIVATION_WARP_DELAY + OPTION_ACTIVATION_DELAY * i)
                     {
                         _options[i].SetActivation(true);
                     }
                 }
+
+                if (_options.All(o => o.IsActivated()))
+                {
+                    enabled = false;
+                }
             }
             else
             {
-                var delay = 0f;
+                if (_selected != null)
+                {
+                    _selected.SetActivation(false);
+                }
+
+                var delay = _selected != null ? SELECTED_DEACTIVATION_DELAY : 0f;
                 for (int i = 0; i < _options.Length; i++)
                 {
-                    if (_options[i] != _selected) delay += OPTION_ACTIVATION_DELAY;
-                    if (_options[i] == _selected || _transitionTime >= delay)
+                    if (_options[i] == _selected) continue;
+                    if (_transitionTime >= delay)
                     {
                         _options[i].SetActivation(false);
                     }
+                    delay += OPTION_ACTIVATION_DELAY;
                 }
-            }
-            if (_transitionTime >= OPTION_ACTIVATION_DELAY * (_options.Length - 1))
-            {
-                enabled = false;
-                if (!_active)
+
+                if (_options.All(o => !o.IsActivated()))
                 {
-                    gameObject.SetActive(false);
+                    enabled = false;
                 }
             }
         }
 
-        void OnChoiceSelected(WraithDioramaChoiceOption option)
+        void OnChoiceSelected(WraithDiorama option)
         {
+            _selected = option;
             SetActivation(false);
             var next = option.GetNextChoice();
             if (next != null)

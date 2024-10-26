@@ -30,6 +30,8 @@ namespace GreenFlameBlade.Components
         Vector3 _defaultScale;
         RelativeLocationData _relativeShipLocation;
         AstroObject _currentBody;
+        GameObject _dimensionBody;
+        OWItem _previousHeldItem;
 
         void Awake()
         {
@@ -68,14 +70,14 @@ namespace GreenFlameBlade.Components
             _dreamCampfire.transform.localScale = Vector3.one;
             _dreamCampfire._sector = Locator.GetShipTransform().GetComponentInChildren<Sector>();
 
-            var dimensionBody = GreenFlameBlade.Instance.NewHorizons.GetPlanet("Wraith Dream");
-            _dreamArrivalPoint.transform.parent = dimensionBody.transform;
+            _dimensionBody = GreenFlameBlade.Instance.NewHorizons.GetPlanet("Ringed Planet");
+            _dreamArrivalPoint.transform.parent = _dimensionBody.transform;
             _dreamArrivalPoint.transform.localPosition = Vector3.zero;
             _dreamArrivalPoint.transform.localEulerAngles = Vector3.zero;
             _dreamArrivalPoint.transform.localScale = Vector3.one;
-            _dreamArrivalPoint._sector = dimensionBody.GetComponentInChildren<Sector>();
+            _dreamArrivalPoint._sector = _dimensionBody.GetComponentInChildren<Sector>();
 
-            _dreamLantern.transform.parent = dimensionBody.transform;
+            _dreamLantern.transform.parent = _dimensionBody.transform;
             _dreamLantern.transform.localPosition = Vector3.zero;
             _dreamLantern.transform.localEulerAngles = Vector3.zero;
             _dreamLantern.transform.localScale = Vector3.one;
@@ -138,7 +140,7 @@ namespace GreenFlameBlade.Components
             _scanning = true;
             _scanProgress = 0f;
             _scanBeamFade.FadeTo(1f, 0.25f);
-            Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_Scanning_Loop);
+            Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_ProjectionOn);
         }
 
         void UpdateScan()
@@ -189,6 +191,12 @@ namespace GreenFlameBlade.Components
                 _playerWasInShip = false;
             }
 
+            _previousHeldItem = Locator.GetToolModeSwapper().GetItemCarryTool().GetHeldItem();
+            if (_previousHeldItem != null)
+            {
+                Locator.GetToolModeSwapper().GetItemCarryTool().DropItemInstantly(null, transform);
+            }
+
             var relativeLocation = new RelativeLocationData(Locator.GetPlayerBody(), _dreamCampfire.GetComponentInParent<OWRigidbody>(), _dreamCampfire.transform);
 
             var dwc = Locator.GetDreamWorldController();
@@ -208,12 +216,18 @@ namespace GreenFlameBlade.Components
 
         void AbductionStartCompleted()
         {
+            Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_EnterVision);
             Locator.GetPlayerBody().GetComponentInChildren<PlayerResources>().ToggleInvincibility();
+            if (Locator.GetToolModeSwapper().GetItemCarryTool().GetHeldItem() == _dreamLantern)
+            {
+                Locator.GetToolModeSwapper().GetItemCarryTool().DropItemInstantly(null, transform);
+            }
         }
 
         void EndAbduction()
         {
             _playerAbducted = false;
+            Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_ExitVision);
             var dwc = Locator.GetDreamWorldController();
             dwc.UpdateSimulationSphereRadius(0f);
             Locator.GetCloakFieldController()._exclusionSector.RemoveOccupant(Locator.GetPlayerSectorDetector());
@@ -238,6 +252,14 @@ namespace GreenFlameBlade.Components
                     var cockpit = shipBody.GetComponentInChildren<ShipCockpitController>();
                     cockpit.OnPressInteract();
                 }
+            }
+            if (Locator.GetToolModeSwapper().GetItemCarryTool().GetHeldItem() == _dreamLantern)
+            {
+                Locator.GetToolModeSwapper().GetItemCarryTool().DropItemInstantly(null, transform);
+            }
+            if (_previousHeldItem != null)
+            {
+                Locator.GetToolModeSwapper().GetItemCarryTool().PickUpItemInstantly(_previousHeldItem);
             }
         }
 
@@ -290,6 +312,7 @@ namespace GreenFlameBlade.Components
                     Locator.GetAstroObject(AstroObject.Name.DarkBramble),
                     Locator.GetAstroObject(AstroObject.Name.BrittleHollow),
                     Locator.GetAstroObject(AstroObject.Name.GiantsDeep),
+                    Locator.GetAstroObject(AstroObject.Name.TimberHearth),
                 };
                 bodies.Remove(_currentBody);
                 body = bodies[Random.Range(0, bodies.Count)];
@@ -305,8 +328,9 @@ namespace GreenFlameBlade.Components
             _currentBody = body;
 
             _referenceFrameVolume._attachedOWRigidbody = body.GetOWRigidbody();
-            _referenceFrameVolume._referenceFrame._attachedAstroObject = body;
             _referenceFrameVolume._referenceFrame._attachedOWRigidbody = body.GetOWRigidbody();
+            _referenceFrameVolume._referenceFrame._attachedAstroObject = null;
+            _referenceFrameVolume._referenceFrame._localPosition = body.transform.InverseTransformPoint(transform.position);
 
             var rfTracker = Locator.GetPlayerTransform().GetComponent<ReferenceFrameTracker>();
             if (_referenceFrameVolume._referenceFrame == rfTracker._currentReferenceFrame)

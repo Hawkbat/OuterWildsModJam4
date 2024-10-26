@@ -1,0 +1,15 @@
+﻿<AstroObjectEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/shiplog_schema.xsd">
+	<ID>Wraith Dream</ID>
+	<Entry>
+		<ID>GFB_WRAITH_SHIP</ID>
+		<Name>Wraith Planet Ship</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<IsCuriosity />
+		<RumorFact>
+			<ID>GFB_WRAITH_SHIP_SEEN</ID>
+			<RumorName>Ringed Planet</RumorName>
+			<Text>When I woke up, I saw a strange ringed planet orbiting Giant's Deep.</Text>
+		</RumorFact>
+	</Entry>
+</AstroObjectEntry>

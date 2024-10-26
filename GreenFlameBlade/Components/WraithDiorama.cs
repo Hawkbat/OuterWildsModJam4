@@ -5,15 +5,21 @@ namespace GreenFlameBlade.Components
 {
     public class WraithDiorama : MonoBehaviour
     {
-        const float TRANSITION_DURATION = 1f;
+        const float TRANSITION_DURATION = 0.5f;
         static readonly Vector3 TRANSITION_SCALE = new(0f, 3f, 0f);
 
-        public UnityEvent<WraithDiorama> OnProximityTriggered;
+        public delegate void ProximityEvent(WraithDiorama target);
 
-        [SerializeField] float _proximityTriggerRadius = 15f;
+        public event ProximityEvent OnProximityTriggered;
+
+        [SerializeField] bool _proximityTriggerEnabled;
+        [SerializeField] float _proximityTriggerRadius = 5f;
+        [SerializeField] WraithDioramaChoice _nextChoice;
         bool _active;
-        float _transitionTime;
+        float _transitionProgress;
         bool _proximityTriggerFired;
+
+        public WraithDioramaChoice GetNextChoice() => _nextChoice;
 
         public bool IsActivated() => _active;
 
@@ -22,10 +28,10 @@ namespace GreenFlameBlade.Components
             if (active != _active)
             {
                 _active = active;
-                _transitionTime = 0f;
+                _transitionProgress = 0f;
+                _proximityTriggerFired = false;
                 if (active)
                 {
-                    _proximityTriggerFired = false;
                     Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Exit);
                 }
                 else
@@ -37,38 +43,57 @@ namespace GreenFlameBlade.Components
             }
         }
 
+        public void SetImmediateActivation(bool active)
+        {
+            _active = active;
+            _transitionProgress = 1f;
+            _proximityTriggerFired = false;
+            enabled = false;
+            transform.localScale = active ? Vector3.one : TRANSITION_SCALE;
+            gameObject.SetActive(active);
+        }
+
         void Start()
         {
-            enabled = false;
-            gameObject.SetActive(false);
-            transform.localScale = TRANSITION_SCALE;
+            SetImmediateActivation(false);
         }
 
         void Update()
         {
-            if (_transitionTime < 1f)
+            if (_transitionProgress < 1f)
             {
-                _transitionTime = Mathf.Clamp01(_transitionTime + Time.deltaTime / TRANSITION_DURATION);
-                transform.localScale = Vector3.Lerp(Vector3.one, TRANSITION_SCALE, _active ? _transitionTime : 1f - _transitionTime);
-                if (!_active && _transitionTime >= 1f)
+                _transitionProgress = Mathf.Clamp01(_transitionProgress + Time.deltaTime / TRANSITION_DURATION);
+                transform.localScale = Vector3.Lerp(TRANSITION_SCALE, Vector3.one, _active ? _transitionProgress : 1f - _transitionProgress);
+                if (!_active && _transitionProgress >= 1f)
                 {
                     enabled = false;
                     gameObject.SetActive(false);
                 }
             }
-            if (!_proximityTriggerFired)
+            if (_proximityTriggerEnabled && !_proximityTriggerFired)
             {
                 var playerT = Locator.GetPlayerTransform();
                 if (Vector3.Distance(playerT.position, transform.position) < _proximityTriggerRadius)
                 {
                     _proximityTriggerFired = true;
-                    OnProximityTriggered.Invoke(this);
+                    if (OnProximityTriggered != null)
+                    {
+                        OnProximityTriggered(this);
+                    }
                 }
             }
         }
 
+        void OnDrawGizmos()
+        {
+            if (!_proximityTriggerEnabled) return;
+            Gizmos.color = Color.gray;
+            Gizmos.DrawWireSphere(transform.position, _proximityTriggerRadius);
+        }
+
         void OnDrawGizmosSelected()
         {
+            if (!_proximityTriggerEnabled) return;
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, _proximityTriggerRadius);
         }

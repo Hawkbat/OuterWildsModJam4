@@ -50,5 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assetbundles\" />
+    <Folder Include="planets\sprites\" />
   </ItemGroup>
 </Project>

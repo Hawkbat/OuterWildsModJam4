@@ -17,20 +17,6 @@
           "y": 90.17999,
           "z": 109.7385
         }
-      },
-      {
-        "assetBundle": "assetbundles/greenflameblade",
-        "path": "Assets/GreenFlameBlade/Wraith.prefab",
-        "position": {
-          "x": 26.81019,
-          "y": -44.93804,
-          "z": 183.5574
-        },
-        "rotation": {
-          "x": 21.83161,
-          "y": 272.5033,
-          "z": 255.105
-        }
       }
     ]
   }
