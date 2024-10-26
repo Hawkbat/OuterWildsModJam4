@@ -1,0 +1,75 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "name": "Dream World",
+  "starSystem": "SolarSystem",
+  "Props": {
+    "details": [
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone1/Sector_ProjectionHouse_Zone1/Interactables_ProjectionHouse_Zone1/TheatreRoom_ProjectionHouse_Zone1/Prefab_IP_SlideProjector_Ring",
+        "position": {
+          "x": 55,
+          "y": 34.5,
+          "z": -281.3
+        },
+        "rotation": {
+          "x": 0,
+          "y": 186.35,
+          "z": 0
+        },
+        "keepLoaded": true
+      },
+      {
+        "path": "DreamWorld_Body/Sector_DreamWorld/Sector_DreamZone_2/Structure_DreamZone_2/City/ElevatorHouse/ElevatorDestinations/UpperDestination/Prefab_IP_DW_GearInterface_Standing",
+        "parentPath": "Sector_DreamWorld/Sector_DreamZone_2/Structure_DreamZone_2/City/ZoteHouse/Elevator/ElevatorDestinations/LowerDestination",
+        "position": {
+          "x": 54.66676,
+          "y": -26.00001,
+          "z": -273.7384
+        },
+        "rotation": {
+          "x": 0,
+          "y": 250,
+          "z": 0
+        }
+      },
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone3/Sector_HiddenGorge/Sector_DreamFireHouse_Zone3/Interactables_DreamFireHouse_Zone3/Lanterns_DFH_Zone3/Prefab_IP_SimpleLanternItem_Zone3DFH_5",
+        "position": {
+          "x": 66.5515,
+          "y": 31.55001,
+          "z": -295.2132
+        },
+        "rotation": {
+          "x": 0,
+          "y": 30.66167,
+          "z": 0
+        },
+        "keepLoaded": true
+      }
+    ],
+    "slideShows": [
+      {
+        "type": "slideReel",
+        "reelCondition": "pristine",
+        "reelModel": "whole",
+        "slides": [
+          {
+            "imagePath": "slides/Dummy.png",
+            "backdropAudio": "Reel_1_Backdrop_A",
+            "beatAudio": "Reel_1_Beat_A"
+          }
+        ],
+        "position": {
+          "x": 78.79129,
+          "y": 32.36442,
+          "z": -289.5199
+        },
+        "rotation": {
+          "x": 0,
+          "y": 308.3611,
+          "z": 0
+        }
+      }
+    ]
+  }
+}

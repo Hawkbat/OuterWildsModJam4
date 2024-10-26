@@ -8,10 +8,12 @@ namespace GreenFlameBlade.Components
 {
     public enum CompassFrequency
     {
-        Campfire = 0,
-        DreamFire = 1,
-        SlideReel = 2,
-        Quantum = 3,
-        NomaiCrystal = 4,
+        None = 0,
+        RingWorldMetal = 1,
+        Campfire = 2,
+        DreamFire = 3,
+        SlideReel = 4,
+        Quantum = 5,
+        NomaiCrystal = 6,
     }
 }
