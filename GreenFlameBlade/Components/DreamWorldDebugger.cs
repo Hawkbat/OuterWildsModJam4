@@ -10,7 +10,7 @@ namespace GreenFlameBlade.Components
         float _intensity;
         float _range;
 
-        OWLight2 GetAmbientLight() => _lantern._lights[2];
+        OWLight2 GetAmbientLight() => _lantern._lights[1];
 
         void OnEnable()
         {
@@ -59,7 +59,7 @@ namespace GreenFlameBlade.Components
         {
             if (_inDreamWorld)
             {
-                if (OWInput.IsNewlyPressed(InputLibrary.autopilot))
+                if (OWInput.IsPressed(InputLibrary.flashlight) && OWInput.IsNewlyPressed(InputLibrary.autopilot))
                 {
                     if (_debugging) EndDebug();
                     else StartDebug();

@@ -5,16 +5,16 @@
   "Props": {
     "details": [
       {
-        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone3/Sector_HiddenGorge/Sector_DreamFireHouse_Zone3/Interactables_DreamFireHouse_Zone3/DreamFireChamber_DFH_Zone3/MummyCircle/MummyPivot (11)/Prefab_IP_SleepingMummy_v2/Mummy_IP_Anim",
+        "path": "DreamWorld_Body/Sector_DreamWorld/Sector_DreamZone_2/Structure_DreamZone_2/Undercity/Lights_Underground/SpotLight_Projector",
         "position": {
-          "x": -12.36457,
-          "y": -102.1993,
-          "z": 63.36483
+          "x": 177.2917,
+          "y": 143.9455,
+          "z": -146.6738
         },
         "rotation": {
-          "x": 86.2957,
-          "y": 85.2097,
-          "z": 58.5508
+          "x": 27.355,
+          "y": 134.5066,
+          "z": 0
         }
       },
       {
@@ -32,7 +32,7 @@
       },
       {
         "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone3/Sector_HiddenGorge/Sector_DreamFireHouse_Zone3/Geo_DreamFireHouse_Zone3/Props_IP_DreamFire_Antenna",
-        "activationCondition": "SIGNAL_BLOCKER_FIXED",
+        "activationCondition": "GFB_SIGNAL_BLOCKER_FIXED",
         "blinkWhenActiveChanged": false,
         "parentPath": "Sector_RingWorld/SignalBlockerAntenna",
         "isRelativeToParent": true,
@@ -41,12 +41,27 @@
       },
       {
         "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone4/Sector_BlightedShore/Sector_JammingControlRoom_Zone4/Interactables_JammingControlRoom_Zone4/BurnedInterface/Props_IP_DreamFire_Antenna",
-        "deactivationCondition": "SIGNAL_BLOCKER_FIXED",
+        "deactivationCondition": "GFB_SIGNAL_BLOCKER_FIXED",
         "blinkWhenActiveChanged": false,
         "parentPath": "Sector_RingWorld/SignalBlockerAntenna",
         "isRelativeToParent": true,
         "scale": 2,
         "rename": "AntennaBroken"
+      },
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/SimulationControlRoom.prefab",
+        "position": {
+          "x": -259.8675,
+          "y": -95.22281,
+          "z": 62.36285
+        },
+        "rotation": {
+          "x": 282.0577,
+          "y": 196.0732,
+          "z": 87.96257
+        },
+        "keepLoaded": true
       },
       {
         "assetBundle": "assetbundles/greenflameblade",
@@ -57,9 +72,7 @@
     ],
     "slideShows": [
       {
-        "type": "slideReel",
-        "reelCondition": "rusted",
-        "reelModel": "sixSlides",
+        "type": "standingVisionTorch",
         "slides": [
           {
             "imagePath": "slides/Dummy.png",
@@ -68,14 +81,14 @@
           }
         ],
         "position": {
-          "x": 179.7773,
-          "y": 143.8948,
-          "z": -150.9731
+          "x": 198.4385,
+          "y": -77.98505,
+          "z": 152.4066
         },
         "rotation": {
-          "x": 287.0032,
-          "y": 215.7085,
-          "z": 269.9995
+          "x": 283.9926,
+          "y": 321.4464,
+          "z": 90.05112
         }
       },
       {

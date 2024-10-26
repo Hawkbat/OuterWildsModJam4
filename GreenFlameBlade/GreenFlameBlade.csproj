@@ -26,6 +26,9 @@
     <Content Include="GreenFlameBlade.csproj.user" />
   </ItemGroup>
   <ItemGroup>
+	<None Include="assets\**\*.*">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</None>
     <None Include="assetbundles\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

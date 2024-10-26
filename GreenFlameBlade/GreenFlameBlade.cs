@@ -65,36 +65,12 @@ namespace GreenFlameBlade
                 }
                 CompassTarget.Make(Locator.GetAstroObject(AstroObject.Name.Sun).gameObject, CompassFrequency.Campfire);
 
-                // Wire up antenna repair puzzle
-                var brokenAntenna = Locator.GetAstroObject(AstroObject.Name.RingWorld).transform.Find("Sector_RingWorld/SignalBlockerAntenna/AntennaBroken");
-                var repairReciever = brokenAntenna.gameObject.AddComponent<GenericRepairReceiver>();
-                repairReciever.OnRepaired += RepairReciever_OnRepaired;
-                DialogueConditionManager.SharedInstance.SetConditionState("SIGNAL_BLOCKER_FIXED", false);
-
-                var dreamWorld = Locator.GetAstroObject(AstroObject.Name.DreamWorld);
-                
-                // Nitpick but this elevator is facing the wrong way
-                var wrongFacingElevator = dreamWorld.transform.Find("Sector_DreamWorld/Sector_DreamZone_2/Structure_DreamZone_2/City/HornetHouse/Elevator");
-                wrongFacingElevator.transform.localEulerAngles = Vector3.zero;
-
-                // Wire up gear interface to elevator
-                var elevator = dreamWorld.transform.Find("Sector_DreamWorld/Sector_DreamZone_2/Structure_DreamZone_2/City/ZoteHouse/Elevator/Prefab_IP_DW_CageElevator").GetComponent<CageElevator>();
-                var lowerFloor = elevator._destinations[0];
-                var gears = dreamWorld.transform.Find("Sector_DreamWorld/Sector_DreamZone_2/Structure_DreamZone_2/City/ZoteHouse/Elevator/ElevatorDestinations/LowerDestination/Prefab_IP_DW_GearInterface_Standing");
-                var gearInterface = gears.GetComponentInChildren<GearInterfaceEffects>();
-                var interactReceiver = gears.GetComponentInChildren<InteractReceiver>();
-                lowerFloor._gearInterface = gearInterface;
-                lowerFloor._interactReceiver = interactReceiver;
-                interactReceiver.OnPressInteract += lowerFloor.OnPressInteract;
-                interactReceiver.SetPromptText(UITextType.RotateGearPrompt);
+                var directors = new GameObject("GreenFlameBlade Puzzle Directors");
+                directors.AddComponent<SignalBlockerPuzzleDirector>();
+                directors.AddComponent<SimulationControlPuzzleDirector>();
 
                 Locator.GetPlayerBody().gameObject.AddComponent<DreamWorldDebugger>();
             }, 2);
-        }
-
-        private void RepairReciever_OnRepaired(GenericRepairReceiver target)
-        {
-            DialogueConditionManager.SharedInstance.SetConditionState("SIGNAL_BLOCKER_FIXED", true);
         }
 
         public IEnumerable<CompassTarget> GetCompassTargets(CompassFrequency frequency) => _compassTargets.Where(t => t.GetFrequency() == frequency);

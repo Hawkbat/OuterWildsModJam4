@@ -38,11 +38,83 @@
         "type": "standingVisionTorch",
         "slides": [
           {
-            "imagePath": "slides/Dummy.png",
-            "backdropAudio": "Reel_1_Backdrop_A",
-            "beatAudio": "Reel_1_Beat_A",
-            "playTimeDuration": 10,
-            "blackFrameDuration": 1
+            "imagePath": "slides/Slide_3_Story_03_01.png",
+            "backdropAudio": "Reel_Lab_Backdrop_Fail",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_05.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_06.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_07.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_08.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_08_Transition_1.png",
+            "playTimeDuration": 0.2
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_08_Transition_2.png",
+            "playTimeDuration": 0.2
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_08_Transition_3.png",
+            "playTimeDuration": 0.2
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_08_Transition_4.png",
+            "playTimeDuration": 0.2
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_08_Transition_5.png",
+            "playTimeDuration": 0.2
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_08_Transition_6.png",
+            "playTimeDuration": 0.2
+          },
+          {
+            "imagePath": "slides/Slide_3_Story_03_08_Transition_7.png",
+            "playTimeDuration": 0.2
+          },
+          {
+            "imagePath": "slides/Slide_WraithJail_01.png",
+            "playTimeDuration": 1.5
+          },
+          {
+            "imagePath": "slides/Slide_WraithJail_02.png",
+            "playTimeDuration": 0.5,
+            "beatAudio": "LoadingZone_Exit"
+          },
+          {
+            "imagePath": "slides/Slide_WraithJail_01.png",
+            "playTimeDuration": 1.5
+          },
+          {
+            "imagePath": "slides/Slide_WraithJail_02.png",
+            "playTimeDuration": 0.5,
+            "beatAudio": "LoadingZone_Exit"
           }
         ],
         "position": {

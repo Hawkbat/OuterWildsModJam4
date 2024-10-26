@@ -32,7 +32,7 @@ namespace GreenFlameBlade.Components
 
         void Update()
         {
-            if (_inWraithDream && Vector3.Distance(transform.position, Locator.GetPlayerTransform().position) > 20f)
+            if (_inWraithDream && Vector3.Distance(transform.position, Locator.GetPlayerTransform().position) > 100f)
             {
                 Locator.GetPlayerBody().WarpToPositionRotation(transform.position + transform.up, transform.rotation);
             }

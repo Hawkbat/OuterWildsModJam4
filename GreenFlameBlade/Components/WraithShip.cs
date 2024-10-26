@@ -230,6 +230,7 @@ namespace GreenFlameBlade.Components
             Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_ExitVision);
             var dwc = Locator.GetDreamWorldController();
             dwc.UpdateSimulationSphereRadius(0f);
+            dwc._dreamWorldVolume.RemoveObjectFromVolume(Locator.GetPlayerDetector());
             Locator.GetCloakFieldController()._exclusionSector.RemoveOccupant(Locator.GetPlayerSectorDetector());
             if (_playerWasInShip)
             {

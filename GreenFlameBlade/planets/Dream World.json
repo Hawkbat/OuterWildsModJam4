@@ -5,7 +5,7 @@
   "Props": {
     "details": [
       {
-        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone1/Sector_ProjectionHouse_Zone1/Interactables_ProjectionHouse_Zone1/TheatreRoom_ProjectionHouse_Zone1/Prefab_IP_SlideProjector_Ring",
+        "path": "DreamWorld_Body/Sector_DreamWorld/Sector_Underground/Sector_SecretLibrary_2/Interactibles_SecretLibrary_2/Prefab_IP_SlideProjector_Dream (1)",
         "position": {
           "x": 55,
           "y": 34.5,
@@ -14,6 +14,20 @@
         "rotation": {
           "x": 0,
           "y": 186.35,
+          "z": 0
+        },
+        "keepLoaded": true
+      },
+      {
+        "path": "DreamWorld_Body/Sector_DreamWorld/Sector_Underground/Sector_SecretLibrary_2/Interactibles_SecretLibrary_2/Prefab_IP_DreamLibraryPedestal (1)",
+        "position": {
+          "x": 67.5,
+          "y": 31.55,
+          "z": -294.5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 6.35,
           "z": 0
         },
         "keepLoaded": true
@@ -33,18 +47,7 @@
         }
       },
       {
-        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone3/Sector_HiddenGorge/Sector_DreamFireHouse_Zone3/Interactables_DreamFireHouse_Zone3/Lanterns_DFH_Zone3/Prefab_IP_SimpleLanternItem_Zone3DFH_5",
-        "position": {
-          "x": 66.5515,
-          "y": 31.55001,
-          "z": -295.2132
-        },
-        "rotation": {
-          "x": 0,
-          "y": 30.66167,
-          "z": 0
-        },
-        "keepLoaded": true
+        "rename": "SimulationControlCandles"
       }
     ],
     "slideShows": [
@@ -67,6 +70,148 @@
         "rotation": {
           "x": 0,
           "y": 308.3611,
+          "z": 0
+        }
+      }
+    ],
+    "portholes": [
+      {
+        "position": {
+          "x": -32.83714,
+          "y": 51.67473,
+          "z": -179.6609
+        },
+        "rotation": {
+          "x": 0,
+          "y": 346.1467,
+          "z": 0
+        },
+        "target": {
+          "parentBody": "RingWorld",
+          "parentPath": "Sector_RingInterior/Sector_Zone2",
+          "position": {
+            "x": -239.9027,
+            "y": -124.2101,
+            "z": 90.80867
+          },
+          "rotation": {
+            "x": 60.02433,
+            "y": 24.36514,
+            "z": 272.6819
+          }
+        }
+      }
+    ],
+    "dreamCandles": [
+      {
+        "type": "standing",
+        "parentPath": "Sector_DreamWorld/SimulationControlCandles",
+        "position": {
+          "x": -31.18895,
+          "y": 49.67483,
+          "z": -181.7207
+        },
+        "rotation": {
+          "x": 0,
+          "y": 186.5616,
+          "z": 0
+        }
+      },
+      {
+        "type": "standing",
+        "parentPath": "Sector_DreamWorld/SimulationControlCandles",
+        "position": {
+          "x": -27.49315,
+          "y": 49.67482,
+          "z": -183.8244
+        },
+        "rotation": {
+          "x": 0,
+          "y": 238.7763,
+          "z": 0
+        }
+      },
+      {
+        "type": "standing",
+        "parentPath": "Sector_DreamWorld/SimulationControlCandles",
+        "position": {
+          "x": -26.91104,
+          "y": 49.67482,
+          "z": -185.9307
+        },
+        "rotation": {
+          "x": 0,
+          "y": 270.4074,
+          "z": 0
+        }
+      },
+      {
+        "type": "standing",
+        "parentPath": "Sector_DreamWorld/SimulationControlCandles",
+        "position": {
+          "x": -29.04076,
+          "y": 49.67482,
+          "z": -189.6106
+        },
+        "rotation": {
+          "x": 0,
+          "y": 330.949,
+          "z": 0
+        }
+      },
+      {
+        "type": "standing",
+        "parentPath": "Sector_DreamWorld/SimulationControlCandles",
+        "position": {
+          "x": -31.15794,
+          "y": 49.67482,
+          "z": -190.2054
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0.6437622,
+          "z": 0
+        }
+      },
+      {
+        "type": "standing",
+        "parentPath": "Sector_DreamWorld/SimulationControlCandles",
+        "position": {
+          "x": -34.8388,
+          "y": 49.67482,
+          "z": -188.064
+        },
+        "rotation": {
+          "x": 0,
+          "y": 57.66693,
+          "z": 0
+        }
+      },
+      {
+        "type": "standing",
+        "parentPath": "Sector_DreamWorld/SimulationControlCandles",
+        "position": {
+          "x": -35.39028,
+          "y": 49.67483,
+          "z": -185.9165
+        },
+        "rotation": {
+          "x": 0,
+          "y": 89.38732,
+          "z": 0
+        }
+      },
+      {
+        "type": "standing",
+        "parentPath": "Sector_DreamWorld/SimulationControlCandles",
+        "position": {
+          "x": -33.25815,
+          "y": 49.67483,
+          "z": -182.2784
+        },
+        "rotation": {
+          "x": 0,
+          "y": 148.4548,
           "z": 0
         }
       }

@@ -2,4 +2,9 @@
   <PropertyGroup>
     <OutputPath>$(AppData)/OuterWildsModManager/OWML/Mods/Hawkbar.GreenFlameBlade</OutputPath>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Components\SimulationControlPuzzleDirector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>
