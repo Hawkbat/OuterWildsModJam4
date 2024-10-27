@@ -72,6 +72,89 @@
           "y": 308.3611,
           "z": 0
         }
+      },
+      {
+        "type": "standingVisionTorch",
+        "position": {
+          "x": -30.6221,
+          "y": 49.6759,
+          "z": -177.9665
+        },
+        "rotation": {
+          "x": 0.00235167,
+          "y": 98.72457,
+          "z": 359.9116
+        },
+        "slides": [
+          {
+            "imagePath": "slides/Slide_WellHouse_01.png",
+            "playTimeDuration": 1.5,
+            "backdropAudio": "Reel_3_Backdrop_C"
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_05.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_06.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_07.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_08.png",
+            "playTimeDuration": 2
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_09.png",
+            "playTimeDuration": 0.25,
+            "beatAudio": "GrappleTotem_Zoom"
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_10.png",
+            "playTimeDuration": 0.25
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_11.png",
+            "playTimeDuration": 0.25
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_12.png",
+            "playTimeDuration": 0.25
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_13.png",
+            "playTimeDuration": 0.25
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_14.png",
+            "playTimeDuration": 0.25
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_15.png",
+            "playTimeDuration": 3,
+            "backdropAudio": "CageElevator_Loop_Winch"
+          },
+          {
+            "imagePath": "slides/Slide_WellHouse_16.png",
+            "beatAudio": "ProjectorTotem_Light",
+            "playTimeDuration": 2
+          }
+        ]
       }
     ],
     "portholes": [

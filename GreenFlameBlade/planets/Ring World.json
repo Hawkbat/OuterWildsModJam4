@@ -75,9 +75,76 @@
         "type": "standingVisionTorch",
         "slides": [
           {
-            "imagePath": "slides/Dummy.png",
-            "backdropAudio": "Reel_1_Backdrop_A",
-            "beatAudio": "Reel_1_Beat_A"
+            "imagePath": "slides/Slide_SubmergedReel_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_05.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_06.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_07.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_08.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_09.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_10.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_11.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_12.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_13.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_14.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_15.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_16.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_17.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_SubmergedReel_18.png",
+            "playTimeDuration": 0.5
           }
         ],
         "position": {

@@ -15,11 +15,14 @@ namespace GreenFlameBlade.Components
         [SerializeField] bool _proximityTriggerEnabled;
         [SerializeField] float _proximityTriggerRadius = 5f;
         [SerializeField] WraithDioramaChoice _nextChoice;
+        [SerializeField] bool _exitDream;
         bool _active;
         float _transitionProgress;
         bool _proximityTriggerFired;
 
         public WraithDioramaChoice GetNextChoice() => _nextChoice;
+
+        public bool IsDreamExit() => _exitDream;
 
         public bool IsActivated() => _active;
 
@@ -80,15 +83,12 @@ namespace GreenFlameBlade.Components
                     {
                         OnProximityTriggered(this);
                     }
+                    if (_exitDream)
+                    {
+                        GlobalMessenger.FireEvent(GlobalMessengerEvents.ExitWraithDream);
+                    }
                 }
             }
-        }
-
-        void OnDrawGizmos()
-        {
-            if (!_proximityTriggerEnabled) return;
-            Gizmos.color = Color.gray;
-            Gizmos.DrawWireSphere(transform.position, _proximityTriggerRadius);
         }
 
         void OnDrawGizmosSelected()

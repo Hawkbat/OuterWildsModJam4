@@ -10,7 +10,8 @@ namespace GreenFlameBlade.Components
     public class WraithDreamDirector : MonoBehaviour
     {
         [SerializeField] Transform _wraithInitialPoint;
-        [SerializeField] WraithDioramaChoice _initialChoice;
+        [SerializeField] WraithDioramaChoice[] _initialChoices;
+        [SerializeField] WraithDiorama[] _initialDioramas;
 
         WraithDiorama[] _dioramas;
         WraithDioramaChoice[] _choices;
@@ -20,48 +21,43 @@ namespace GreenFlameBlade.Components
         {
             _dioramas = GetComponentsInChildren<WraithDiorama>();
             _choices = GetComponentsInChildren<WraithDioramaChoice>();
-            GlobalMessenger.AddListener("EnterDreamWorld", OnEnterDreamWorld);
-            GlobalMessenger.AddListener("ExitDreamWorld", OnExitDreamWorld);
+            GlobalMessenger.AddListener(GlobalMessengerEvents.EnterWraithDream, OnEnterWraithDream);
+            GlobalMessenger.AddListener(GlobalMessengerEvents.ExitWraithDream, OnExitWraithDream);
         }
 
         void OnDestroy()
         {
-            GlobalMessenger.RemoveListener("EnterDreamWorld", OnEnterDreamWorld);
-            GlobalMessenger.RemoveListener("ExitDreamWorld", OnExitDreamWorld);
+            GlobalMessenger.RemoveListener(GlobalMessengerEvents.EnterWraithDream, OnEnterWraithDream);
+            GlobalMessenger.RemoveListener(GlobalMessengerEvents.ExitWraithDream, OnExitWraithDream);
         }
 
         void Update()
         {
-            if (_inWraithDream && Vector3.Distance(transform.position, Locator.GetPlayerTransform().position) > 100f)
+            if (_inWraithDream && Vector3.Distance(transform.position, Locator.GetPlayerTransform().position) > 200f)
             {
                 Locator.GetPlayerBody().WarpToPositionRotation(transform.position + transform.up, transform.rotation);
             }
         }
 
-        void OnEnterDreamWorld()
+        void OnEnterWraithDream()
         {
-            _inWraithDream = Locator.GetDreamWorldController()._dreamArrivalPoint.transform.root.name == "RingedPlanet_Body";
-            if (_inWraithDream)
-            {
-                DreamWraith.Get().Warp(_wraithInitialPoint, false);
-                _initialChoice.SetActivation(true);
-            }
+            _inWraithDream = true;
+            DreamWraith.Get().Warp(_wraithInitialPoint, false);
+            foreach (var choice in _initialChoices) choice.SetActivation(true);
+            foreach (var diorama in _initialDioramas) diorama.SetActivation(true);
         }
 
-        void OnExitDreamWorld()
+        void OnExitWraithDream()
         {
-            if (_inWraithDream)
+            _inWraithDream = false;
+            DreamWraith.Get().Warp(_wraithInitialPoint, true);
+            foreach (var diorama in _dioramas)
             {
-                _inWraithDream = false;
-                DreamWraith.Get().Warp(_wraithInitialPoint, true);
-                foreach (var diorama in _dioramas)
-                {
-                    diorama.SetImmediateActivation(false);
-                }
-                foreach (var choice in _choices)
-                {
-                    choice.SetImmediateActivation(false);
-                }
+                diorama.SetImmediateActivation(false);
+            }
+            foreach (var choice in _choices)
+            {
+                choice.SetImmediateActivation(false);
             }
         }
     }

@@ -36,6 +36,7 @@
     "slideShows": [
       {
         "type": "standingVisionTorch",
+        "reveals": [ "GFB_CRASH_VISION" ],
         "slides": [
           {
             "imagePath": "slides/Slide_3_Story_03_01.png",
@@ -127,6 +128,25 @@
           "y": 15.7146,
           "z": 147.479
         }
+      }
+    ],
+    "entryLocation": [
+      {
+        "id": "GFB_OWLK_CRASH",
+        "parentPath": "Sector_VM/CrashedShip",
+        "isRelativeToParent": true
+      }
+    ]
+  },
+  "Volumes": {
+    "revealVolumes": [
+      {
+        "parentPath": "Sector_VM/CrashedShip",
+        "isRelativeToParent": true,
+        "reveals": [ "GFB_CRASH_VISITED" ],
+        "radius": 50,
+        "revealOn": "enter",
+        "revealFor": "player"
       }
     ]
   }

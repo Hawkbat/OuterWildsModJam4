@@ -27,9 +27,12 @@
   </ItemGroup>
   <ItemGroup>
 	<None Include="assets\**\*.*">
-		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</None>
     <None Include="assetbundles\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="dialogue\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="planets\**\*.*">

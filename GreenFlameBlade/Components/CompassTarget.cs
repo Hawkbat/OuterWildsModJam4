@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace GreenFlameBlade.Components
 {
     public class CompassTarget : MonoBehaviour
     {
+        static List<CompassTarget> _activeTargets = [];
+
         public static CompassTarget Make(GameObject obj, CompassFrequency frequency) => Make(obj, frequency, Vector3.zero);
         public static CompassTarget Make(GameObject obj, CompassFrequency frequency, Vector3 targetOffset)
         {
@@ -22,12 +26,12 @@ namespace GreenFlameBlade.Components
 
         protected void OnEnable()
         {
-            GreenFlameBlade.Instance.RegisterCompassTarget(this);
+            _activeTargets.Add(this);
         }
 
         protected void OnDisable()
         {
-            GreenFlameBlade.Instance.UnregisterCompassTarget(this);
+            _activeTargets.Remove(this);
         }
 
         void OnDrawGizmosSelected()
@@ -38,5 +42,9 @@ namespace GreenFlameBlade.Components
             Gizmos.DrawLine(p + Vector3.down, p + Vector3.up);
             Gizmos.DrawLine(p + Vector3.back, p + Vector3.forward);
         }
+
+        public static IEnumerable<CompassTarget> GetTargets(CompassFrequency frequency) => _activeTargets.Where(t => t.GetFrequency() == frequency);
+
+        public static IEnumerable<CompassTarget> GetTargets() => _activeTargets;
     }
 }

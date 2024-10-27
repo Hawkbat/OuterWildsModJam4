@@ -3,13 +3,26 @@
 	<ID>Wraith Dream</ID>
 	<Entry>
 		<ID>GFB_WRAITH_SHIP</ID>
-		<Name>Wraith Planet Ship</Name>
+		<Name>GFB_WRAITH_SHIP_NAME</Name>
 		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
 		<IsCuriosity />
 		<RumorFact>
 			<ID>GFB_WRAITH_SHIP_SEEN</ID>
-			<RumorName>Ringed Planet</RumorName>
-			<Text>When I woke up, I saw a strange ringed planet orbiting Giant's Deep.</Text>
+			<RumorName>GFB_WRAITH_SHIP_NAME</RumorName>
+			<Text>GFB_WRAITH_SHIP_SEEN_TEXT</Text>
 		</RumorFact>
+	</Entry>
+	<Entry>
+		<ID>GFB_OWLK_CRASH</ID>
+		<Name>GFB_OWLK_CRASH_NAME</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<ExploreFact>
+			<ID>GFB_CRASH_VISITED</ID>
+			<Text>GFB_CRASH_VISITED_TEXT</Text>
+		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_CRASH_VISION</ID>
+			<Text>GFB_CRASH_VISION_TEXT</Text>
+		</ExploreFact>
 	</Entry>
 </AstroObjectEntry>

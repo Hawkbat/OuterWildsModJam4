@@ -6,16 +6,13 @@ namespace GreenFlameBlade.Components
     public class WraithShip : MonoBehaviour
     {
         const float SCAN_DURATION = 2f;
-        const float SCAN_DISTANCE = 3000f;
-        const float SCAN_EXIT_DISTANCE = 4000f;
+        const float SCAN_DISTANCE = 2000f;
+        const float SCAN_EXIT_DISTANCE = 3000f;
         const float SCAN_REF_SCALE = 5f;
-        const float ESCAPE_DISTANCE = 1500f;
+        const float ESCAPE_DISTANCE = 1000f;
         const float WARP_DURATION = 0.25f;
         static readonly Vector3 WARP_SCALE = new(0f, 3f, 0f);
 
-        [SerializeField] DreamCampfire _dreamCampfire;
-        [SerializeField] DreamArrivalPoint _dreamArrivalPoint;
-        [SerializeField] DreamLanternItem _dreamLantern;
         [SerializeField] OWRendererFadeController _scanBeamFade;
         [SerializeField] ReferenceFrameVolume _referenceFrameVolume;
         bool _scanning;
@@ -36,25 +33,25 @@ namespace GreenFlameBlade.Components
         void Awake()
         {
             _defaultScale = transform.localScale;
-            GlobalMessenger.AddListener("EnterDreamWorld", OnEnterDreamWorld);
-            GlobalMessenger.AddListener("ExitDreamWorld", OnExitDreamWorld);
+            GlobalMessenger.AddListener(GlobalMessengerEvents.EnterWraithDream, OnEnterWraithDream);
+            GlobalMessenger.AddListener(GlobalMessengerEvents.ExitWraithDream, OnExitWraithDream);
         }
 
         void OnDestroy()
         {
-            GlobalMessenger.RemoveListener("EnterDreamWorld", OnEnterDreamWorld);
-            GlobalMessenger.RemoveListener("ExitDreamWorld", OnExitDreamWorld);
+            GlobalMessenger.RemoveListener(GlobalMessengerEvents.EnterWraithDream, OnEnterWraithDream);
+            GlobalMessenger.RemoveListener(GlobalMessengerEvents.ExitWraithDream, OnExitWraithDream);
         }
 
-        void OnEnterDreamWorld()
+        void OnEnterWraithDream()
         {
-            if (_playerAbducted)
+            if (!_playerAbducted)
             {
-                AbductionStartCompleted();
+                StartAbduction();
             }
         }
 
-        void OnExitDreamWorld()
+        void OnExitWraithDream()
         {
             if (_playerAbducted)
             {
@@ -64,23 +61,7 @@ namespace GreenFlameBlade.Components
 
         void Start()
         {
-            _dreamCampfire.transform.parent = Locator.GetShipTransform();
-            _dreamCampfire.transform.localPosition = Vector3.zero;
-            _dreamCampfire.transform.localEulerAngles = Vector3.zero;
-            _dreamCampfire.transform.localScale = Vector3.one;
-            _dreamCampfire._sector = Locator.GetShipTransform().GetComponentInChildren<Sector>();
-
             _dimensionBody = GreenFlameBlade.Instance.NewHorizons.GetPlanet("Ringed Planet");
-            _dreamArrivalPoint.transform.parent = _dimensionBody.transform;
-            _dreamArrivalPoint.transform.localPosition = Vector3.zero;
-            _dreamArrivalPoint.transform.localEulerAngles = Vector3.zero;
-            _dreamArrivalPoint.transform.localScale = Vector3.one;
-            _dreamArrivalPoint._sector = _dimensionBody.GetComponentInChildren<Sector>();
-
-            _dreamLantern.transform.parent = _dimensionBody.transform;
-            _dreamLantern.transform.localPosition = Vector3.zero;
-            _dreamLantern.transform.localEulerAngles = Vector3.zero;
-            _dreamLantern.transform.localScale = Vector3.one;
 
             EndScan();
             WarpAway(AstroObject.Name.GiantsDeep);
@@ -105,7 +86,14 @@ namespace GreenFlameBlade.Components
                 if (_scanProgress >= 1f)
                 {
                     EndScan();
-                    StartAbduction();
+                    if (PlayerData.GetShipLogFactSave("GFB_CRASH_VISION") != null)
+                    {
+                        GlobalMessenger.FireEvent(GlobalMessengerEvents.EnterWraithDream);
+                    }
+                    else
+                    {
+                        StartWarpOut();
+                    }
                 }
             }
             if (!_warpingOut && !_warpingIn && !_playerAbducted && playerDist < ESCAPE_DISTANCE)
@@ -132,6 +120,10 @@ namespace GreenFlameBlade.Components
                 {
                     EndWarpIn();
                 }
+            }
+            if (_playerAbducted)
+            {
+                UpdateAbduction();
             }
         }
 
@@ -165,7 +157,6 @@ namespace GreenFlameBlade.Components
         void StartAbduction()
         {
             _playerAbducted = true;
-            Locator.GetPlayerBody().GetComponentInChildren<PlayerResources>().ToggleInvincibility();
             if (PlayerState.IsInsideShip())
             {
                 _playerWasInShip = true;
@@ -197,30 +188,24 @@ namespace GreenFlameBlade.Components
                 Locator.GetToolModeSwapper().GetItemCarryTool().DropItemInstantly(null, transform);
             }
 
-            var relativeLocation = new RelativeLocationData(Locator.GetPlayerBody(), _dreamCampfire.GetComponentInParent<OWRigidbody>(), _dreamCampfire.transform);
+            Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_EnterVision);
 
-            var dwc = Locator.GetDreamWorldController();
-            dwc._dreamCampfire = _dreamCampfire;
-            dwc._dreamCampfire.OnDreamCampfireExtinguished += dwc.OnDreamCampfireExtinguished;
-            dwc._dreamArrivalPoint = _dreamArrivalPoint;
-            dwc._relativeSleepLocation = relativeLocation;
-            dwc._cachedCamDegreesY = dwc._playerCamera.GetComponent<PlayerCameraController>().GetDegreesY();
-            dwc._playerLantern = _dreamLantern;
-            dwc._enteringDream = true;
-            ReticleController.Hide();
-            Locator.GetPromptManager().SetPromptsVisible(false);
-            Locator.GetPlayerCameraDetector().GetComponent<AudioDetector>().DeactivateAllVolumes(0f);
-            Locator.GetAudioMixer().MixDreamWorld();
-            dwc.UpdateSimulationSphereRadius(10000f);
+            var relativeLocation = new RelativeLocationData(Vector3.up, Quaternion.identity, Vector3.zero);
+            Locator.GetPlayerBody().MoveToRelativeLocation(relativeLocation, _dimensionBody.GetAttachedOWRigidbody(), _dimensionBody.transform);
+            GlobalMessenger.FireEvent("WarpPlayer");
+            if (!Physics.autoSyncTransforms)
+            {
+                Physics.SyncTransforms();
+            }
+
+            Locator.GetPlayerCamera().GetComponent<PlayerCameraEffectController>().OpenEyes(1f, true);
         }
 
-        void AbductionStartCompleted()
+        void UpdateAbduction()
         {
-            Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_EnterVision);
-            Locator.GetPlayerBody().GetComponentInChildren<PlayerResources>().ToggleInvincibility();
-            if (Locator.GetToolModeSwapper().GetItemCarryTool().GetHeldItem() == _dreamLantern)
+            if (_playerAbducted && Vector3.Distance(_dimensionBody.transform.position, Locator.GetPlayerTransform().position) > 100f)
             {
-                Locator.GetToolModeSwapper().GetItemCarryTool().DropItemInstantly(null, transform);
+                Locator.GetPlayerBody().WarpToPositionRotation(_dimensionBody.transform.position + _dimensionBody.transform.up, _dimensionBody.transform.rotation);
             }
         }
 
@@ -228,10 +213,6 @@ namespace GreenFlameBlade.Components
         {
             _playerAbducted = false;
             Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_ExitVision);
-            var dwc = Locator.GetDreamWorldController();
-            dwc.UpdateSimulationSphereRadius(0f);
-            dwc._dreamWorldVolume.RemoveObjectFromVolume(Locator.GetPlayerDetector());
-            Locator.GetCloakFieldController()._exclusionSector.RemoveOccupant(Locator.GetPlayerSectorDetector());
             if (_playerWasInShip)
             {
                 var spawner = Locator.GetPlayerBody().GetComponent<PlayerSpawner>();
@@ -254,14 +235,12 @@ namespace GreenFlameBlade.Components
                     cockpit.OnPressInteract();
                 }
             }
-            if (Locator.GetToolModeSwapper().GetItemCarryTool().GetHeldItem() == _dreamLantern)
-            {
-                Locator.GetToolModeSwapper().GetItemCarryTool().DropItemInstantly(null, transform);
-            }
             if (_previousHeldItem != null)
             {
                 Locator.GetToolModeSwapper().GetItemCarryTool().PickUpItemInstantly(_previousHeldItem);
             }
+
+            Locator.GetPlayerCamera().GetComponent<PlayerCameraEffectController>().OpenEyes(1f, true);
         }
 
         void StartWarpOut()

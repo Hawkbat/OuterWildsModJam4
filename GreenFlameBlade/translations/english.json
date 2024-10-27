@@ -1,5 +1,16 @@
 {
 	"$schema": "https://raw.githubusercontent.com/outer-wilds-new-horizons/new-horizons/main/NewHorizons/Schemas/translation_schema.json",
+	"DialogueDictionary": {
+		"SLATE": "Slate"
+	},
+	"ShipLogDictionary": {
+		"GFB_WRAITH_SHIP_NAME": "Wraith Planet Ship",
+		"GFB_WRAITH_SHIP_SEEN_NAME": "Ringed Planet",
+		"GFB_WRAITH_SHIP_SEEN_TEXT": "When I woke up, I saw a strange ringed planet orbiting Giant's Deep.",
+		"GFB_OWLK_CRASH_NAME": "Crashed Saucer",
+		"GFB_CRASH_VISITED_TEXT": "I found a crash site on Hollow's Lantern where one of the inhabitants of the Stranger apparently died.",
+		"GFB_CRASH_VISION_TEXT": "I watched the vision left behind by the dead inhabitant. She fled the Stranger with a wraith-like creature in hopes of finding the Eye of the Universe. More of those wraiths were sealed away to power mechanisms within the Stranger."
+	},
 	"UIDictionary": {
 		"CompassTool": "Compass",
 		"CompassToolScanPrompt": "Scan Energy Readings",

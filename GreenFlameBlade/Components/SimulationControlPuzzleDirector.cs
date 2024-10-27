@@ -64,8 +64,8 @@ namespace GreenFlameBlade.Components
         {
             var targetPoint = _controlRoomOpen ? Vector3.up * 8f : Vector3.down * 12f;
             _controlRoom.transform.localPosition = Vector3.MoveTowards(_controlRoom.transform.localPosition, targetPoint, Time.deltaTime * CONTROL_ROOM_MOVE_SPEED);
-            var targetAngles = _controlRoomOpen ? Vector3.up * 180f : Vector3.up * 359.999f;
-            _controlRoom.transform.localEulerAngles = Vector3.MoveTowards(_controlRoom.transform.localEulerAngles, targetAngles, Time.deltaTime * CONTROL_ROOM_ROTATE_SPEED);
+            var targetRot = _controlRoomOpen ? Quaternion.Euler(0f, 180f, 0f) : Quaternion.Euler(0f, 359.99f, 0f);
+            _controlRoom.transform.localRotation = Quaternion.RotateTowards(_controlRoom.transform.localRotation, targetRot, Time.deltaTime * CONTROL_ROOM_ROTATE_SPEED);
         }
 
         void CheckCombination()

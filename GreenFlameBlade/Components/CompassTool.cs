@@ -98,7 +98,7 @@ namespace GreenFlameBlade.Components
                 Locator.GetPlayerAudioController().PlayLockOn();
             }
 
-            var targets = GreenFlameBlade.Instance.GetCompassTargets(_frequency);
+            var targets = CompassTarget.GetTargets(_frequency);
             var minDist = float.PositiveInfinity;
 
             _currentTarget = null;

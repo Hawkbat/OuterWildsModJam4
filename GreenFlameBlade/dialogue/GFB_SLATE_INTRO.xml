@@ -1,0 +1,59 @@
+﻿<DialogueTree xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/dialogue_schema.xsd">
+	<NameField>Slate</NameField>
+
+	<DialogueNode>
+		<Name>MAIN</Name>
+		<EntryCondition>DEFAULT</EntryCondition>
+		<Dialogue>
+			<Page>Hold up there, hatchling! Got something for ya.</Page>
+		</Dialogue>
+		
+		<DialogueOptionsList>
+			<DialogueOption>
+				<Text>Nevermind that, are you seeing that ringed planet up there?</Text>
+				<DialogueTarget>RINGED_PLANET</DialogueTarget>
+			</DialogueOption>
+			<DialogueOption>
+				<Text>What's up?</Text>
+				<DialogueTarget>COMPASS</DialogueTarget>
+			</DialogueOption>
+		</DialogueOptionsList>
+	</DialogueNode>
+	
+	<DialogueNode>
+		<Name>RINGED_PLANET</Name>
+		<Dialogue>
+			<Page>A planet with rings around it? Nope, never seen or heard of such a thing. Did you have a weird dream or something?</Page>
+			<Page>Anyway...</Page>
+		</Dialogue>
+		<DialogueTarget>COMPASS</DialogueTarget>
+	</DialogueNode>
+	
+	<DialogueNode>
+		<Name>COMPASS</Name>
+		<Dialogue>
+			<Page>I know it's the translator tool's first time out in the field today, but Hal and I have been cooking up this new orienteering tool and want you to give it a test run.</Page>
+			<Page>It's kind of like your signalscope, but specifically for tracking exotic energy readings. Fire, radiation, you name it.</Page>
+			<Page>Not ghost matter though; there's so much of that floating around in low concentrations that the readings would be useless.</Page>
+			<Page>Once it's locked in on a frequency, it'll continuously point towards the nearest source, wherever that happens to be, so not that useful for someone like me who stays put all day.</Page>
+		</Dialogue>
+		<DialogueTarget>OWLK_SAMPLE</DialogueTarget>
+	</DialogueNode>
+
+	<DialogueNode>
+		<Name>OWLK_SAMPLE</Name>
+		<Dialogue>
+			<Page>Speaking of, Riebeck dropped off this junk earlier. Said it might be some kind of weird Nomai tech.</Page>
+			<Page>Whatever it is, it's giving off strong traces of electromagnetic radiation, so maybe you can use our "compass" to track down more of it.</Page>
+		</Dialogue>
+		<DialogueTarget>END</DialogueTarget>
+	</DialogueNode>
+
+	<DialogueNode>
+		<Name>END</Name>
+		<Dialogue>
+			<Page>Enough from me though, I'll let you get to it. I'm sure you'd rather see things for yourself rather than have this old geezer talk your ears off.</Page>
+		</Dialogue>
+		<SetPersistentCondition>GFB_SLATE_INTRO</SetPersistentCondition>
+	</DialogueNode>
+</DialogueTree>

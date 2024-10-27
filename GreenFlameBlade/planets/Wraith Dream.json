@@ -5,8 +5,33 @@
   "Base": {
     "surfaceSize": 2000
   },
-  "Dream": {
-    "inDreamWorld": true
+  "Bramble": {
+    "dimension": {
+      "radius": 2000,
+      "vinePrefab": "none",
+      "fogTint": {
+        "r": 0,
+        "g": 255,
+        "b": 170
+      },
+      "linksTo": "GFB_Seed",
+      "fogDensity": 1,
+      "allowedEntrances": []
+    },
+    "nodes": [
+      {
+        "name": "GFB_Seed",
+        "linksTo": "Ringed Planet",
+        "isSeed": true,
+        "possibleExits": [],
+        "hasFogLight": false,
+        "position": {
+          "x": 0,
+          "y": -2000,
+          "z": 0
+        }
+      }
+    ]
   },
   "Orbit": {
     "isStatic": true,

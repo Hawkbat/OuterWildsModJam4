@@ -3,6 +3,44 @@
   "name": "Timber Hearth",
   "starSystem": "SolarSystem",
   "Props": {
+    "dialogue": [
+      {
+        "xmlFile": "dialogue/GFB_SLATE_INTRO.xml",
+        "parentPath": "Sector_TH/Sector_Village/Sector_StartingCamp/Characters_StartingCamp/Villager_HEA_Slate",
+        "isRelativeToParent": true,
+        "radius": 0,
+        "pathToAnimController": "Sector_TH/Sector_Village/Sector_StartingCamp/Characters_StartingCamp/Villager_HEA_Slate",
+        "blockAfterPersistentCondition": "GFB_SLATE_INTRO",
+        "swappedAttentionPoints": [
+          {
+            "dialogueNode": "COMPASS",
+            "position": {
+              "x": 15.91297,
+              "y": -40.64035,
+              "z": 186.3141
+            },
+            "offset": {}
+          },
+          {
+            "dialogueNode": "OWLK_SAMPLE",
+            "position": {
+              "x": 14.3734,
+              "y": -42.8725,
+              "z": 185.3644
+            },
+            "offset": {}
+          }
+        ],
+        "remoteTrigger": {
+          "radius": 10,
+          "position": {
+            "x": 6.38502,
+            "y": -42.1542,
+            "z": 186.5769
+          }
+        }
+      }
+    ],
     "details": [
       {
         "assetBundle": "assetbundles/greenflameblade",
