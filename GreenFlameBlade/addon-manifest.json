@@ -1,3 +1,11 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/addon_manifest_schema.json"
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/addon_manifest_schema.json",
+  "subtitlePath": "subtitle.png",
+  "preloadAssetBundles": [
+    "assetbundles/greenflameblade"
+  ],
+  "credits": [
+    "Hawkbar#Programming, Environment Design",
+    "Insmoshable#Art, Scenario Design"
+  ]
 }

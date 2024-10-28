@@ -7,13 +7,13 @@
       "color": {
         "r": 0,
         "g": 150,
-        "b": 100,
+        "b": 120,
         "a": 255
       },
       "highlightColor": {
         "r": 0,
         "g": 255,
-        "b": 170,
+        "b": 204,
         "a": 255
       }
     }
@@ -23,42 +23,77 @@
       "id": "GFB_WRAITH_SHIP",
       "position": {
         "x": 1200,
-        "y": -400
+        "y": -1400
       }
     },
     {
       "id": "GFB_DIORAMA_CRYSTAL",
       "position": {
         "x": 1100,
-        "y": -500
+        "y": -1550
       }
     },
     {
       "id": "GFB_DIORAMA_WRAITHS",
       "position": {
         "x": 1200,
-        "y": -500
+        "y": -1550
       }
     },
     {
       "id": "GFB_DIORAMA_BLOCKER",
       "position": {
         "x": 1300,
-        "y": -500
+        "y": -1550
       }
     },
     {
       "id": "GFB_OWLK_CRASH",
       "position": {
-        "x": 1600,
-        "y": -600
+        "x": 1500,
+        "y": -1200
       }
     },
     {
       "id": "GFB_SLATE_CAMP",
       "position": {
+        "x": 900,
+        "y": -1300
+      }
+    },
+    {
+      "id": "GFB_LOCKED_HOUSE",
+      "position": {
+        "x": 1700,
+        "y": -1500
+      }
+    },
+    {
+      "id": "GFB_BLOCKER_HOUSE",
+      "position": {
+        "x": 1500,
+        "y": -1750
+      }
+    },
+    {
+      "id": "GFB_SUBMERGED_REEL",
+      "position": {
+        "x": 1800,
+        "y": -1700
+      }
+    },
+    {
+      "id": "GFB_BROKEN_ANTENNA",
+      "position": {
+        "x": 1650,
+        "y": -1900
+      }
+    },
+    {
+      "id": "GFB_BACKUP_CRYSTAL",
+      "position": {
         "x": 800,
-        "y": -400
+        "y": -1700
       }
     }
   ],

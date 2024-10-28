@@ -32,7 +32,7 @@
       },
       {
         "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone3/Sector_HiddenGorge/Sector_DreamFireHouse_Zone3/Geo_DreamFireHouse_Zone3/Props_IP_DreamFire_Antenna",
-        "activationCondition": "GFB_SIGNAL_BLOCKER_FIXED",
+        "activationCondition": "GFB_ANTENNA_REPAIRED",
         "blinkWhenActiveChanged": false,
         "parentPath": "Sector_RingWorld/SignalBlockerAntenna",
         "isRelativeToParent": true,
@@ -41,7 +41,7 @@
       },
       {
         "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone4/Sector_BlightedShore/Sector_JammingControlRoom_Zone4/Interactables_JammingControlRoom_Zone4/BurnedInterface/Props_IP_DreamFire_Antenna",
-        "deactivationCondition": "GFB_SIGNAL_BLOCKER_FIXED",
+        "deactivationCondition": "GFB_ANTENNA_REPAIRED",
         "blinkWhenActiveChanged": false,
         "parentPath": "Sector_RingWorld/SignalBlockerAntenna",
         "isRelativeToParent": true,
@@ -68,15 +68,37 @@
         "path": "Assets/GreenFlameBlade/WraithPlanetShip.prefab",
         "scale": 200,
         "keepLoaded": true
+      },
+      {
+        "rename": "PortraitObserveTrigger",
+        "position": {
+          "x": 179.684,
+          "y": 142.411,
+          "z": -148.8707
+        },
+        "rotation": {
+          "x": -9.771955E-05,
+          "y": 145.2699,
+          "z": -8.020436E-05
+        }
       }
     ],
     "slideShows": [
       {
         "type": "standingVisionTorch",
+        "playWithShipLogFacts": [
+          "GFB_LOCKED_HOUSE_VISION",
+          "GFB_SUBMERGED_REEL_MISSING"
+        ],
+        "reveals": [
+          "GFB_LOCKED_HOUSE_VISION",
+          "GFB_SUBMERGED_REEL_MISSING"
+        ],
         "slides": [
           {
             "imagePath": "slides/Slide_SubmergedReel_01.png",
-            "playTimeDuration": 0.5
+            "playTimeDuration": 0.5,
+            "backdropAudio": "Reel_3_Backdrop_B"
           },
           {
             "imagePath": "slides/Slide_SubmergedReel_02.png",
@@ -116,7 +138,8 @@
           },
           {
             "imagePath": "slides/Slide_SubmergedReel_11.png",
-            "playTimeDuration": 0.5
+            "playTimeDuration": 0.5,
+            "beatAudio": "Reel_3_Beat_A"
           },
           {
             "imagePath": "slides/Slide_SubmergedReel_12.png",
@@ -162,6 +185,14 @@
         "type": "slideReel",
         "reelCondition": "rusted",
         "reelModel": "sixSlides",
+        "playWithShipLogFacts": [
+          "GFB_SUBMERGED_REEL_VIEWED",
+          "GFB_ANTENNA_KNOWN"
+        ],
+        "reveals": [
+          "GFB_SUBMERGED_REEL_VIEWED",
+          "GFB_ANTENNA_KNOWN"
+        ],
         "slides": [
           {
             "imagePath": "slides/Dummy.png",
@@ -178,13 +209,77 @@
           "x": 53.59019,
           "y": 22.9495,
           "z": 49.27388
-        }
+        },
+        "rename": "SubmergedReel"
       }
     ],
     "entryLocation": [
       {
         "id": "GFB_WRAITH_SHIP",
         "parentPath": "Sector_RingWorld/WraithPlanetShip",
+        "isRelativeToParent": true
+      },
+      {
+        "id": "GFB_LOCKED_HOUSE",
+        "cloaked": true,
+        "position": {
+          "x": 196.9666,
+          "y": -71.34621,
+          "z": 154.0008
+        }
+      },
+      {
+        "id": "GFB_BLOCKER_HOUSE",
+        "cloaked": true,
+        "position": {
+          "x": 180.8978,
+          "y": 152.2431,
+          "z": -149.3931
+        }
+      },
+      {
+        "id": "GFB_SUBMERGED_REEL",
+        "cloaked": true,
+        "parentPath": "Sector_RingWorld/SubmergedReel",
+        "isRelativeToParent": true
+      },
+      {
+        "id": "GFB_BROKEN_ANTENNA",
+        "cloaked": true,
+        "parentPath": "Sector_RingWorld/SignalBlockerAntenna",
+        "isRelativeToParent": true
+      }
+    ]
+  },
+  "Volumes": {
+    "revealVolumes": [
+      {
+        "radius": 10,
+        "reveals": [ "GFB_BLOCKER_EXPLORED" ],
+        "revealOn": "enter",
+        "revealFor": "player",
+        "position": {
+          "x": 189.1991,
+          "y": 153.7807,
+          "z": -135.9446
+        }
+      },
+      {
+        "maxAngle": 90,
+        "maxDistance": 10,
+        "radius": 2,
+        "reveals": [ "GFB_HELPER_PORTRAIT" ],
+        "revealOn": "observe",
+        "revealFor": "player",
+        "parentPath": "Sector_RingWorld/PortraitObserveTrigger",
+        "isRelativeToParent": true
+      },
+      {
+        "radius": 5,
+        "reveals": [ "GFB_SUBMERGED_REEL_FOUND" ],
+        "revealOn": "enter",
+        "revealFor": "player",
+        "parentPath": "Sector_RingWorld/SubmergedReel",
         "isRelativeToParent": true
       }
     ]

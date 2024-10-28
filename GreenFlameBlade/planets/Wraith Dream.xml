@@ -127,4 +127,87 @@
 			<Text>GFB_SLATE_INTRO_HEARD</Text>
 		</ExploreFact>
 	</Entry>
+
+	<Entry>
+		<ID>GFB_LOCKED_HOUSE</ID>
+		<Name>GFB_LOCKED_HOUSE</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<RumorFact>
+			<ID>GFB_HELPER_HOME</ID>
+			<SourceID>GFB_DIORAMA_BLOCKER</SourceID>
+			<RumorName>GFB_HELPER_HOME_NAME</RumorName>
+			<Text>GFB_HELPER_HOME</Text>
+		</RumorFact>
+		<ExploreFact>
+			<ID>GFB_LOCKED_HOUSE_VISION</ID>
+			<Text>GFB_LOCKED_HOUSE_VISION</Text>
+		</ExploreFact>
+	</Entry>
+
+	<Entry>
+		<ID>GFB_BLOCKER_HOUSE</ID>
+		<Name>GFB_BLOCKER_HOUSE</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<RumorFact>
+			<ID>GFB_HELPER_WORK</ID>
+			<SourceID>GFB_DIORAMA_BLOCKER</SourceID>
+			<RumorName>GFB_HELPER_WORK_NAME</RumorName>
+			<Text>GFB_HELPER_WORK</Text>
+		</RumorFact>
+		<ExploreFact>
+			<ID>GFB_BLOCKER_EXPLORED</ID>
+			<Text>GFB_BLOCKER_EXPLORED</Text>
+		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_HELPER_PORTRAIT</ID>
+			<Text>GFB_HELPER_PORTRAIT</Text>
+		</ExploreFact>
+	</Entry>
+
+	<Entry>
+		<ID>GFB_SUBMERGED_REEL</ID>
+		<Name>GFB_SUBMERGED_REEL</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<RumorFact>
+			<ID>GFB_SUBMERGED_REEL_MISSING</ID>
+			<RumorName>GFB_SUBMERGED_REEL_MISSING_NAME</RumorName>
+			<Text>GFB_SUBMERGED_REEL_MISSING</Text>
+		</RumorFact>
+		<ExploreFact>
+			<ID>GFB_SUBMERGED_REEL_FOUND</ID>
+			<Text>GFB_SUBMERGED_REEL_FOUND</Text>
+		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_SUBMERGED_REEL_VIEWED</ID>
+			<Text>GFB_SUBMERGED_REEL_VIEWED</Text>
+		</ExploreFact>
+	</Entry>
+
+	<Entry>
+		<ID>GFB_BROKEN_ANTENNA</ID>
+		<Name>GFB_BROKEN_ANTENNA</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<RumorFact>
+			<ID>GFB_ANTENNA_KNOWN</ID>
+			<Text>GFB_ANTENNA_KNOWN</Text>
+		</RumorFact>
+		<ExploreFact>
+			<ID>GFB_ANTENNA_REPAIRED</ID>
+			<Text>GFB_ANTENNA_REPAIRED</Text>			
+		</ExploreFact>
+	</Entry>
+
+	<Entry>
+		<ID>GFB_BACKUP_CRYSTAL</ID>
+		<Name>GFB_BACKUP_CRYSTAL</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<RumorFact>
+			<ID>GFB_BACKUP_CRYSTAL_NEEDED</ID>
+			<Text>GFB_BACKUP_CRYSTAL_NEEDED</Text>
+		</RumorFact>
+		<ExploreFact>
+			<ID>GFB_BACKUP_CRYSTAL_FOUND</ID>
+			<Text>GFB_BACKUP_CRYSTAL_FOUND</Text>
+		</ExploreFact>
+	</Entry>
 </AstroObjectEntry>

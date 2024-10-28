@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/ow-mods/owml/master/schemas/manifest_schema.json",
   "filename": "GreenFlameBlade.dll",
   "author": "Hawkbar",
-  "name": "GreenFlameBlade",
+  "name": "Dreambound",
   "uniqueName": "Hawkbar.GreenFlameBlade",
   "version": "0.1.0",
   "owmlVersion": "2.13.0",

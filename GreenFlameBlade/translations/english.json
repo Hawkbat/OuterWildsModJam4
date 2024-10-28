@@ -44,12 +44,32 @@
 		"GFB_CRASH_VISITED": "I found a crash site on Hollow's Lantern where one of the inhabitants of the Stranger apparently died.",
 		"GFB_CRASH_VISION": "I watched the vision left behind by the dead inhabitant. She fled the Stranger with a another creature in hopes of finding the Eye of the Universe. These \"wraiths\" coexisted alongside the Stranger's inhabitants before being sealed away to power the ship's mechanisms.",
 		"GFB_SLATE_CAMP": "Launch Tower Campsite",
-		"GFB_SLATE_INTRO_HEARD": "Slate offered me their new \"compass\" tool. It can scan exotic energy sources and track those frequencies to find similar objects elsewhere in the solar system. A strange object was left at the campsite to try it out with."
+		"GFB_SLATE_INTRO_HEARD": "Slate offered me their new \"compass\" tool. It can scan exotic energy sources and track those frequencies to find similar objects elsewhere in the solar system. A strange object was left at the campsite to try it out with.",
+		"GFB_LOCKED_HOUSE": "Locked House",
+		"GFB_HELPER_HOME_NAME": "Rescuer's House",
+		"GFB_HELPER_HOME": "The wraith's rescuer left a vision torch behind in her house before she fled.",
+		"GFB_LOCKED_HOUSE_VISION": "I watched the vision left behind by the wraith's rescuer. A slide reel was forcibly taken from her and thrown into the river, where it floated downstream before sinking.",
+		"GFB_BLOCKER_HOUSE": "Signal Blocker Control Room",
+		"GFB_HELPER_WORK_NAME": "Signal Blocker Work Site",
+		"GFB_HELPER_WORK": "The inhabitant who rescued the wraith worked on the signal blocker and had her own desk there.",
+		"GFB_BLOCKER_EXPLORED": "I found the room where the signal blocker was monitored. The controls are damaged but the systems are otherwise intact.",
+		"GFB_HELPER_PORTRAIT": "There is a picture of the wraith's rescuer above her desk.",
+		"GFB_SUBMERGED_REEL": "Submerged Slide Reel",
+		"GFB_SUBMERGED_REEL_MISSING_NAME": "Dropped Slide Reel",
+		"GFB_SUBMERGED_REEL_MISSING": "A slide reel was dropped into the water and floated downstream before sinking.",
+		"GFB_SUBMERGED_REEL_FOUND": "I found the slide reel that had been thrown into the river.",
+		"GFB_SUBMERGED_REEL_VIEWED": "The slide reel appears to be some kind of error report. An antenna on the exterior of the Stranger is damaged.",
+		"GFB_BROKEN_ANTENNA": "Damaged Antenna",
+		"GFB_ANTENNA_KNOWN": "There is a damaged antenna on the dark side of the Stranger, roughly opposite the hangar.",
+		"GFB_ANTENNA_REPAIRED": "I am able to repair the damaged antenna from the outside.",
+		"GFB_BACKUP_CRYSTAL": "Resonating Crystal",
+		"GFB_BACKUP_CRYSTAL_NEEDED": "The wraith needs a Nomai resonating crystal.",
+		"GFB_BACKUP_CRYSTAL_FOUND": "I found a Nomai resonating crystal on the Construction Yard island on Giant's Deep."
 	},
 	"UIDictionary": {
 		"CompassTool": "Compass",
 		"CompassToolScanPrompt": "Scan Energy Readings",
 		"NomaiCrystalItem": "Nomai Crystal",
-		"AntennaBroken": "Broken Antenna"
+		"AntennaBroken": "Damaged Antenna"
 	}
 }

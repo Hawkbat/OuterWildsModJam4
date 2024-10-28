@@ -15,7 +15,7 @@ namespace GreenFlameBlade.Components
             var brokenAntenna = Locator.GetAstroObject(AstroObject.Name.RingWorld).transform.Find("Sector_RingWorld/SignalBlockerAntenna/AntennaBroken");
             var repairReciever = brokenAntenna.gameObject.AddComponent<GenericRepairReceiver>();
             repairReciever.OnRepaired += RepairReciever_OnRepaired;
-            DialogueConditionManager.SharedInstance.SetConditionState("GFB_SIGNAL_BLOCKER_FIXED", false);
+            DialogueConditionManager.SharedInstance.SetConditionState("GFB_ANTENNA_REPAIRED", false);
 
             var dreamWorld = Locator.GetAstroObject(AstroObject.Name.DreamWorld);
 
@@ -37,7 +37,8 @@ namespace GreenFlameBlade.Components
 
         void RepairReciever_OnRepaired(GenericRepairReceiver target)
         {
-            DialogueConditionManager.SharedInstance.SetConditionState("GFB_SIGNAL_BLOCKER_FIXED", true);
+            DialogueConditionManager.SharedInstance.SetConditionState("GFB_ANTENNA_REPAIRED", true);
+            Locator.GetShipLogManager().RevealFact("GFB_ANTENNA_REPAIRED");
         }
     }
 }

@@ -18,6 +18,25 @@
           "z": 76
         }
       }
+    ],
+    "entryLocation": [
+      {
+        "id": "GFB_BACKUP_CRYSTAL",
+        "parentPath": "Sector_ConstructionYard/NomaiCrystalItem",
+        "isRelativeToParent": true
+      }
+    ]
+  },
+  "Volumes": {
+    "revealVolumes": [
+      {
+        "radius": 5,
+        "reveals": [ "GFB_BACKUP_CRYSTAL_FOUND" ],
+        "revealOn": "enter",
+        "revealFor": "player",
+        "parentPath": "Sector_ConstructionYard/NomaiCrystalItem",
+        "isRelativeToParent": true
+      }
     ]
   }
 }
