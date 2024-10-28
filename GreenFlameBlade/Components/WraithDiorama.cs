@@ -14,11 +14,18 @@ namespace GreenFlameBlade.Components
 
         [SerializeField] bool _proximityTriggerEnabled;
         [SerializeField] float _proximityTriggerRadius = 5f;
+        [SerializeField] bool _isChoice;
         [SerializeField] WraithDioramaChoice _nextChoice;
         [SerializeField] bool _exitDream;
+        [SerializeField] string[] _revealOnActivate;
+        [SerializeField] string[] _revealOnProximityTrigger;
+
         bool _active;
         float _transitionProgress;
         bool _proximityTriggerFired;
+        Vector3 _initialScale;
+
+        public bool IsChoice() => _isChoice;
 
         public WraithDioramaChoice GetNextChoice() => _nextChoice;
 
@@ -36,6 +43,10 @@ namespace GreenFlameBlade.Components
                 if (active)
                 {
                     Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Exit);
+                    foreach (var factID in _revealOnActivate)
+                    {
+                        Locator.GetShipLogManager().RevealFact(factID);
+                    }
                 }
                 else
                 {
@@ -52,12 +63,20 @@ namespace GreenFlameBlade.Components
             _transitionProgress = 1f;
             _proximityTriggerFired = false;
             enabled = false;
-            transform.localScale = active ? Vector3.one : TRANSITION_SCALE;
+            transform.localScale = active ? _initialScale : Vector3.Scale(_initialScale, TRANSITION_SCALE);
             gameObject.SetActive(active);
+            if (active)
+            {
+                foreach (var factID in _revealOnActivate)
+                {
+                    Locator.GetShipLogManager().RevealFact(factID);
+                }
+            }
         }
 
         void Start()
         {
+            _initialScale = transform.localScale;
             SetImmediateActivation(false);
         }
 
@@ -66,7 +85,7 @@ namespace GreenFlameBlade.Components
             if (_transitionProgress < 1f)
             {
                 _transitionProgress = Mathf.Clamp01(_transitionProgress + Time.deltaTime / TRANSITION_DURATION);
-                transform.localScale = Vector3.Lerp(TRANSITION_SCALE, Vector3.one, _active ? _transitionProgress : 1f - _transitionProgress);
+                transform.localScale = Vector3.Scale(_initialScale, Vector3.Lerp(TRANSITION_SCALE, Vector3.one, _active ? _transitionProgress : 1f - _transitionProgress));
                 if (!_active && _transitionProgress >= 1f)
                 {
                     enabled = false;
@@ -79,6 +98,10 @@ namespace GreenFlameBlade.Components
                 if (Vector3.Distance(playerT.position, transform.position) < _proximityTriggerRadius)
                 {
                     _proximityTriggerFired = true;
+                    foreach (var factID in _revealOnProximityTrigger)
+                    {
+                        Locator.GetShipLogManager().RevealFact(factID);
+                    }
                     if (OnProximityTriggered != null)
                     {
                         OnProximityTriggered(this);

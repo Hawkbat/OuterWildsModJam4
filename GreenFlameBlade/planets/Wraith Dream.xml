@@ -3,26 +3,128 @@
 	<ID>Wraith Dream</ID>
 	<Entry>
 		<ID>GFB_WRAITH_SHIP</ID>
-		<Name>GFB_WRAITH_SHIP_NAME</Name>
+		<Name>GFB_WRAITH_SHIP</Name>
 		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
 		<IsCuriosity />
 		<RumorFact>
 			<ID>GFB_WRAITH_SHIP_SEEN</ID>
-			<RumorName>GFB_WRAITH_SHIP_NAME</RumorName>
-			<Text>GFB_WRAITH_SHIP_SEEN_TEXT</Text>
+			<RumorName>GFB_WRAITH_SHIP_SEEN_NAME</RumorName>
+			<Text>GFB_WRAITH_SHIP_SEEN</Text>
 		</RumorFact>
+		<ExploreFact>
+			<ID>GFB_WRAITH_SHIP_SCAN</ID>
+			<Text>GFB_WRAITH_SHIP_SCAN</Text>
+		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_WRAITH_SHIP_FLEE</ID>
+			<IgnoreMoreToExplore />
+			<Text>GFB_WRAITH_SHIP_FLEE</Text>
+		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_WRAITH_SHIP_ENTER</ID>
+			<Text>GFB_WRAITH_SHIP_ENTER</Text>
+		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_WRAITH_SHIP_EXIT</ID>
+			<Text>GFB_WRAITH_SHIP_EXIT</Text>
+		</ExploreFact>
+
+		<Entry>
+			<ID>GFB_DIORAMA_CRYSTAL</ID>
+			<Name>GFB_DIORAMA_CRYSTAL</Name>
+			<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_CRYSTAL_REVEALED</ID>
+				<Text>GFB_DIORAMA_CRYSTAL_REVEALED</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_CRYSTAL_LAUNCH</ID>
+				<Text>GFB_DIORAMA_CRYSTAL_LAUNCH</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_CRYSTAL_RESONANCE</ID>
+				<Text>GFB_DIORAMA_CRYSTAL_RESONANCE</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_CRYSTAL_USAGE</ID>
+				<Text>GFB_DIORAMA_CRYSTAL_USAGE</Text>
+			</ExploreFact>
+		</Entry>
+		
+		<Entry>
+			<ID>GFB_DIORAMA_WRAITHS</ID>
+			<Name>GFB_DIORAMA_WRAITHS</Name>
+			<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_WRAITHS_REVEALED</ID>
+				<Text>GFB_DIORAMA_WRAITHS_REVEALED</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_WRAITHS_SHORT_RANGE</ID>
+				<Text>GFB_DIORAMA_WRAITHS_SHORT_RANGE</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_WRAITHS_TOWER</ID>
+				<Text>GFB_DIORAMA_WRAITHS_TOWER</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_WRAITHS_IMPRISONED</ID>
+				<Text>GFB_DIORAMA_WRAITHS_IMPRISONED</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_WRAITHS_LONG_RANGE</ID>
+				<Text>GFB_DIORAMA_WRAITHS_LONG_RANGE</Text>
+			</ExploreFact>
+		</Entry>
+		
+		<Entry>
+			<ID>GFB_DIORAMA_BLOCKER</ID>
+			<Name>GFB_DIORAMA_BLOCKER</Name>
+			<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_BLOCKER_REVEALED</ID>
+				<Text>GFB_DIORAMA_BLOCKER_REVEALED</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_BLOCKER_JAMMING</ID>
+				<Text>GFB_DIORAMA_BLOCKER_JAMMING</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_BLOCKER_SIGNAL</ID>
+				<Text>GFB_DIORAMA_BLOCKER_SIGNAL</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_BLOCKER_WORK</ID>
+				<Text>GFB_DIORAMA_BLOCKER_WORK</Text>
+			</ExploreFact>
+			<ExploreFact>
+				<ID>GFB_DIORAMA_BLOCKER_HOME</ID>
+				<Text>GFB_DIORAMA_BLOCKER_HOME</Text>
+			</ExploreFact>
+		</Entry>
 	</Entry>
+	
 	<Entry>
 		<ID>GFB_OWLK_CRASH</ID>
-		<Name>GFB_OWLK_CRASH_NAME</Name>
+		<Name>GFB_OWLK_CRASH</Name>
 		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
 		<ExploreFact>
 			<ID>GFB_CRASH_VISITED</ID>
-			<Text>GFB_CRASH_VISITED_TEXT</Text>
+			<Text>GFB_CRASH_VISITED</Text>
 		</ExploreFact>
 		<ExploreFact>
 			<ID>GFB_CRASH_VISION</ID>
-			<Text>GFB_CRASH_VISION_TEXT</Text>
+			<Text>GFB_CRASH_VISION</Text>
+		</ExploreFact>
+	</Entry>
+	
+	<Entry>
+		<ID>GFB_SLATE_CAMP</ID>
+		<Name>GFB_SLATE_CAMP</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<ExploreFact>
+			<ID>GFB_SLATE_INTRO_HEARD</ID>
+			<Text>GFB_SLATE_INTRO_HEARD</Text>
 		</ExploreFact>
 	</Entry>
 </AstroObjectEntry>

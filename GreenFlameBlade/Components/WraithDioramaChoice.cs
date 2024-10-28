@@ -115,6 +115,7 @@ namespace GreenFlameBlade.Components
 
         void OnChoiceSelected(WraithDiorama option)
         {
+            if (!option.IsChoice()) return;
             _selected = option;
             SetActivation(false);
             var next = option.GetNextChoice();

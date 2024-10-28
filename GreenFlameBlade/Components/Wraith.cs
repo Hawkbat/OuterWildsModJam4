@@ -11,6 +11,12 @@ namespace GreenFlameBlade.Components
         bool _warpingIn;
         bool _warpingOut;
         float _warpTime;
+        Vector3 _initialScale;
+
+        void Start()
+        {
+            _initialScale = transform.localScale;
+        }
 
         protected virtual void Update()
         {
@@ -21,7 +27,7 @@ namespace GreenFlameBlade.Components
                     Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Exit);
                 }
                 _warpTime += Time.deltaTime;
-                transform.localScale = Vector3.Lerp(WARP_SCALE, Vector3.one, _warpTime / WARP_DURATION);
+                transform.localScale = Vector3.Scale(_initialScale, Vector3.Lerp(WARP_SCALE, Vector3.one, _warpTime / WARP_DURATION));
                 if (_warpTime >= WARP_DURATION)
                 {
                     _warpingIn = false;
@@ -34,7 +40,7 @@ namespace GreenFlameBlade.Components
                     Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Enter);
                 }
                 _warpTime += Time.deltaTime;
-                transform.localScale = Vector3.Lerp(Vector3.one, WARP_SCALE, _warpTime / WARP_DURATION);
+                transform.localScale = Vector3.Scale(_initialScale, Vector3.Lerp(Vector3.one, WARP_SCALE, _warpTime / WARP_DURATION));
                 if (_warpTime >= WARP_DURATION)
                 {
                     _warpingOut = false;

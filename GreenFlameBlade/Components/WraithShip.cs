@@ -24,8 +24,9 @@ namespace GreenFlameBlade.Components
         bool _playerAbducted;
         bool _playerWasInShip;
         bool _playerWasAtFlightConsole;
+        bool _abductionEnding;
         Vector3 _defaultScale;
-        RelativeLocationData _relativeShipLocation;
+        RelativeLocationData _relativeAbductionLocation;
         AstroObject _currentBody;
         GameObject _dimensionBody;
         OWItem _previousHeldItem;
@@ -75,8 +76,9 @@ namespace GreenFlameBlade.Components
                 _playerScanned = true;
                 StartScan();
             }
-            if (!_scanning && _playerScanned && !_playerAbducted && playerDist > SCAN_EXIT_DISTANCE)
+            if (_playerScanned && !_playerAbducted && !_abductionEnding && playerDist > SCAN_EXIT_DISTANCE)
             {
+                GreenFlameBlade.Instance.ModHelper.Console.WriteLine($"Scan exit dist: {playerDist}");
                 _playerScanned = false;
             }
             if (_scanning)
@@ -133,6 +135,7 @@ namespace GreenFlameBlade.Components
             _scanProgress = 0f;
             _scanBeamFade.FadeTo(1f, 0.25f);
             Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_ProjectionOn);
+            Locator.GetShipLogManager().RevealFact("GFB_WRAITH_SHIP_SCAN");
         }
 
         void UpdateScan()
@@ -162,7 +165,7 @@ namespace GreenFlameBlade.Components
                 _playerWasInShip = true;
                 var shipBody = Locator.GetShipBody();
                 shipBody.GetComponentInChildren<ShipDamageController>().ToggleInvincibility();
-                _relativeShipLocation = new RelativeLocationData(shipBody, GetComponentInParent<OWRigidbody>(), transform);
+                _relativeAbductionLocation = new RelativeLocationData(shipBody, GetComponentInParent<OWRigidbody>(), transform);
                 shipBody.WarpToPositionRotation(new Vector3(0f, 1000000f, 0f), Quaternion.identity);
                 foreach (var volume in shipBody.GetComponentsInChildren<OWTriggerVolume>())
                 {
@@ -180,6 +183,7 @@ namespace GreenFlameBlade.Components
             else
             {
                 _playerWasInShip = false;
+                _relativeAbductionLocation = new RelativeLocationData(Locator.GetPlayerBody(), GetComponentInParent<OWRigidbody>(), transform);
             }
 
             _previousHeldItem = Locator.GetToolModeSwapper().GetItemCarryTool().GetHeldItem();
@@ -199,6 +203,8 @@ namespace GreenFlameBlade.Components
             }
 
             Locator.GetPlayerCamera().GetComponent<PlayerCameraEffectController>().OpenEyes(1f, true);
+
+            Locator.GetShipLogManager().RevealFact("GFB_WRAITH_SHIP_ENTER");
         }
 
         void UpdateAbduction()
@@ -206,33 +212,34 @@ namespace GreenFlameBlade.Components
             if (_playerAbducted && Vector3.Distance(_dimensionBody.transform.position, Locator.GetPlayerTransform().position) > 100f)
             {
                 Locator.GetPlayerBody().WarpToPositionRotation(_dimensionBody.transform.position + _dimensionBody.transform.up, _dimensionBody.transform.rotation);
+                Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Exit);
             }
         }
 
         void EndAbduction()
         {
             _playerAbducted = false;
+            _abductionEnding = true;
             Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_ExitVision);
             if (_playerWasInShip)
             {
                 var spawner = Locator.GetPlayerBody().GetComponent<PlayerSpawner>();
                 spawner.DebugWarp(spawner.GetSpawnPoint(SpawnLocation.Ship));
                 var shipBody = Locator.GetShipBody();
-                shipBody.MoveToRelativeLocation(_relativeShipLocation, GetComponentInParent<OWRigidbody>(), transform);
+                shipBody.MoveToRelativeLocation(_relativeAbductionLocation, GetComponentInParent<OWRigidbody>(), transform);
                 if (!Physics.autoSyncTransforms)
                 {
                     Physics.SyncTransforms();
                 }
                 shipBody.GetComponentInChildren<ShipDamageController>().ToggleInvincibility();
-                foreach (var volume in shipBody.GetComponentsInChildren<OWTriggerVolume>())
+            }
+            else
+            {
+                Locator.GetPlayerBody().MoveToRelativeLocation(_relativeAbductionLocation, GetComponentInParent<OWRigidbody>(), transform);
+                GlobalMessenger.FireEvent("WarpPlayer");
+                if (!Physics.autoSyncTransforms)
                 {
-                    volume.AddObjectToVolume(Locator.GetPlayerDetector());
-                    volume.AddObjectToVolume(Locator.GetPlayerCamera().GetComponentInChildren<FluidDetector>().gameObject);
-                }
-                if (_playerWasAtFlightConsole)
-                {
-                    var cockpit = shipBody.GetComponentInChildren<ShipCockpitController>();
-                    cockpit.OnPressInteract();
+                    Physics.SyncTransforms();
                 }
             }
             if (_previousHeldItem != null)
@@ -241,6 +248,28 @@ namespace GreenFlameBlade.Components
             }
 
             Locator.GetPlayerCamera().GetComponent<PlayerCameraEffectController>().OpenEyes(1f, true);
+
+            Locator.GetShipLogManager().RevealFact("GFB_WRAITH_SHIP_EXIT");
+
+            GreenFlameBlade.Instance.ModHelper.Events.Unity.FireInNUpdates(() =>
+            {
+                _abductionEnding = false;
+                if (_playerWasInShip)
+                {
+                    var shipBody = Locator.GetShipBody();
+                    foreach (var volume in shipBody.GetComponentsInChildren<OWTriggerVolume>())
+                    {
+                        volume.AddObjectToVolume(Locator.GetPlayerDetector());
+                        volume.AddObjectToVolume(Locator.GetPlayerCamera().GetComponentInChildren<FluidDetector>().gameObject);
+                    }
+                    if (_playerWasAtFlightConsole)
+                    {
+                        var cockpit = shipBody.GetComponentInChildren<ShipCockpitController>();
+                        cockpit.OnPressInteract();
+                    }
+                }
+                GlobalMessenger.FireEvent("PlayerRepositioned");
+            }, 2);
         }
 
         void StartWarpOut()
@@ -248,6 +277,8 @@ namespace GreenFlameBlade.Components
             _warpingOut = true;
             _warpProgress = 0f;
             Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Enter);
+
+            Locator.GetShipLogManager().RevealFact("GFB_WRAITH_SHIP_FLEE");
         }
 
         void UpdateWarpOut()
@@ -258,6 +289,7 @@ namespace GreenFlameBlade.Components
         void EndWarpOut()
         {
             _warpingOut = false;
+            _playerScanned = false;
         }
 
         void StartWarpIn()

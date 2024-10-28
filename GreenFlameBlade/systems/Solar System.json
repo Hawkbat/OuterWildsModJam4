@@ -27,10 +27,38 @@
       }
     },
     {
+      "id": "GFB_DIORAMA_CRYSTAL",
+      "position": {
+        "x": 1100,
+        "y": -500
+      }
+    },
+    {
+      "id": "GFB_DIORAMA_WRAITHS",
+      "position": {
+        "x": 1200,
+        "y": -500
+      }
+    },
+    {
+      "id": "GFB_DIORAMA_BLOCKER",
+      "position": {
+        "x": 1300,
+        "y": -500
+      }
+    },
+    {
       "id": "GFB_OWLK_CRASH",
       "position": {
         "x": 1600,
         "y": -600
+      }
+    },
+    {
+      "id": "GFB_SLATE_CAMP",
+      "position": {
+        "x": 800,
+        "y": -400
       }
     }
   ],
