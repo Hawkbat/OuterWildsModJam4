@@ -170,6 +170,7 @@
 		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
 		<RumorFact>
 			<ID>GFB_SUBMERGED_REEL_MISSING</ID>
+			<SourceID>GFB_LOCKED_HOUSE</SourceID>
 			<RumorName>GFB_SUBMERGED_REEL_MISSING_NAME</RumorName>
 			<Text>GFB_SUBMERGED_REEL_MISSING</Text>
 		</RumorFact>
@@ -189,6 +190,7 @@
 		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
 		<RumorFact>
 			<ID>GFB_ANTENNA_KNOWN</ID>
+			<SourceID>GFB_SUBMERGED_REEL</SourceID>
 			<Text>GFB_ANTENNA_KNOWN</Text>
 		</RumorFact>
 		<ExploreFact>
@@ -203,11 +205,61 @@
 		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
 		<RumorFact>
 			<ID>GFB_BACKUP_CRYSTAL_NEEDED</ID>
+			<SourceID>GFB_DIORAMA_CRYSTAL</SourceID>
 			<Text>GFB_BACKUP_CRYSTAL_NEEDED</Text>
 		</RumorFact>
 		<ExploreFact>
 			<ID>GFB_BACKUP_CRYSTAL_FOUND</ID>
 			<Text>GFB_BACKUP_CRYSTAL_FOUND</Text>
+		</ExploreFact>
+	</Entry>
+
+	<Entry>
+		<ID>GFB_DREAM_TOWER</ID>
+		<Name>GFB_DREAM_TOWER</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<RumorFact>
+			<ID>GFB_TOWER_HINT</ID>
+			<SourceID>GFB_DIORAMA_WRAITHS</SourceID>
+			<Text>GFB_TOWER_HINT</Text>
+		</RumorFact>
+		<ExploreFact>
+			<ID>GFB_CANDLE_PUZZLE</ID>
+			<Text>GFB_CANDLE_PUZZLE</Text>
+		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_TOWER_PEEPHOLE</ID>
+			<Text>GFB_TOWER_PEEPHOLE</Text>
+		</ExploreFact>
+	</Entry>
+
+	<Entry>
+		<ID>GFB_WELL_HOUSE</ID>
+		<Name>GFB_WELL_HOUSE</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<RumorFact>
+			<ID>GFB_WELL_HOUSE_VISION</ID>
+			<SourceID>GFB_DREAM_TOWER</SourceID>
+			<Text>GFB_WELL_HOUSE_VISION</Text>
+		</RumorFact>
+		<ExploreFact>
+			<ID>GFB_CANDLE_PASSWORD</ID>
+			<Text>GFB_CANDLE_PASSWORD</Text>
+		</ExploreFact>
+	</Entry>
+
+	<Entry>
+		<ID>GFB_CONTROL_ROOM</ID>
+		<Name>GFB_CONTROL_ROOM</Name>
+		<Curiosity>GFB_WRAITH_SHIP</Curiosity>
+		<RumorFact>
+			<ID>GFB_CONTROL_ROOM_HINT</ID>
+			<SourceID>GFB_DIORAMA_WRAITHS</SourceID>
+			<Text>GFB_CONTROL_ROOM_HINT</Text>
+		</RumorFact>
+		<ExploreFact>
+			<ID>GFB_CONTROL_ROOM_DISABLED</ID>
+			<Text>GFB_CONTROL_ROOM_DISABLED</Text>
 		</ExploreFact>
 	</Entry>
 </AstroObjectEntry>

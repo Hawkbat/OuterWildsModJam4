@@ -45,7 +45,13 @@
     "details": [
       {
         "assetBundle": "assetbundles/greenflameblade",
-        "path": "Assets/GreenFlameBlade/WraithDreamDimension.prefab"
+        "path": "Assets/GreenFlameBlade/WraithDreamDimension.prefab",
+        "deactivationCondition": "GFB_FAKE_EYE_SEQUENCE"
+      },
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/FakeEyeSequence.prefab",
+        "activationCondition": "GFB_FAKE_EYE_SEQUENCE"
       }
     ]
   },
@@ -66,5 +72,16 @@
       "invisibleWhenHidden": false,
       "scale": 1
     }
+  },
+  "Volumes": {
+    "creditsVolume": [
+      {
+        "creditsType": "fast",
+        "deathType": "bigBang",
+        "gameOverText": "GFB_END_CREDITS",
+        "radius": 5,
+        "rename": "EndCreditsVolume"
+      }
+    ]
   }
 }

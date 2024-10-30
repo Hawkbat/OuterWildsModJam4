@@ -4,7 +4,7 @@ namespace GreenFlameBlade.Components
 {
     public class NomaiCrystalItem : OWItem
     {
-        public override string GetDisplayName() => GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("NomaiCrystalItem");
+        public override string GetDisplayName() => GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("GFB_NomaiCrystalItem");
 
         public override void Awake()
         {

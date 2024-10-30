@@ -95,6 +95,27 @@
         "x": 800,
         "y": -1700
       }
+    },
+    {
+      "id": "GFB_DREAM_TOWER",
+      "position": {
+        "x": 1050,
+        "y": -1800
+      }
+    },
+    {
+      "id": "GFB_CONTROL_ROOM",
+      "position": {
+        "x": 1300,
+        "y": -1900
+      }
+    },
+    {
+      "id": "GFB_WELL_HOUSE",
+      "position": {
+        "x": 1150,
+        "y": -2000
+      }
     }
   ],
   "initialReveal": [

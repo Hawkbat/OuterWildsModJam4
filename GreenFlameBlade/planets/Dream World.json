@@ -55,6 +55,8 @@
         "type": "slideReel",
         "reelCondition": "pristine",
         "reelModel": "whole",
+        "playWithShipLogFacts": [ "GFB_CANDLE_PASSWORD" ],
+        "reveals": [ "GFB_CANDLE_PASSWORD" ],
         "slides": [
           {
             "imagePath": "slides/Dummy.png",
@@ -75,6 +77,8 @@
       },
       {
         "type": "standingVisionTorch",
+        "playWithShipLogFacts": [ "GFB_WELL_HOUSE_VISION" ],
+        "reveals": [ "GFB_WELL_HOUSE_VISION" ],
         "position": {
           "x": -30.6221,
           "y": 49.6759,
@@ -159,6 +163,7 @@
     ],
     "portholes": [
       {
+        "revealFacts": [ "GFB_TOWER_PEEPHOLE" ],
         "position": {
           "x": -32.83714,
           "y": 51.67473,
@@ -296,6 +301,21 @@
           "x": 0,
           "y": 148.4548,
           "z": 0
+        }
+      }
+    ]
+  },
+  "Volumes": {
+    "revealVolumes": [
+      {
+        "radius": 5,
+        "reveals": [ "GFB_CANDLE_PUZZLE" ],
+        "revealOn": "enter",
+        "revealFor": "player",
+        "position": {
+          "x": -31.08284,
+          "y": 49.67496,
+          "z": -185.9592
         }
       }
     ]

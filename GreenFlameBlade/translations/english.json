@@ -64,12 +64,24 @@
 		"GFB_ANTENNA_REPAIRED": "I am able to repair the damaged antenna from the outside.",
 		"GFB_BACKUP_CRYSTAL": "Resonating Crystal",
 		"GFB_BACKUP_CRYSTAL_NEEDED": "The wraith needs a Nomai resonating crystal.",
-		"GFB_BACKUP_CRYSTAL_FOUND": "I found a Nomai resonating crystal on the Construction Yard island on Giant's Deep."
+		"GFB_BACKUP_CRYSTAL_FOUND": "I found a Nomai resonating crystal on the Construction Yard island on Giant's Deep.",
+		"GFB_DREAM_TOWER": "Dream Tower",
+		"GFB_TOWER_HINT": "The tower in the dream world is an important location for freeing the other wraiths.",
+		"GFB_CANDLE_PUZZLE": "There are multiple candles on the roof of the tower that I can light or extinguish.",
+		"GFB_TOWER_PEEPHOLE": "A porthole on the roof of the tower shows a specific clifftop in the real world's Stranger.",
+		"GFB_WELL_HOUSE": "House Above the Well",
+		"GFB_WELL_HOUSE_VISION": "A vision torch at the top of the tower pointed me in the direction of a house above the well.",
+		"GFB_CANDLE_PASSWORD": "A slide reel in the house shows a sequence of locations and lights.",
+		"GFB_CONTROL_ROOM": "Simulation Control Room",
+		"GFB_CONTROL_ROOM_HINT": "The other wraiths are being held in the basement of some sort of control room in the Stranger.",
+		"GFB_CONTROL_ROOM_DISABLED": "I was able to cut the power to the simulation, freeing the wraiths. The system switched to low-power mode."
 	},
 	"UIDictionary": {
-		"CompassTool": "Compass",
-		"CompassToolScanPrompt": "Scan Energy Readings",
-		"NomaiCrystalItem": "Nomai Crystal",
-		"AntennaBroken": "Damaged Antenna"
+		"GFB_CompassTool": "Compass",
+		"GFB_CompassToolScanPrompt": "Scan Energy Readings",
+		"GFB_NomaiCrystalItem": "Nomai Crystal",
+		"AntennaBroken": "Damaged Antenna",
+		"GFB_InteractControlRoom": "Unplug Power",
+		"GFB_END_CREDITS": "Dreambound"
 	}
 }

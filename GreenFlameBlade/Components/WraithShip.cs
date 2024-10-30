@@ -5,6 +5,8 @@ namespace GreenFlameBlade.Components
 {
     public class WraithShip : MonoBehaviour
     {
+        public static WraithShip Instance;
+
         const float SCAN_DURATION = 2f;
         const float SCAN_DISTANCE = 2000f;
         const float SCAN_EXIT_DISTANCE = 3000f;
@@ -30,18 +32,21 @@ namespace GreenFlameBlade.Components
         AstroObject _currentBody;
         GameObject _dimensionBody;
         OWItem _previousHeldItem;
+        bool _inFakeEyeSequence;
 
         void Awake()
         {
             _defaultScale = transform.localScale;
             GlobalMessenger.AddListener(GlobalMessengerEvents.EnterWraithDream, OnEnterWraithDream);
             GlobalMessenger.AddListener(GlobalMessengerEvents.ExitWraithDream, OnExitWraithDream);
+            Instance = this;
         }
 
         void OnDestroy()
         {
             GlobalMessenger.RemoveListener(GlobalMessengerEvents.EnterWraithDream, OnEnterWraithDream);
             GlobalMessenger.RemoveListener(GlobalMessengerEvents.ExitWraithDream, OnExitWraithDream);
+            Instance = null;
         }
 
         void OnEnterWraithDream()
@@ -192,6 +197,10 @@ namespace GreenFlameBlade.Components
                 Locator.GetToolModeSwapper().GetItemCarryTool().DropItemInstantly(null, transform);
             }
 
+            Locator.GetPlayerCamera().GetComponent<PlayerCameraEffectController>().OpenEyes(1f, true);
+
+            Locator.GetShipLogManager().RevealFact("GFB_WRAITH_SHIP_ENTER");
+
             Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.VisionTorch_EnterVision);
 
             var relativeLocation = new RelativeLocationData(Vector3.up, Quaternion.identity, Vector3.zero);
@@ -202,9 +211,16 @@ namespace GreenFlameBlade.Components
                 Physics.SyncTransforms();
             }
 
-            Locator.GetPlayerCamera().GetComponent<PlayerCameraEffectController>().OpenEyes(1f, true);
+            var antennaRepaired = DialogueConditionManager.SharedInstance.GetConditionState("GFB_ANTENNA_REPAIRED");
+            var wraithsFreed = DialogueConditionManager.SharedInstance.GetConditionState("GFB_CONTROL_ROOM_DISABLED");
+            var hasCrystal = _previousHeldItem != null && _previousHeldItem is NomaiCrystalItem;
 
-            Locator.GetShipLogManager().RevealFact("GFB_WRAITH_SHIP_ENTER");
+            var isEndOfMod = antennaRepaired && wraithsFreed && hasCrystal;
+            if (isEndOfMod || OWInput.IsPressed(InputLibrary.flashlight))
+            {
+                _inFakeEyeSequence = true;
+                GlobalMessenger.FireEvent(GlobalMessengerEvents.EnterFakeEyeSequence);
+            }
         }
 
         void UpdateAbduction()

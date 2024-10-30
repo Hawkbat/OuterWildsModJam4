@@ -16,7 +16,7 @@ namespace GreenFlameBlade.Components
 
         public CompassFrequency GetFrequency() => _frequency;
 
-        public override string GetDisplayName() => GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("CompassTool");
+        public override string GetDisplayName() => GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("GFB_CompassTool");
 
         public override void Awake()
         {
@@ -75,7 +75,7 @@ namespace GreenFlameBlade.Components
 
             if (_scanPrompt == null)
             {
-                _scanPrompt = new ScreenPrompt(InputLibrary.toolActionSecondary, GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("CompassToolScanPrompt") + "   <CMD>");
+                _scanPrompt = new ScreenPrompt(InputLibrary.toolActionSecondary, "<CMD> " + GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("GFB_CompassToolScanPrompt"));
                 Locator.GetPromptManager().AddScreenPrompt(_scanPrompt, PromptPosition.Center);
             }
             _scanPrompt.SetVisibility(_potentialTarget != null);

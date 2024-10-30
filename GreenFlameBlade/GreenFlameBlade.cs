@@ -45,6 +45,7 @@ namespace GreenFlameBlade
                 directors.AddComponent<CompassManager>();
                 directors.AddComponent<SignalBlockerPuzzleDirector>();
                 directors.AddComponent<SimulationControlPuzzleDirector>();
+                directors.AddComponent<FakeEyeSequenceDirector>();
 
                 Locator.GetPlayerBody().gameObject.AddComponent<DreamWorldDebugger>();
             }, 1);

@@ -248,6 +248,12 @@
         "cloaked": true,
         "parentPath": "Sector_RingWorld/SignalBlockerAntenna",
         "isRelativeToParent": true
+      },
+      {
+        "id": "GFB_CONTROL_ROOM",
+        "cloaked": true,
+        "parentPath": "Sector_RingWorld/SimulationControlRoom",
+        "isRelativeToParent": true
       }
     ]
   },

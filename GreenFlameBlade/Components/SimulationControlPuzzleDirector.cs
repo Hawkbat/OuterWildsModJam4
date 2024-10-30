@@ -16,10 +16,15 @@ namespace GreenFlameBlade.Components
             true,
             false,
         ];
+        const float ESCAPE_SPEED = 2f;
 
         Transform _controlRoom;
         bool _controlRoomOpen;
         DreamCandle[] _candles;
+        InteractReceiver _interactReceiver;
+        bool _escaping;
+        float _escapeTimer;
+        Wraith[] _escapeWraiths;
 
         void Awake()
         {
@@ -46,10 +51,17 @@ namespace GreenFlameBlade.Components
             screen.localScale = Vector3.one;
             var lockOnTarget = projector._lockOnTransform;
             lockOnTarget.transform.localPosition = new Vector3(0f, -2.5f, 7f);
-
             var pedestal = Locator.GetAstroObject(AstroObject.Name.DreamWorld).transform.Find("Sector_DreamWorld/Prefab_IP_DreamLibraryPedestal (1)").GetComponent<DreamLibraryPedestal>();
             pedestal._doorsToOpen = new AbstractDoor[0];
             pedestal._projector = projector;
+
+            // Set up wraith escape sequence
+            DialogueConditionManager.SharedInstance.SetConditionState("GFB_CONTROL_ROOM_DISABLED", false);
+            _interactReceiver = _controlRoom.parent.GetComponentInChildren<InteractReceiver>();
+            _interactReceiver.ChangePrompt(GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("GFB_InteractControlRoom"));
+            _interactReceiver.SetInteractionEnabled(true);
+            _interactReceiver.OnPressInteract += StartEscapeSequence;
+            _escapeWraiths = _controlRoom.parent.GetComponentsInChildren<Wraith>();
         }
 
         void OnDestroy()
@@ -58,6 +70,7 @@ namespace GreenFlameBlade.Components
             {
                 candle.OnLitStateChanged -= CheckCombination;
             }
+            _interactReceiver.OnPressInteract -= StartEscapeSequence;
         }
 
         void Update()
@@ -66,6 +79,19 @@ namespace GreenFlameBlade.Components
             _controlRoom.transform.localPosition = Vector3.MoveTowards(_controlRoom.transform.localPosition, targetPoint, Time.deltaTime * CONTROL_ROOM_MOVE_SPEED);
             var targetRot = _controlRoomOpen ? Quaternion.Euler(0f, 180f, 0f) : Quaternion.Euler(0f, 359.99f, 0f);
             _controlRoom.transform.localRotation = Quaternion.RotateTowards(_controlRoom.transform.localRotation, targetRot, Time.deltaTime * CONTROL_ROOM_ROTATE_SPEED);
+
+            if (_escaping)
+            {
+                var dt = Time.deltaTime * ESCAPE_SPEED;
+                _escapeTimer += dt;
+                for (int i = 0; i < _escapeWraiths.Length; i++)
+                {
+                    if (_escapeTimer > i && _escapeTimer - dt <= i)
+                    {
+                        _escapeWraiths[i].Warp(WraithShip.Instance.transform, false);
+                    }
+                }
+            }
         }
 
         void CheckCombination()
@@ -84,6 +110,19 @@ namespace GreenFlameBlade.Components
             if (!_controlRoomOpen)
             {
                 _controlRoomOpen = true;
+            }
+        }
+
+        void StartEscapeSequence()
+        {
+            _interactReceiver.SetInteractionEnabled(false);
+            _escaping = true;
+            _escapeTimer = 0f;
+            Locator.GetShipLogManager().RevealFact("GFB_CONTROL_ROOM_DISABLED");
+            DialogueConditionManager.SharedInstance.SetConditionState("GFB_CONTROL_ROOM_DISABLED", true);
+            foreach (var dreamFire in FindObjectsOfType<DreamCampfire>())
+            {
+                dreamFire.SetState(Campfire.State.SMOLDERING);
             }
         }
     }
