@@ -216,7 +216,8 @@ namespace GreenFlameBlade.Components
             var hasCrystal = _previousHeldItem != null && _previousHeldItem is NomaiCrystalItem;
 
             var isEndOfMod = antennaRepaired && wraithsFreed && hasCrystal;
-            if (isEndOfMod || OWInput.IsPressed(InputLibrary.flashlight))
+            var devOverride = GreenFlameBlade.Instance.DebugMode && OWInput.IsPressed(InputLibrary.flashlight);
+            if (isEndOfMod || devOverride)
             {
                 _inFakeEyeSequence = true;
                 GlobalMessenger.FireEvent(GlobalMessengerEvents.EnterFakeEyeSequence);

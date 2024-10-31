@@ -82,6 +82,7 @@
 		"GFB_NomaiCrystalItem": "Nomai Crystal",
 		"AntennaBroken": "Damaged Antenna",
 		"GFB_InteractControlRoom": "Unplug Power",
-		"GFB_END_CREDITS": "Dreambound"
+		"GFB_END_CREDITS": "Dreambound",
+		"SettingDebug": "Debug Mode"
 	}
 }

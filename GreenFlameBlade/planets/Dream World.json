@@ -59,10 +59,19 @@
         "reveals": [ "GFB_CANDLE_PASSWORD" ],
         "slides": [
           {
-            "imagePath": "slides/Dummy.png",
-            "backdropAudio": "Reel_1_Backdrop_A",
-            "beatAudio": "Reel_1_Beat_A"
-          }
+            "imagePath": "slides/Slide_TowerCode_01.png",
+            "backdropAudio": "Reel_1_Backdrop_A"
+          },
+          { "imagePath": "slides/Slide_TowerCode_01.png" },
+          { "imagePath": "slides/Slide_TowerCode_02.png" },
+          { "imagePath": "slides/Slide_TowerCode_03.png" },
+          { "imagePath": "slides/Slide_TowerCode_04.png" },
+          { "imagePath": "slides/Slide_TowerCode_05.png" },
+          { "imagePath": "slides/Slide_TowerCode_06.png" },
+          { "imagePath": "slides/Slide_TowerCode_07.png" },
+          { "imagePath": "slides/Slide_TowerCode_08.png" },
+          { "imagePath": "slides/Slide_TowerCode_09.png" },
+          { "imagePath": "slides/Slide_TowerCode_10.png" }
         ],
         "position": {
           "x": 78.79129,

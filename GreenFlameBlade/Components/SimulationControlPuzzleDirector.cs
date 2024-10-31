@@ -7,13 +7,18 @@ namespace GreenFlameBlade.Components
         const float CONTROL_ROOM_MOVE_SPEED = 1f;
         const float CONTROL_ROOM_ROTATE_SPEED = 9f;
         static readonly bool[] CANDLE_COMBINATION = [
+            // Clockwise
+            // Hut
+            true,
+            true,
+            // Tower
             true,
             false,
-            true,
+            // Cliff
             false,
             true,
+            // Diving Bell
             false,
-            true,
             false,
         ];
         const float ESCAPE_SPEED = 2f;
@@ -40,6 +45,7 @@ namespace GreenFlameBlade.Components
             // Set up projector and pedestal in the house above the well
             var projector = Locator.GetAstroObject(AstroObject.Name.DreamWorld).transform.Find("Sector_DreamWorld/Prefab_IP_SlideProjector_Dream (1)").GetComponent<DreamSlideProjector>();
             projector._light._light.spotAngle = 40f;
+            projector._light.SetIntensity(1.5f);
             var projectionPivot = projector.transform.Find("ProjectionPivot");
             projectionPivot.localEulerAngles = Vector3.zero;
             var screenPivot = projectionPivot.Find("BuildingKitPivot");
@@ -50,7 +56,7 @@ namespace GreenFlameBlade.Components
             screen.localEulerAngles = new Vector3(0, 180f, 0f);
             screen.localScale = Vector3.one;
             var lockOnTarget = projector._lockOnTransform;
-            lockOnTarget.transform.localPosition = new Vector3(0f, -2.5f, 7f);
+            lockOnTarget.transform.localPosition = new Vector3(0f, -1f, 7f);
             var pedestal = Locator.GetAstroObject(AstroObject.Name.DreamWorld).transform.Find("Sector_DreamWorld/Prefab_IP_DreamLibraryPedestal (1)").GetComponent<DreamLibraryPedestal>();
             pedestal._doorsToOpen = new AbstractDoor[0];
             pedestal._projector = projector;

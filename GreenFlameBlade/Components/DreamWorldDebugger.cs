@@ -45,6 +45,7 @@ namespace GreenFlameBlade.Components
             var ambLight = GetAmbientLight();
             ambLight.SetIntensity(1f);
             ambLight.range = 2000f;
+            Locator.GetPlayerAudioController().PlayTurnOnFlashlight();
         }
 
         void EndDebug()
@@ -53,13 +54,14 @@ namespace GreenFlameBlade.Components
             var ambLight = GetAmbientLight();
             ambLight.SetIntensity(_intensity);
             ambLight.range = _range;
+            Locator.GetPlayerAudioController().PlayTurnOffFlashlight();
         }
 
         void Update()
         {
             if (_inDreamWorld)
             {
-                if (OWInput.IsPressed(InputLibrary.flashlight) && OWInput.IsNewlyPressed(InputLibrary.autopilot))
+                if (GreenFlameBlade.Instance.DebugMode && OWInput.IsNewlyPressed(InputLibrary.flashlight))
                 {
                     if (_debugging) EndDebug();
                     else StartDebug();

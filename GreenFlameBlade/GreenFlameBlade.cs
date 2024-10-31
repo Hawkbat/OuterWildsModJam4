@@ -15,6 +15,8 @@ namespace GreenFlameBlade
         public INewHorizons NewHorizons;
         public ICommonCameraAPI CommonCameraUtility;
 
+        public bool DebugMode;
+
         public void Awake()
         {
             Instance = this;
@@ -49,6 +51,11 @@ namespace GreenFlameBlade
 
                 Locator.GetPlayerBody().gameObject.AddComponent<DreamWorldDebugger>();
             }, 1);
+        }
+
+        public override void Configure(IModConfig config)
+        {
+            DebugMode = config.GetSettingsValue<bool>("SettingDebug");
         }
     }
 }
