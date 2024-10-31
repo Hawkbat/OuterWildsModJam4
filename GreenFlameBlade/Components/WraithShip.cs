@@ -83,7 +83,6 @@ namespace GreenFlameBlade.Components
             }
             if (_playerScanned && !_playerAbducted && !_abductionEnding && playerDist > SCAN_EXIT_DISTANCE)
             {
-                GreenFlameBlade.Instance.ModHelper.Console.WriteLine($"Scan exit dist: {playerDist}");
                 _playerScanned = false;
             }
             if (_scanning)
@@ -93,7 +92,7 @@ namespace GreenFlameBlade.Components
                 if (_scanProgress >= 1f)
                 {
                     EndScan();
-                    if (PlayerData.GetShipLogFactSave("GFB_CRASH_VISION") != null)
+                    if (OWUtils.ShipLogFactKnown("GFB_CRASH_VISION"))
                     {
                         GlobalMessenger.FireEvent(GlobalMessengerEvents.EnterWraithDream);
                     }

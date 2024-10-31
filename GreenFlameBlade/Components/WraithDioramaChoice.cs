@@ -15,12 +15,17 @@ namespace GreenFlameBlade.Components
         public event DioramaChoiceEvent OnDeactivated;
 
         [SerializeField] Transform _wraithTargetPoint;
+        [SerializeField] string _requiredFactKnown;
+        [SerializeField] string _requiredFactUnknown;
         WraithDiorama[] _options;
         bool _active;
         float _transitionTime;
         WraithDiorama _selected;
 
         public Transform GetWraithTarget() => _wraithTargetPoint;
+
+        public string GetRequiredFactKnown() => _requiredFactKnown;
+        public string GetRequiredFactUnknown() => _requiredFactUnknown;
 
         public bool IsActivated() => _active;
 
@@ -54,6 +59,13 @@ namespace GreenFlameBlade.Components
                 if (active && OnActivated != null) OnActivated(this);
                 if (!active && OnDeactivated != null) OnDeactivated(this);
             }
+        }
+
+        public bool AreRequirementsMet()
+        {
+            if (!string.IsNullOrEmpty(_requiredFactKnown) && !OWUtils.ShipLogFactKnown(_requiredFactKnown)) return false;
+            if (!string.IsNullOrEmpty(_requiredFactUnknown) && OWUtils.ShipLogFactKnown(_requiredFactUnknown)) return false;
+            return true;
         }
 
         void Awake()
@@ -122,7 +134,7 @@ namespace GreenFlameBlade.Components
             _selected = option;
             SetActivation(false);
             var next = option.GetNextChoice();
-            if (next != null)
+            if (next != null && next.AreRequirementsMet())
             {
                 next.SetActivation(true);
             }

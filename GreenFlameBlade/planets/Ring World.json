@@ -81,6 +81,11 @@
           "y": 145.2699,
           "z": -8.020436E-05
         }
+      },
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/StingerSource.prefab",
+        "keepLoaded": true
       }
     ],
     "slideShows": [
