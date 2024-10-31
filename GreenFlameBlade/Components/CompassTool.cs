@@ -78,7 +78,8 @@ namespace GreenFlameBlade.Components
                 _scanPrompt = new ScreenPrompt(InputLibrary.toolActionSecondary, "<CMD> " + GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("GFB_CompassToolScanPrompt"));
                 Locator.GetPromptManager().AddScreenPrompt(_scanPrompt, PromptPosition.Center);
             }
-            _scanPrompt.SetVisibility(_potentialTarget != null);
+
+            _scanPrompt.SetVisibility(isInItemToolMode && isInSuitMode && _potentialTarget != null);
 
             var isScanning = _potentialTarget != null && isInItemToolMode && OWInput.IsNewlyPressed(InputLibrary.toolActionSecondary, InputMode.Character);
             if (isScanning)

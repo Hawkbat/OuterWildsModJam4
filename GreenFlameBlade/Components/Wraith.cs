@@ -8,10 +8,12 @@ namespace GreenFlameBlade.Components
         static readonly Vector3 WARP_SCALE = new(0f, 3f, 0f);
 
         Transform _targetPoint;
-        bool _warpingIn;
         bool _warpingOut;
+        bool _warpingIn;
         float _warpTime;
         Vector3 _initialScale;
+        bool _silentWarpOut;
+        bool _silentWarpIn;
 
         void Start()
         {
@@ -22,7 +24,7 @@ namespace GreenFlameBlade.Components
         {
             if (_warpingIn)
             {
-                if (_warpTime == 0f)
+                if (_warpTime == 0f && !_silentWarpIn)
                 {
                     Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Exit);
                 }
@@ -35,7 +37,7 @@ namespace GreenFlameBlade.Components
             }
             if (_warpingOut)
             {
-                if (_warpTime == 0f)
+                if (_warpTime == 0f && !_silentWarpOut)
                 {
                     Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Enter);
                 }
@@ -53,21 +55,22 @@ namespace GreenFlameBlade.Components
             }
         }
 
-        public void Warp(Transform targetPoint, bool immedate)
+        public void Warp(Transform targetPoint, bool silentWarpOut = false, bool silentWarpIn = false)
         {
             _targetPoint = targetPoint;
-            if (immedate)
-            {
-                transform.parent = targetPoint;
-                transform.localPosition = Vector3.zero;
-                transform.localEulerAngles = Vector3.zero;
-                _warpTime = WARP_DURATION;
-            }
-            else
-            {
-                _warpingOut = true;
-                _warpTime = 0f;
-            }
+            _warpingOut = true;
+            _warpTime = 0f;
+            _silentWarpOut = silentWarpOut;
+            _silentWarpIn = silentWarpIn;
+        }
+
+        public void WarpImmediate(Transform targetPoint)
+        {
+            _targetPoint = targetPoint;
+            transform.parent = targetPoint;
+            transform.localPosition = Vector3.zero;
+            transform.localEulerAngles = Vector3.zero;
+            _warpTime = WARP_DURATION;
         }
     }
 }

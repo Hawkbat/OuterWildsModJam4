@@ -195,10 +195,40 @@
         ],
         "slides": [
           {
-            "imagePath": "slides/Dummy.png",
-            "backdropAudio": "Reel_1_Backdrop_A",
-            "beatAudio": "Reel_1_Beat_A"
-          }
+            "imagePath": "slides/Slide_AntennaDamage_01.png",
+            "backdropAudio": "Reel_Rule_Backdrop_Normal"
+          },
+          { "imagePath": "slides/Slide_AntennaDamage_02.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_03.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_04.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_05.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_06.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_07.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_08.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_09.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_10.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_11.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_12.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_13.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_14.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_15.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_16.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_17.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_18.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_19.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_20.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_21.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_22.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_23.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_24.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_25.png" },
+          {
+            "imagePath": "slides/Slide_AntennaDamage_26.png",
+            "backdropAudio": "Reel_Rule_Backdrop_Glitch"
+          },
+          { "imagePath": "slides/Slide_AntennaDamage_27.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_28.png" },
+          { "imagePath": "slides/Slide_AntennaDamage_29.png" }
         ],
         "position": {
           "x": 172.0503,
@@ -211,6 +241,76 @@
           "z": 49.27388
         },
         "rename": "SubmergedReel"
+      },
+      {
+        "type": "standingVisionTorch",
+        "position": {
+          "x": 46.79475,
+          "y": -123.1975,
+          "z": -291.1071
+        },
+        "rotation": {
+          "x": 60.25306,
+          "y": 261.349,
+          "z": 270.5063
+        },
+        "slides": [
+          {
+            "imagePath": "slides/Slide_Escape_01.png",
+            "backdropAudio": "Reel_Rule_Backdrop_Glitch"
+          },
+          { "imagePath": "slides/Slide_Escape_02.png" },
+          { "imagePath": "slides/Slide_Escape_03.png" },
+          { "imagePath": "slides/Slide_Escape_04.png" },
+          { "imagePath": "slides/Slide_Escape_05.png" },
+          { "imagePath": "slides/Slide_Escape_06.png" },
+          { "imagePath": "slides/Slide_Escape_07.png" },
+          { "imagePath": "slides/Slide_Escape_08.png" },
+          { "imagePath": "slides/Slide_Escape_09.png" },
+          { "imagePath": "slides/Slide_Escape_10.png" },
+          { "imagePath": "slides/Slide_Escape_11.png" },
+          { "imagePath": "slides/Slide_Escape_12.png" },
+          { "imagePath": "slides/Slide_Escape_13.png" },
+          {
+            "imagePath": "slides/Slide_Escape_14.png",
+            "beatAudio": "Cloak_Exit"
+          }
+        ]
+      },
+      {
+        "type": "standingVisionTorch",
+        "position": {
+          "x": 72.77107,
+          "y": 122.6269,
+          "z": -285.7272
+        },
+        "rotation": {
+          "x": 311.2089,
+          "y": 255.7869,
+          "z": 269.6187
+        },
+        "slides": [
+          {
+            "imagePath": "slides/Slide_Escape_01.png",
+            "backdropAudio": "Reel_Rule_Backdrop_Glitch"
+          },
+          { "imagePath": "slides/Slide_Escape_02.png" },
+          { "imagePath": "slides/Slide_Escape_03.png" },
+          { "imagePath": "slides/Slide_Escape_04.png" },
+          { "imagePath": "slides/Slide_Escape_05.png" },
+          { "imagePath": "slides/Slide_Escape_06.png" },
+          { "imagePath": "slides/Slide_Escape_07.png" },
+          { "imagePath": "slides/Slide_Escape_08.png" },
+          { "imagePath": "slides/Slide_Escape_09.png" },
+          { "imagePath": "slides/Slide_Escape_10.png" },
+          { "imagePath": "slides/Slide_Escape_11.png" },
+          { "imagePath": "slides/Slide_Escape_12.png" },
+          { "imagePath": "slides/Slide_Escape_13.png" },
+          {
+            "imagePath": "slides/Slide_Escape_14.png",
+            "beatAudio": "Cloak_Exit"
+          }
+        ]
       }
     ],
     "entryLocation": [

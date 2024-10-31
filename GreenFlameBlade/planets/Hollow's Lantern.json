@@ -116,6 +116,103 @@
             "imagePath": "slides/Slide_WraithJail_02.png",
             "playTimeDuration": 0.5,
             "beatAudio": "LoadingZone_Exit"
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_06.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_05.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_06.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_07.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_BlockerFakeOut_08.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_05.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_06.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_07.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_08.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_09.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_10.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_11.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_12.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_13.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_Escape_14.png",
+            "playTimeDuration": 0.5,
+            "beatAudio": "Cloak_Exit"
           }
         ],
         "position": {

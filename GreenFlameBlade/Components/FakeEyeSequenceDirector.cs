@@ -4,14 +4,18 @@ namespace GreenFlameBlade.Components
 {
     public class FakeEyeSequenceDirector : MonoBehaviour
     {
-        const float ENDING_DURATION = 16f;
+        const float ENDING_DURATION = 17f;
+        const float ENDING_SOUND_DELAY = 3f;
+        const float ENDING_WRAITHS_DELAY = 2f;
 
         GameObject _dimensionBody;
         Transform _fakeEyeSequence;
         DarkZone _darkZone;
         Campfire _campfire;
-        OWAudioSource _musicSource;
+        OWAudioSource _endingMusicSource;
         EndlessReturnToPointVolume _endlessVolume;
+        DreamWraith[] _dreamWraiths;
+        Transform[] _wraithTargets;
         GameObject _endCreditsVolume;
         bool _playingEnding;
         float _endingTimer;
@@ -33,10 +37,17 @@ namespace GreenFlameBlade.Components
 
             _campfire = _fakeEyeSequence.GetComponentInChildren<Campfire>();
             _campfire.OnCampfireStateChange += OnCampfireStateChange;
-            _musicSource = _fakeEyeSequence.Find("MusicSource").GetComponent<OWAudioSource>();
+            _endingMusicSource = _fakeEyeSequence.Find("MusicSource").GetComponent<OWAudioSource>();
             _endlessVolume = _fakeEyeSequence.GetComponentInChildren<EndlessReturnToPointVolume>();
             _endlessVolume.SetActivation(false);
 
+            _dreamWraiths = _fakeEyeSequence.GetComponentsInChildren<DreamWraith>();
+            _wraithTargets = new Transform[_dreamWraiths.Length];
+            for (int i = 0; i < _wraithTargets.Length; i++)
+            {
+                _wraithTargets[i] = new GameObject("Wraith Target").transform;
+                _wraithTargets[i].parent = _fakeEyeSequence.transform;
+            }
 
             _endCreditsVolume = _dimensionBody.transform.Find("Sector/EndCreditsVolume").gameObject;
             _endCreditsVolume.SetActive(false);
@@ -62,9 +73,16 @@ namespace GreenFlameBlade.Components
         {
             if (fire.GetState() == Campfire.State.LIT)
             {
-                _musicSource.Play();
                 _playingEnding = true;
+                PlaceWraith(0, new Vector3(0f, 2f, 5f));
+                Locator.GetPlayerAudioController().PlayOneShotInternal(AudioType.PostCredit_RuinReveal);
             }
+        }
+
+        void PlaceWraith(int index, Vector3 localPosition)
+        {
+            _wraithTargets[index].localPosition = localPosition;
+            _dreamWraiths[index].Warp(_wraithTargets[index], true, true);
         }
 
         void Update()
@@ -72,12 +90,29 @@ namespace GreenFlameBlade.Components
             if (_playingEnding)
             {
                 _endingTimer += Time.deltaTime;
-                if (_endingTimer - Time.deltaTime < ENDING_DURATION && _endingTimer >= ENDING_DURATION)
+                for (int i = 1; i < _dreamWraiths.Length; i++)
+                {
+                    if (PassedThreshold(_endingTimer, ENDING_WRAITHS_DELAY + 0.1f * i))
+                    {
+                        PlaceWraith(i, Random.onUnitSphere * Random.Range(5f, 20f));
+                    }
+                }
+                if (PassedThreshold(_endingTimer, ENDING_SOUND_DELAY))
+                {
+                    Locator.GetPlayerAudioController().PlayOneShotInternal(AudioType.PostCredit_RuinReveal);
+                    _endingMusicSource.Play();
+                }
+                if (PassedThreshold(_endingTimer, ENDING_DURATION))
                 {
                     _endCreditsVolume.SetActive(true);
                     _endCreditsVolume.transform.position = Locator.GetPlayerTransform().position;
                 }
             }
+        }
+
+        bool PassedThreshold(float timer, float threshold)
+        {
+            return timer - Time.deltaTime < threshold && timer >= threshold;
         }
     }
 }

@@ -57,11 +57,11 @@ namespace GreenFlameBlade.Components
 
             // Set up wraith escape sequence
             DialogueConditionManager.SharedInstance.SetConditionState("GFB_CONTROL_ROOM_DISABLED", false);
-            _interactReceiver = _controlRoom.parent.GetComponentInChildren<InteractReceiver>();
+            _interactReceiver = _controlRoom.GetComponentInChildren<InteractReceiver>();
             _interactReceiver.ChangePrompt(GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("GFB_InteractControlRoom"));
             _interactReceiver.SetInteractionEnabled(true);
             _interactReceiver.OnPressInteract += StartEscapeSequence;
-            _escapeWraiths = _controlRoom.parent.GetComponentsInChildren<Wraith>();
+            _escapeWraiths = _controlRoom.GetComponentsInChildren<Wraith>();
         }
 
         void OnDestroy()
@@ -88,7 +88,7 @@ namespace GreenFlameBlade.Components
                 {
                     if (_escapeTimer > i && _escapeTimer - dt <= i)
                     {
-                        _escapeWraiths[i].Warp(WraithShip.Instance.transform, false);
+                        _escapeWraiths[i].Warp(WraithShip.Instance.transform, false, true);
                     }
                 }
             }

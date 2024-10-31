@@ -9,11 +9,18 @@ namespace GreenFlameBlade.Components
         const float SELECTED_DEACTIVATION_DELAY = 0.5f;
         const float OPTION_ACTIVATION_DELAY = 0.25f;
 
+        public delegate void DioramaChoiceEvent(WraithDioramaChoice target);
+
+        public event DioramaChoiceEvent OnActivated;
+        public event DioramaChoiceEvent OnDeactivated;
+
         [SerializeField] Transform _wraithTargetPoint;
         WraithDiorama[] _options;
         bool _active;
         float _transitionTime;
         WraithDiorama _selected;
+
+        public Transform GetWraithTarget() => _wraithTargetPoint;
 
         public bool IsActivated() => _active;
 
@@ -28,10 +35,8 @@ namespace GreenFlameBlade.Components
                     _selected = null;
                 }
                 enabled = true;
-                if (active && _wraithTargetPoint != null)
-                {
-                    DreamWraith.Get().Warp(_wraithTargetPoint, false);
-                }
+                if (active && OnActivated != null) OnActivated(this);
+                if (!active && OnDeactivated != null) OnDeactivated(this);
             }
         }
 
@@ -46,10 +51,8 @@ namespace GreenFlameBlade.Components
                     _selected = null;
                 }
                 enabled = false;
-                if (active && _wraithTargetPoint != null)
-                {
-                    DreamWraith.Get().Warp(_wraithTargetPoint, true);
-                }
+                if (active && OnActivated != null) OnActivated(this);
+                if (!active && OnDeactivated != null) OnDeactivated(this);
             }
         }
 

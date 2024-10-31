@@ -45,7 +45,7 @@ namespace GreenFlameBlade.Components
                     _nextTarget.transform.localRotation = Quaternion.identity;
                 }
 
-                _wraith.Warp(_nextTarget, false);
+                _wraith.Warp(_nextTarget, true, true);
 
                 (_nextTarget, _currentTarget) = (_currentTarget, _nextTarget);
 

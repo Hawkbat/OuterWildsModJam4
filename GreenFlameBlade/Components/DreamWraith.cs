@@ -9,20 +9,6 @@ namespace GreenFlameBlade.Components
 
         float _bobTime;
 
-        static DreamWraith _instance;
-
-        public static DreamWraith Get() => _instance;
-
-        void Awake()
-        {
-            _instance = this;
-        }
-
-        void OnDestroy()
-        {
-            _instance = null;
-        }
-
         protected override void Update()
         {
             base.Update();

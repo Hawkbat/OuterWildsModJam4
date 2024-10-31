@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GreenFlameBlade.Components
 {
     public class WraithDreamDirector : MonoBehaviour
     {
+        [SerializeField] DreamWraith _dreamWraith;
         [SerializeField] Transform _wraithInitialPoint;
         [SerializeField] WraithDioramaChoice[] _initialChoices;
         [SerializeField] WraithDiorama[] _initialDioramas;
@@ -21,12 +17,20 @@ namespace GreenFlameBlade.Components
         {
             _dioramas = GetComponentsInChildren<WraithDiorama>();
             _choices = GetComponentsInChildren<WraithDioramaChoice>();
+            foreach (var choice in _choices)
+            {
+                choice.OnActivated += OnChoiceActivated;
+            }
             GlobalMessenger.AddListener(GlobalMessengerEvents.EnterWraithDream, OnEnterWraithDream);
             GlobalMessenger.AddListener(GlobalMessengerEvents.ExitWraithDream, OnExitWraithDream);
         }
 
         void OnDestroy()
         {
+            foreach (var choice in _choices)
+            {
+                choice.OnActivated -= OnChoiceActivated;
+            }
             GlobalMessenger.RemoveListener(GlobalMessengerEvents.EnterWraithDream, OnEnterWraithDream);
             GlobalMessenger.RemoveListener(GlobalMessengerEvents.ExitWraithDream, OnExitWraithDream);
         }
@@ -42,7 +46,7 @@ namespace GreenFlameBlade.Components
         void OnEnterWraithDream()
         {
             _inWraithDream = true;
-            DreamWraith.Get().Warp(_wraithInitialPoint, false);
+            _dreamWraith.Warp(_wraithInitialPoint, true);
             foreach (var choice in _initialChoices) choice.SetActivation(true);
             foreach (var diorama in _initialDioramas) diorama.SetActivation(true);
         }
@@ -50,7 +54,7 @@ namespace GreenFlameBlade.Components
         void OnExitWraithDream()
         {
             _inWraithDream = false;
-            DreamWraith.Get().Warp(_wraithInitialPoint, true);
+            _dreamWraith.WarpImmediate(_wraithInitialPoint);
             foreach (var diorama in _dioramas)
             {
                 diorama.SetImmediateActivation(false);
@@ -58,6 +62,14 @@ namespace GreenFlameBlade.Components
             foreach (var choice in _choices)
             {
                 choice.SetImmediateActivation(false);
+            }
+        }
+
+        void OnChoiceActivated(WraithDioramaChoice choice)
+        {
+            if (choice.GetWraithTarget() != null)
+            {
+                _dreamWraith.Warp(_wraithInitialPoint);
             }
         }
     }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 namespace GreenFlameBlade.Components
 {
@@ -8,9 +7,11 @@ namespace GreenFlameBlade.Components
         const float TRANSITION_DURATION = 0.5f;
         static readonly Vector3 TRANSITION_SCALE = new(0f, 3f, 0f);
 
-        public delegate void ProximityEvent(WraithDiorama target);
+        public delegate void DioramaEvent(WraithDiorama target);
 
-        public event ProximityEvent OnProximityTriggered;
+        public event DioramaEvent OnActivated;
+        public event DioramaEvent OnDeactivated;
+        public event DioramaEvent OnProximityTriggered;
 
         [SerializeField] bool _proximityTriggerEnabled;
         [SerializeField] float _proximityTriggerRadius = 5f;
@@ -35,26 +36,26 @@ namespace GreenFlameBlade.Components
 
         public void SetActivation(bool active)
         {
-            if (active != _active)
+            if (active == _active) return;
+            _active = active;
+            _transitionProgress = 0f;
+            _proximityTriggerFired = false;
+            if (active)
             {
-                _active = active;
-                _transitionProgress = 0f;
-                _proximityTriggerFired = false;
-                if (active)
+                Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Exit);
+                foreach (var factID in _revealOnActivate)
                 {
-                    Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Exit);
-                    foreach (var factID in _revealOnActivate)
-                    {
-                        Locator.GetShipLogManager().RevealFact(factID);
-                    }
+                    Locator.GetShipLogManager().RevealFact(factID);
                 }
-                else
-                {
-                    Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Enter);
-                }
-                enabled = true;
-                gameObject.SetActive(true);
             }
+            else
+            {
+                Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Enter);
+            }
+            enabled = true;
+            gameObject.SetActive(true);
+            if (active && OnActivated != null) OnActivated(this);
+            if (!active && OnDeactivated != null) OnDeactivated(this);
         }
 
         public void SetImmediateActivation(bool active)
@@ -72,6 +73,8 @@ namespace GreenFlameBlade.Components
                     Locator.GetShipLogManager().RevealFact(factID);
                 }
             }
+            if (active && OnActivated != null) OnActivated(this);
+            if (!active && OnDeactivated != null) OnDeactivated(this);
         }
 
         void Start()
