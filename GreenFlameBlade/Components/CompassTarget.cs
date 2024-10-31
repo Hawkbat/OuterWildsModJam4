@@ -1,36 +1,32 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+﻿using UnityEngine;
 
 namespace GreenFlameBlade.Components
 {
     public class CompassTarget : MonoBehaviour
     {
-        static List<CompassTarget> _activeTargets = [];
-
-        public static CompassTarget Make(GameObject obj, CompassFrequency frequency) => Make(obj, frequency, Vector3.zero);
-        public static CompassTarget Make(GameObject obj, CompassFrequency frequency, Vector3 targetOffset)
-        {
-            var target = obj.AddComponent<CompassTarget>();
-            target._frequency = frequency;
-            target._targetOffset = targetOffset;
-            return target;
-        }
-
-        public static IEnumerable<CompassTarget> GetTargets(CompassFrequency frequency) => GetTargets().Where(t => t.GetFrequency() == frequency);
-
-        public static IEnumerable<CompassTarget> GetTargets() => _activeTargets.Where(t => PlayerState.InCloakingField() == t._cloaked);
-
         [SerializeField] Vector3 _targetOffset;
         [SerializeField] CompassFrequency _frequency;
+        [SerializeField] float _fudgeFactor = 1f;
         bool _cloaked;
         Campfire _campfire;
         SimpleLanternItem _simpleLantern;
+        bool _registerWhenReady;
 
         public CompassFrequency GetFrequency() => _frequency;
 
+        public void SetFrequency(CompassFrequency frequency) => _frequency = frequency;
+
+        public float GetFudgeFactor() => _fudgeFactor;
+
+        public void SetFudgeFactor(float fudgeFactor) => _fudgeFactor = fudgeFactor;
+
+        public Vector3 GetTargetOffset() => _targetOffset;
+
+        public void SetTargetOffset(Vector3 targetOffset) => _targetOffset = targetOffset;
+
         public Vector3 GetTargetPosition() => transform.TransformPoint(_targetOffset);
+
+        public bool IsCloaked() => _cloaked;
 
         void Awake()
         {
@@ -63,12 +59,27 @@ namespace GreenFlameBlade.Components
 
         void OnEnable()
         {
-            _activeTargets.Add(this);
+            if (!CompassManager.Get())
+            {
+                _registerWhenReady = true;
+                return;
+            }
+            CompassManager.Get().RegisterTarget(this);
         }
 
         void OnDisable()
         {
-            _activeTargets.Remove(this);
+            _registerWhenReady = false;
+            CompassManager.Get().UnregisterTarget(this);
+        }
+
+        void Update()
+        {
+            if (_registerWhenReady && CompassManager.Get())
+            {
+                CompassManager.Get().RegisterTarget(this);
+                _registerWhenReady = false;
+            }
         }
 
         void OnDrawGizmosSelected()

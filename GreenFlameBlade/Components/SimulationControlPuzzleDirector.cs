@@ -104,7 +104,7 @@ namespace GreenFlameBlade.Components
                 {
                     if (_escapeTimer > i && _escapeTimer - dt <= i)
                     {
-                        _escapeWraiths[i].Warp(WraithShip.Instance.transform, false, true);
+                        _escapeWraiths[i].Warp(null, false, true);
                     }
                 }
             }

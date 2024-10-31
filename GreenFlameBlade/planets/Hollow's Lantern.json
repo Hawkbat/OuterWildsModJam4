@@ -39,8 +39,86 @@
         "reveals": [ "GFB_CRASH_VISION" ],
         "slides": [
           {
+            "imagePath": "slides/Slide_2_Story_06_08.png",
+            "playTimeDuration": 0.5,
+            "backdropAudio": "Reel_Lab_Backdrop_Fail"
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_06_08_Wraith_01.png",
+            "playTimeDuration": 0.5,
+            "beatAudio": "PostCredit_RuinReveal"
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_06_08_Wraith_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_06_08_Wraith_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_06_08_Wraith_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_07_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_07_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_07_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_07_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_07_05.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_07_06.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_11_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_11_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_11_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_1_Story_11_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_03_Wraith_01.png",
+            "playTimeDuration": 0.5,
+            "beatAudio": "PostCredit_RuinReveal"
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_03_Wraith_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_03_Wraith_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
             "imagePath": "slides/Slide_3_Story_03_01.png",
-            "backdropAudio": "Reel_Lab_Backdrop_Fail",
             "playTimeDuration": 0.5
           },
           {
@@ -116,6 +194,10 @@
             "imagePath": "slides/Slide_WraithJail_02.png",
             "playTimeDuration": 0.5,
             "beatAudio": "LoadingZone_Exit"
+          },
+          {
+            "imagePath": "slides/Slide_WraithJail_01.png",
+            "playTimeDuration": 1.0
           },
           {
             "imagePath": "slides/Slide_BlockerFakeOut_01.png",
