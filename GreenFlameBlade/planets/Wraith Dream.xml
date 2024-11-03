@@ -36,6 +36,14 @@
 			<ID>GFB_WRAITH_FRIEND</ID>
 			<Text>GFB_WRAITH_FRIEND</Text>
 		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_WRAITH_SEEK_OR_FLEE</ID>
+			<Text>GFB_WRAITH_SEEK_OR_FLEE</Text>
+		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_WRAITH_SEEK_EYE</ID>
+			<Text>GFB_WRAITH_SEEK_EYE</Text>
+		</ExploreFact>
 
 		<Entry>
 			<ID>GFB_DIORAMA_CRYSTAL</ID>

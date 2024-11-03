@@ -5,6 +5,50 @@
   "Props": {
     "details": [
       {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone2/Structures_Zone2/RaftHouse_Main_Zone2/Geo_RaftHouse_Main_Zone2/Bridge_IP_RWZ2_ConnectorToRaftDock",
+        "position": {
+          "x": -247.0297,
+          "y": -119.1994,
+          "z": 160.5168
+        },
+        "rotation": {
+          "x": 308.266,
+          "y": 245.0837,
+          "z": 29.5459
+        }
+      },
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone2/Structures_Zone2/RaftHouse_Main_Zone2/Geo_RaftHouse_Main_Zone2/BuildingKit_RaftHouse_Main_Zone2",
+        "position": {
+          "x": -250.4194,
+          "y": -114.5773,
+          "z": 153.013
+        },
+        "rotation": {
+          "x": 353.0368,
+          "y": 31.6252,
+          "z": 269.0389
+        }
+      },
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone2/Structures_Zone2/HouseConnector1_Zone2/Geo_HouseConnector1_Zone2/Bridge_HouseConnector1_Destroyed/Bridge_IP_Broken_RWZ2_ConnectorToProjHouse",
+        "position": {
+          "x": -233.9391,
+          "y": -141.6754,
+          "z": 139.4262
+        },
+        "rotation": {
+          "x": 336.5968,
+          "y": 27.84611,
+          "z": 276.3179
+        }
+      },
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone2/Structures_Zone2/RaftHouse_Main_Zone2/Interactables_RaftHouse_Main_Zone2/Prefab_IP_RaftDock",
+        "parentPath": "Sector_RingWorld/BuildingKit_RaftHouse_Main_Zone2",
+        "isRelativeToParent": true
+      },
+      {
         "path": "DreamWorld_Body/Sector_DreamWorld/Sector_DreamZone_2/Structure_DreamZone_2/Undercity/Lights_Underground/SpotLight_Projector",
         "position": {
           "x": 177.2917,

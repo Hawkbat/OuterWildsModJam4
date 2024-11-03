@@ -15,17 +15,14 @@ namespace GreenFlameBlade.Components
         public event DioramaChoiceEvent OnDeactivated;
 
         [SerializeField] Transform _wraithTargetPoint;
-        [SerializeField] string _requiredFactKnown;
-        [SerializeField] string _requiredFactUnknown;
+        [SerializeField] string[] _requiredKnownFacts;
+        [SerializeField] string[] _requiredUnknownFacts;
         WraithDiorama[] _options;
         bool _active;
         float _transitionTime;
         WraithDiorama _selected;
 
         public Transform GetWraithTarget() => _wraithTargetPoint;
-
-        public string GetRequiredFactKnown() => _requiredFactKnown;
-        public string GetRequiredFactUnknown() => _requiredFactUnknown;
 
         public bool IsActivated() => _active;
 
@@ -63,8 +60,8 @@ namespace GreenFlameBlade.Components
 
         public bool AreRequirementsMet()
         {
-            if (!string.IsNullOrEmpty(_requiredFactKnown) && !OWUtils.ShipLogFactKnown(_requiredFactKnown)) return false;
-            if (!string.IsNullOrEmpty(_requiredFactUnknown) && OWUtils.ShipLogFactKnown(_requiredFactUnknown)) return false;
+            if (_requiredKnownFacts.Length > 0 && _requiredKnownFacts.Any(f => !OWUtils.ShipLogFactKnown(f))) return false;
+            if (_requiredUnknownFacts.Length > 0 && _requiredUnknownFacts.Any(f => OWUtils.ShipLogFactKnown(f))) return false;
             return true;
         }
 

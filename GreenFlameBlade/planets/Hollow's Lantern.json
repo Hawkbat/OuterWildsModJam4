@@ -31,6 +31,20 @@
           "y": 85.2097,
           "z": 58.5508
         }
+      },
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/FlatVolcanoRock.prefab",
+        "position": {
+          "x": -19.8,
+          "y": -73.3,
+          "z": 51.7
+        },
+        "rotation": {
+          "x": 62.382,
+          "y": -30.973,
+          "z": -42.867
+        }
       }
     ],
     "slideShows": [

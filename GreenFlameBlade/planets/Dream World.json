@@ -19,6 +19,21 @@
         "keepLoaded": true
       },
       {
+        "path": "DreamWorld_Body/Sector_DreamWorld/Sector_Underground/Sector_SecretLibrary_2/Interactibles_SecretLibrary_2/Prefab_IP_SlideProjector_Dream (1)/Props_IP_SlideProjectorTotem",
+        "parentPath": "Sector_DreamWorld/Prefab_IP_SlideProjector_Dream (1)",
+        "isRelativeToParent": true,
+        "position": {
+          "x": -0.01,
+          "y": -2.956,
+          "z": 0.361
+        },
+        "rotation": {
+          "x": 0,
+          "y": 180,
+          "z": 0
+        }
+      },
+      {
         "path": "DreamWorld_Body/Sector_DreamWorld/Sector_Underground/Sector_SecretLibrary_2/Interactibles_SecretLibrary_2/Prefab_IP_DreamLibraryPedestal (1)",
         "position": {
           "x": 67.5,
@@ -31,6 +46,32 @@
           "z": 0
         },
         "keepLoaded": true
+      },
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone2/Sector_DreamFireLighthouse_Zone2_AnimRoot/Interactibles_DreamFireLighthouse_Zone2/Lanterns/Prefab_IP_SimpleLanternItem_Zone2DFH_1",
+        "position": {
+          "x": 60.54052,
+          "y": 36.38135,
+          "z": -267.7546
+        },
+        "rotation": {
+          "x": 18.24598,
+          "y": 248.0747,
+          "z": 170.4413
+        }
+      },
+      {
+        "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone2/Sector_DreamFireLighthouse_Zone2_AnimRoot/Interactibles_DreamFireLighthouse_Zone2/Lanterns/Prefab_IP_SimpleLanternItem_Zone2DFH_1",
+        "position": {
+          "x": 52.58141,
+          "y": 36.37834,
+          "z": -266.8707
+        },
+        "rotation": {
+          "x": 18.22605,
+          "y": 247.9503,
+          "z": 170.4024
+        }
       },
       {
         "path": "DreamWorld_Body/Sector_DreamWorld/Sector_DreamZone_2/Structure_DreamZone_2/City/ElevatorHouse/ElevatorDestinations/UpperDestination/Prefab_IP_DW_GearInterface_Standing",
@@ -134,8 +175,7 @@
           },
           {
             "imagePath": "slides/Slide_WellHouse_09.png",
-            "playTimeDuration": 0.25,
-            "beatAudio": "GrappleTotem_Zoom"
+            "playTimeDuration": 0.25
           },
           {
             "imagePath": "slides/Slide_WellHouse_10.png",
@@ -309,6 +349,20 @@
         "rotation": {
           "x": 0,
           "y": 148.4548,
+          "z": 0
+        }
+      },
+      {
+        "type": "wallLargeFlame",
+        "startLit": true,
+        "position": {
+          "x": 56.4629,
+          "y": 39.79424,
+          "z": -267.1872
+        },
+        "rotation": {
+          "x": 0,
+          "y": 260,
           "z": 0
         }
       }

@@ -19,8 +19,11 @@ namespace GreenFlameBlade.Components
             // Wire up antenna repair puzzle
             var brokenAntenna = ringWorld.transform.Find("Sector_RingWorld/SignalBlockerAntenna/AntennaBroken");
             var repairReciever = brokenAntenna.gameObject.AddComponent<GenericRepairReceiver>();
+            repairReciever.repairDistance = 6f;
             repairReciever.OnRepaired += RepairReciever_OnRepaired;
             DialogueConditionManager.SharedInstance.SetConditionState("GFB_ANTENNA_REPAIRED", false);
+
+            OWUtils.AddReferenceFrame(brokenAntenna.gameObject, 20f, 3f, 100f);
 
             // Nitpick but this elevator is facing the wrong way
             var wrongFacingElevator = dreamWorld.transform.Find("Sector_DreamWorld/Sector_DreamZone_2/Structure_DreamZone_2/City/HornetHouse/Elevator");

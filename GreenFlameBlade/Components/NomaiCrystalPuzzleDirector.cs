@@ -7,9 +7,8 @@ namespace GreenFlameBlade.Components
         public void Awake()
         {
             // Increase probe lock-on range
-            var probe = FindObjectOfType<OrbitalProbeLaunchController>()._probeBody;
-            var rfVolume = probe.GetComponentInChildren<ReferenceFrameVolume>();
-            rfVolume._referenceFrame.SetMaxTargetDistance(100_000f);
+            var probeBody = FindObjectOfType<OrbitalProbeLaunchController>()._probeBody;
+            OWUtils.AddReferenceFrame(probeBody.gameObject, 500f, 5f, 100_000f);
         }
     }
 }
