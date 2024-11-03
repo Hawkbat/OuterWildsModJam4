@@ -43,6 +43,7 @@ namespace GreenFlameBlade
             {
                 var directors = new GameObject("GreenFlameBlade Managers");
                 directors.AddComponent<CompassManager>();
+                directors.AddComponent<NomaiCrystalPuzzleDirector>();
                 directors.AddComponent<SignalBlockerPuzzleDirector>();
                 directors.AddComponent<SimulationControlPuzzleDirector>();
                 directors.AddComponent<FakeEyeSequenceDirector>();
