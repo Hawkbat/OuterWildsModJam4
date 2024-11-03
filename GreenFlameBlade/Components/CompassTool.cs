@@ -43,7 +43,7 @@ namespace GreenFlameBlade.Components
             var isHeld = Locator.GetToolModeSwapper().GetItemCarryTool().GetHeldItemType() == Enums.ItemType_Compass;
             var isInItemToolMode = OWInput.IsInputMode(InputMode.Character) && Locator.GetToolModeSwapper().GetToolMode() == ToolMode.Item;
             var isInSuitMode = Locator.GetToolModeSwapper().GetToolGroup() == ToolGroup.Suit;
-
+            
             if (_scanPrompt != null) _scanPrompt.SetVisibility(isHeld && isInItemToolMode && isInSuitMode);
             
             if (!isHeld) return;
@@ -71,6 +71,10 @@ namespace GreenFlameBlade.Components
             if (collider != null)
             {
                 _potentialTarget = collider.GetComponentInParent<CompassTarget>();
+                if (_potentialTarget != null && !_potentialTarget.enabled)
+                {
+                    _potentialTarget = null;
+                }
             }
 
             if (_scanPrompt == null)
