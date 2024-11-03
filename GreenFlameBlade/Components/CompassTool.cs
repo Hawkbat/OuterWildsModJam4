@@ -55,7 +55,7 @@ namespace GreenFlameBlade.Components
 
             if (Locator.GetToolModeSwapper().IsInToolMode(ToolMode.Item, ToolGroup.Ship))
             {
-                if (OWInput.IsNewlyPressed(InputLibrary.cancel, InputMode.All))
+                if (OWInput.IsNewlyPressed(InputLibrary.cancel, InputMode.All) && !PlayerState.InMapView())
                 {
                     var cockpitController = Locator.GetShipBody().GetComponentInChildren<ShipCockpitController>();
                     if (cockpitController != null)
