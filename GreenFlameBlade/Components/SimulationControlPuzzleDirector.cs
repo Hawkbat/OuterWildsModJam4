@@ -30,6 +30,9 @@ namespace GreenFlameBlade.Components
         bool _escaping;
         float _escapeTimer;
         Wraith[] _escapeWraiths;
+        GameObject _cablePlugged;
+        GameObject _cableUnplugged;
+        OWAudioSource _stingerSource;
 
         void Awake()
         {
@@ -68,6 +71,13 @@ namespace GreenFlameBlade.Components
             _interactReceiver.SetInteractionEnabled(true);
             _interactReceiver.OnPressInteract += StartEscapeSequence;
             _escapeWraiths = _controlRoom.GetComponentsInChildren<Wraith>();
+
+            _cablePlugged = _controlRoom.Find("Cable_Plugged").gameObject;
+            _cableUnplugged = _controlRoom.Find("Cable_Unpugged").gameObject;
+            _cableUnplugged.SetActive(false);
+            _cablePlugged.SetActive(true);
+
+            _stingerSource = _controlRoom.Find("StingerSource").GetComponent<OWAudioSource>();
         }
 
         void OnDestroy()
@@ -94,7 +104,7 @@ namespace GreenFlameBlade.Components
                 {
                     if (_escapeTimer > i && _escapeTimer - dt <= i)
                     {
-                        _escapeWraiths[i].Warp(WraithShip.Instance.transform, false, true);
+                        _escapeWraiths[i].Warp(null, false, true);
                     }
                 }
             }
@@ -130,6 +140,11 @@ namespace GreenFlameBlade.Components
             {
                 dreamFire.SetState(Campfire.State.SMOLDERING);
             }
+            _cableUnplugged.SetActive(true);
+            _cablePlugged.SetActive(false);
+            Locator.GetPlayerAudioController().PlayOneShotInternal(AudioType.ElectricShock);
+            Locator.GetPlayerAudioController().PlayOneShotInternal(AudioType.NomaiPowerOff);
+            _stingerSource.Play();
         }
     }
 }

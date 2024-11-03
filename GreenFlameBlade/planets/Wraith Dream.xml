@@ -28,6 +28,14 @@
 			<ID>GFB_WRAITH_SHIP_EXIT</ID>
 			<Text>GFB_WRAITH_SHIP_EXIT</Text>
 		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_WRAITH_FRIEND_OR_FOE</ID>
+			<Text>GFB_WRAITH_FRIEND_OR_FOE</Text>
+		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_WRAITH_FRIEND</ID>
+			<Text>GFB_WRAITH_FRIEND</Text>
+		</ExploreFact>
 
 		<Entry>
 			<ID>GFB_DIORAMA_CRYSTAL</ID>

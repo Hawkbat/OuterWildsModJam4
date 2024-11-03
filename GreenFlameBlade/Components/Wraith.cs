@@ -48,9 +48,16 @@ namespace GreenFlameBlade.Components
                     _warpingOut = false;
                     _warpingIn = true;
                     _warpTime = 0f;
-                    transform.parent = _targetPoint;
-                    transform.localPosition = Vector3.zero;
-                    transform.localEulerAngles = Vector3.zero;
+                    if (_targetPoint == null)
+                    {
+                        gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        transform.parent = _targetPoint;
+                        transform.localPosition = Vector3.zero;
+                        transform.localEulerAngles = Vector3.zero;
+                    }
                 }
             }
         }

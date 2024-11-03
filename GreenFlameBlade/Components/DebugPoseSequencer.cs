@@ -7,7 +7,6 @@ namespace GreenFlameBlade.Components
     {
         int _index = 0;
         OWCamera _owCamera;
-        Camera _camera;
         bool _allowCamera;
         bool _usingCamera;
 
@@ -20,7 +19,7 @@ namespace GreenFlameBlade.Components
                 transform.GetChild(i).gameObject.SetActive(false);
             }
             transform.GetChild(_index).gameObject.SetActive(true);
-            (_owCamera, _camera) = GreenFlameBlade.Instance.CommonCameraUtility.CreateCustomCamera("GFB_Pose_Debug");
+            (_owCamera, _) = GreenFlameBlade.Instance.CommonCameraUtility.CreateCustomCamera("GFB_Pose_Debug");
         }
 
         void Update()
@@ -35,7 +34,7 @@ namespace GreenFlameBlade.Components
                 return;
             }
 
-            if (OWInput.IsPressed(InputLibrary.flashlight))
+            if (GreenFlameBlade.Instance.DebugMode && OWInput.IsPressed(InputLibrary.flashlight))
             {
                 if (OWInput.IsNewlyPressed(InputLibrary.toolOptionRight))
                 {

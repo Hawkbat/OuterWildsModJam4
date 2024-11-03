@@ -23,6 +23,8 @@
 		"GFB_WRAITH_SHIP_FLEE": "Before I could interact with it, the ringed planet suddenly warped away.",
 		"GFB_WRAITH_SHIP_ENTER": "I found myself in a dream-like place where a wraith presented various ideas or concepts to me.",
 		"GFB_WRAITH_SHIP_EXIT": "After approaching a specific flame in the wraith's dream, I found myself right back in my ship.",
+		"GFB_WRAITH_FRIEND_OR_FOE": "The wraith presented me with a choice: an image of myself looming aggressively over the corpse of its rescuer, or an image of its rescuer and I holding hands in peace.",
+		"GFB_WRAITH_FRIEND": "I chose friendship, so the wraith offered additional information to me.",
 		"GFB_DIORAMA_CRYSTAL": "Crystal",
 		"GFB_DIORAMA_CRYSTAL_REVEALED": "The wraith presented some kind of crystal that resembles those used by the Nomai.",
 		"GFB_DIORAMA_CRYSTAL_LAUNCH": "The probe launched from the Orbital Probe Cannon emits a resonating frequency.",

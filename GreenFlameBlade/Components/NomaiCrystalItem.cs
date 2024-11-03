@@ -4,6 +4,8 @@ namespace GreenFlameBlade.Components
 {
     public class NomaiCrystalItem : OWItem
     {
+        [SerializeField] OWAudioSource _pickUpSource;
+
         public override string GetDisplayName() => GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("GFB_NomaiCrystalItem");
 
         public override void Awake()
@@ -16,6 +18,7 @@ namespace GreenFlameBlade.Components
         {
             base.PickUpItem(holdTranform);
             Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.ToolItemScrollPickUp);
+            _pickUpSource.Play();
         }
 
         public override void DropItem(Vector3 position, Vector3 normal, Transform parent, Sector sector, IItemDropTarget customDropTarget)

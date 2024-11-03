@@ -99,14 +99,14 @@ namespace GreenFlameBlade.Components
                 Locator.GetPlayerAudioController().PlayLockOn();
             }
 
-            var targets = CompassTarget.GetTargets(_frequency);
+            var targets = CompassManager.Get().GetTargets(_frequency);
             var minDist = float.PositiveInfinity;
 
             _currentTarget = null;
 
             foreach (var t in targets)
             {
-                var dist = Vector3.Distance(t.GetTargetPosition(), transform.position);
+                var dist = Vector3.Distance(t.GetTargetPosition(), transform.position) * t.GetFudgeFactor();
                 if (dist < minDist)
                 {
                     minDist = dist;

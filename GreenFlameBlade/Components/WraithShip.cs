@@ -8,10 +8,10 @@ namespace GreenFlameBlade.Components
         public static WraithShip Instance;
 
         const float SCAN_DURATION = 2f;
-        const float SCAN_DISTANCE = 2000f;
-        const float SCAN_EXIT_DISTANCE = 3000f;
+        const float SCAN_DISTANCE = 1600f;
+        const float SCAN_EXIT_DISTANCE = 2000f;
         const float SCAN_REF_SCALE = 5f;
-        const float ESCAPE_DISTANCE = 1000f;
+        const float ESCAPE_DISTANCE = 800f;
         const float WARP_DURATION = 0.25f;
         static readonly Vector3 WARP_SCALE = new(0f, 3f, 0f);
 
@@ -32,7 +32,6 @@ namespace GreenFlameBlade.Components
         AstroObject _currentBody;
         GameObject _dimensionBody;
         OWItem _previousHeldItem;
-        bool _inFakeEyeSequence;
 
         void Awake()
         {
@@ -83,7 +82,6 @@ namespace GreenFlameBlade.Components
             }
             if (_playerScanned && !_playerAbducted && !_abductionEnding && playerDist > SCAN_EXIT_DISTANCE)
             {
-                GreenFlameBlade.Instance.ModHelper.Console.WriteLine($"Scan exit dist: {playerDist}");
                 _playerScanned = false;
             }
             if (_scanning)
@@ -93,7 +91,7 @@ namespace GreenFlameBlade.Components
                 if (_scanProgress >= 1f)
                 {
                     EndScan();
-                    if (PlayerData.GetShipLogFactSave("GFB_CRASH_VISION") != null)
+                    if (OWUtils.ShipLogFactKnown("GFB_CRASH_VISION"))
                     {
                         GlobalMessenger.FireEvent(GlobalMessengerEvents.EnterWraithDream);
                     }
@@ -219,14 +217,13 @@ namespace GreenFlameBlade.Components
             var devOverride = GreenFlameBlade.Instance.DebugMode && OWInput.IsPressed(InputLibrary.flashlight);
             if (isEndOfMod || devOverride)
             {
-                _inFakeEyeSequence = true;
                 GlobalMessenger.FireEvent(GlobalMessengerEvents.EnterFakeEyeSequence);
             }
         }
 
         void UpdateAbduction()
         {
-            if (_playerAbducted && Vector3.Distance(_dimensionBody.transform.position, Locator.GetPlayerTransform().position) > 100f)
+            if (_playerAbducted && Vector3.Distance(_dimensionBody.transform.position, Locator.GetPlayerTransform().position) > 500f)
             {
                 Locator.GetPlayerBody().WarpToPositionRotation(_dimensionBody.transform.position + _dimensionBody.transform.up, _dimensionBody.transform.rotation);
                 Locator.GetPlayerAudioController()._oneShotExternalSource.PlayOneShot(AudioType.LoadingZone_Exit);
@@ -348,7 +345,7 @@ namespace GreenFlameBlade.Components
                 dir = Random.onUnitSphere;
             }
 
-            var radius = body._gravityVolume.GetAlignmentRadius() + 1000f;
+            var radius = body._gravityVolume.GetAlignmentRadius() + 1200f;
             var pos = body.transform.position + dir * radius;
             transform.parent = body.GetRootSector().transform;
             transform.position = pos;
