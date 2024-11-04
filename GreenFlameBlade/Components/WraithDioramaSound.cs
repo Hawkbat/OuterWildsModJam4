@@ -13,6 +13,7 @@ namespace GreenFlameBlade.Components
 
         void Awake()
         {
+            _audioSource = GetComponent<OWAudioSource>();
             _diorama.OnActivated += OnActivated;
             _diorama.OnDeactivated += OnDeactivated;
             _diorama.OnProximityTriggered += OnProximityTriggered;
