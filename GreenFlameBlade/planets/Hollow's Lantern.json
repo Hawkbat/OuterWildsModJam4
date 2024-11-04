@@ -55,7 +55,8 @@
           {
             "imagePath": "slides/Slide_2_Story_06_08.png",
             "playTimeDuration": 0.5,
-            "backdropAudio": "Reel_Lab_Backdrop_Fail"
+            "backdropAudio": "Reel_3_Backdrop_C",
+            "beatAudio": "Reel_1_Beat_C"
           },
           {
             "imagePath": "slides/Slide_2_Story_06_08_Wraith_01.png",
@@ -115,6 +116,14 @@
             "playTimeDuration": 0.5
           },
           {
+            "imagePath": "slides/Slide_2_Story_01_Vision_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
             "imagePath": "slides/Slide_2_Story_01_Vision_03.png",
             "playTimeDuration": 0.5
           },
@@ -129,6 +138,68 @@
           },
           {
             "imagePath": "slides/Slide_2_Story_01_Vision_03_Wraith_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_03_Wraith_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_03_Wraith_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_05.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_06.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_07.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_08.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_01_Vision_09.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_03_01.png",
+            "playTimeDuration": 0.5,
+            "backdropAudio": "Reel_Lab_Backdrop_Fail",
+            "beatAudio": "Reel_2_Beat_A"
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_03_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_03_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_03_04.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_03_05.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_03_06.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_03_07.png",
             "playTimeDuration": 0.5
           },
           {
@@ -212,6 +283,42 @@
           {
             "imagePath": "slides/Slide_WraithJail_01.png",
             "playTimeDuration": 1.0
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_05_11_Wraith_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_05_11_Wraith_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_05_11_Wraith_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_05_11_Wraith_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_05_11_Wraith_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_05_11_Wraith_03.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_05_11_Wraith_01.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_05_11_Wraith_02.png",
+            "playTimeDuration": 0.5
+          },
+          {
+            "imagePath": "slides/Slide_2_Story_05_11_Wraith_03.png",
+            "playTimeDuration": 0.5
           },
           {
             "imagePath": "slides/Slide_BlockerFakeOut_01.png",
@@ -309,6 +416,58 @@
             "imagePath": "slides/Slide_Escape_14.png",
             "playTimeDuration": 0.5,
             "beatAudio": "Cloak_Exit"
+          },
+          {
+            "imagePath": "slides/Slide_Dying_01.png",
+            "playTimeDuration": 0.75,
+            "backdropAudio": "Reel_Backdrop_Burnt"
+          },
+          {
+            "imagePath": "slides/Slide_Dying_02.png",
+            "playTimeDuration": 0.75
+          },
+          {
+            "imagePath": "slides/Slide_Dying_03.png",
+            "playTimeDuration": 0.75
+          },
+          {
+            "imagePath": "slides/Slide_Dying_04.png",
+            "playTimeDuration": 0.75
+          },
+          {
+            "imagePath": "slides/Slide_Dying_05.png",
+            "playTimeDuration": 0.75
+          },
+          {
+            "imagePath": "slides/Slide_Dying_06.png",
+            "playTimeDuration": 0.5,
+            "beatAudio": "LoadingZone_Enter"
+          },
+          {
+            "imagePath": "slides/Slide_Dying_07.png",
+            "playTimeDuration": 0.75
+          },
+          {
+            "imagePath": "slides/Slide_Dying_08.png",
+            "playTimeDuration": 0.8
+          },
+          {
+            "imagePath": "slides/Slide_Dying_09.png",
+            "playTimeDuration": 1.0,
+            "beatAudio": "LoadingZone_Exit"
+          },
+          {
+            "imagePath": "slides/Slide_Dying_10.png",
+            "playTimeDuration": 1.2
+          },
+          {
+            "imagePath": "slides/Slide_Dying_11.png",
+            "playTimeDuration": 1.5
+          },
+          {
+            "imagePath": "slides/Slide_Dying_08.png",
+            "playTimeDuration": 1.0,
+            "beatAudio": "Ghost_DeathSingle"
           }
         ],
         "position": {
