@@ -1,0 +1,361 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Outer-Wilds-New-Horizons/new-horizons/main/NewHorizons/Schemas/body_schema.json",
+  "name": "Ember Twin",
+  "starSystem": "SolarSystem",
+  "Props": {
+    "details": [
+      {
+        "path": "Anglerfish_Body/Beast_Anglerfish",
+        "scale": 0.02,
+        "removeChildren": [
+          "B_angler_root/B_angler_body01/B_angler_body02/B_angler_antenna01/B_angler_antenna02/B_angler_antenna03/B_angler_antenna04/B_angler_antenna05/B_angler_antenna06/B_angler_antenna07/B_angler_antenna08/B_angler_antenna09/B_angler_antenna10/B_angler_antenna11/B_angler_antenna12_end"
+        ],
+        "rename": "Ernesto",
+        "position": {
+          "x": -10.5408,
+          "y": -29.392,
+          "z": 93.5507
+        },
+        "rotation": {
+          "x": 50.7203,
+          "y": 125.8153,
+          "z": 136.5003
+        }
+      },
+      {
+        "path": "Anglerfish_Body/Beast_Anglerfish_Collision",
+        "parentPath": "Sector_CaveTwin/Ernesto",
+        "isRelativeToParent": true,
+        "scale": 0.02,
+        "rename": "ErnestoCollision"
+      }
+    ],
+    "slideShows": [
+      {
+        "type": "standingVisionTorch",
+        "slides": [
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 1.0,
+            "backdropAudio": "KazooTheme"
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_02.png",
+            "playTimeDuration": 1.0
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_03.png",
+            "playTimeDuration": 1.0
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_04.png",
+            "playTimeDuration": 1.0
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 0.9376,
+            "backdropAudio": "assets/SiIvaGunner - Can You Feel My Hearth.mp3"
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_06.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_07.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_05.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_08.png",
+            "playTimeDuration": 0.2344
+          },
+          {
+            "imagePath": "slides/Slide_Ernesto_01.png",
+            "playTimeDuration": 0.2344
+          }
+        ],
+        "position": {
+          "x": -9.037819,
+          "y": -28.456,
+          "z": 92.20853
+        },
+        "rotation": {
+          "x": 36.34804,
+          "y": 95.96111,
+          "z": 111.6914
+        }
+      }
+    ]
+  }
+}

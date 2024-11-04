@@ -64,6 +64,27 @@ namespace GreenFlameBlade.Components
             {
                 MakeTarget(lantern.gameObject, CompassFrequency.DreamFire);
             }
+            foreach (var angler in FindObjectsOfType<AnglerfishController>())
+            {
+                var target = MakeTarget(angler.gameObject, CompassFrequency.Angler);
+                var fogLight = target.GetComponentInChildren<FogLight>();
+                target.SetTargetOffset(target.transform.InverseTransformPoint(fogLight.transform.position));
+            }
+
+            var smallAngler = Locator.GetAstroObject(AstroObject.Name.TimberHearth).transform.Find("Sector_TH/Sector_Village/Sector_Observatory/Interactables_Observatory/AnglerFishExhibit/AnglerFishTankPivot/Beast_Anglerfish");
+            MakeTarget(smallAngler.gameObject, CompassFrequency.Angler);
+            var smallAnglerColObj = new GameObject("Collider");
+            smallAnglerColObj.layer = LayerMask.NameToLayer("Interactible");
+            var smallAnglerCol = smallAnglerColObj.AddComponent<SphereCollider>();
+            smallAnglerCol.radius = 2.5f;
+            smallAnglerCol.isTrigger = true;
+            smallAnglerColObj.transform.parent = smallAngler.transform;
+            smallAnglerColObj.transform.localPosition = Vector3.zero;
+            smallAnglerColObj.transform.localScale = Vector3.one / 0.005f;
+
+            var ernesto = Locator.GetAstroObject(AstroObject.Name.CaveTwin).transform.Find("Sector_CaveTwin/Ernesto");
+            MakeTarget(ernesto.gameObject, CompassFrequency.Angler);
+
             MakeTarget(Locator.GetAstroObject(AstroObject.Name.Sun).gameObject, CompassFrequency.Campfire);
         }
 

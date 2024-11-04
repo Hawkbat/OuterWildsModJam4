@@ -15,5 +15,6 @@ namespace GreenFlameBlade.Components
         SlideReel = 4,
         Quantum = 5,
         NomaiCrystal = 6,
+        Angler = 7,
     }
 }
