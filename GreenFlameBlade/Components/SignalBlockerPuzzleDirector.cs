@@ -41,6 +41,8 @@ namespace GreenFlameBlade.Components
             interactReceiver.SetPromptText(UITextType.RotateGearPrompt);
 
             _stingerSource = ringWorld.transform.Find("Sector_RingWorld/StingerSource").GetComponent<OWAudioSource>();
+
+            ringWorld.transform.Find("Sector_RingWorld/SubmergedReel").GetComponent<CompassTarget>().SetFudgeFactor(0.5f);
         }
 
         void RepairReciever_OnRepaired(GenericRepairReceiver target)
