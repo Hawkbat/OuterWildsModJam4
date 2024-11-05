@@ -50,7 +50,7 @@
     "slideShows": [
       {
         "type": "standingVisionTorch",
-        "reveals": [ "GFB_CRASH_VISION" ],
+        "reveals": [ "GFB_CRASH_VISION", "GFB_WRAITH_PLANET" ],
         "slides": [
           {
             "imagePath": "slides/Slide_2_Story_06_08.png",

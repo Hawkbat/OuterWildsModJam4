@@ -132,6 +132,10 @@
 			<ID>GFB_CRASH_VISION</ID>
 			<Text>GFB_CRASH_VISION</Text>
 		</ExploreFact>
+		<ExploreFact>
+			<ID>GFB_WRAITH_PLANET</ID>
+			<Text>GFB_WRAITH_PLANET</Text>
+		</ExploreFact>
 	</Entry>
 	
 	<Entry>
