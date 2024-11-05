@@ -8,6 +8,12 @@ An Echoes of the Eye based adventure created for the 17-day [October 2024 Mod Ja
 
 Ernesto has hidden away somewhere in the solar system-- if only you had a tool that might help track him down...
 
+### Known Issues
+
+- 3D-positioned audio (such as the ship thruster noises, dam breaking, etc.) can become distorted or entirely inaudible. This does not affect gameplay.
+- Alt-tabbing out while holding a new tool and flying the ship may cause the controls to stop responding.
+- A potential softlock can occur when forcibly woken up from a dream while looking through a peephole.
+
 ### Credits
 
 - Hawkbar: Programming, Environment Design, Music
