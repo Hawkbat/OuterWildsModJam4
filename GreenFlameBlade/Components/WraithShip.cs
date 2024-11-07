@@ -209,9 +209,16 @@ namespace GreenFlameBlade.Components
                 Physics.SyncTransforms();
             }
 
+            var holdingCrystal = _previousHeldItem != null && _previousHeldItem is NomaiCrystalItem;
+            if (holdingCrystal)
+            {
+                DialogueConditionManager.SharedInstance.SetConditionState("GFB_CRYSTAL_GATHERED", true);
+                _previousHeldItem = null;
+            }
+
             var antennaRepaired = DialogueConditionManager.SharedInstance.GetConditionState("GFB_ANTENNA_REPAIRED");
             var wraithsFreed = DialogueConditionManager.SharedInstance.GetConditionState("GFB_CONTROL_ROOM_DISABLED");
-            var hasCrystal = _previousHeldItem != null && _previousHeldItem is NomaiCrystalItem;
+            var hasCrystal = DialogueConditionManager.SharedInstance.GetConditionState("GFB_CRYSTAL_GATHERED");
 
             var isEndOfMod = antennaRepaired && wraithsFreed && hasCrystal;
             var devOverride = GreenFlameBlade.Instance.DebugMode && OWInput.IsPressed(InputLibrary.flashlight);
