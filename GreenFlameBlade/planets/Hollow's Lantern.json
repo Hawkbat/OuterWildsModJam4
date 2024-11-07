@@ -45,6 +45,34 @@
           "y": -30.973,
           "z": -42.867
         }
+      },
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/CrashSiteGravityVolume.prefab",
+        "position": {
+          "x": -10.34395,
+          "y": -104.0104,
+          "z": 63.95221
+        },
+        "rotation": {
+          "x": 43.97961,
+          "y": 176.3403,
+          "z": 217.188
+      }
+      },
+      {
+        "assetBundle": "assetbundles/greenflameblade",
+        "path": "Assets/GreenFlameBlade/DestroyedReel.prefab",
+        "position": {
+          "x": -16.70698,
+          "y": -99.85255,
+          "z": 60.16339
+        },
+        "rotation": {
+          "x": 9.207412,
+          "y": 203.3499,
+          "z": 239.3739
+        }
       }
     ],
     "slideShows": [
