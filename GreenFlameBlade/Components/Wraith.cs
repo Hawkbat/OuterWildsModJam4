@@ -66,6 +66,7 @@ namespace GreenFlameBlade.Components
         {
             _targetPoint = targetPoint;
             _warpingOut = true;
+            _warpingIn = false;
             _warpTime = 0f;
             _silentWarpOut = silentWarpOut;
             _silentWarpIn = silentWarpIn;
@@ -75,6 +76,8 @@ namespace GreenFlameBlade.Components
         public void WarpImmediate(Transform targetPoint)
         {
             _targetPoint = targetPoint;
+            _warpingOut = false;
+            _warpingIn = false;
             transform.parent = targetPoint;
             transform.localPosition = Vector3.zero;
             transform.localEulerAngles = Vector3.zero;
