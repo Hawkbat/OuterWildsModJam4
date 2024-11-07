@@ -69,6 +69,7 @@ namespace GreenFlameBlade.Components
             _warpTime = 0f;
             _silentWarpOut = silentWarpOut;
             _silentWarpIn = silentWarpIn;
+            gameObject.SetActive(true);
         }
 
         public void WarpImmediate(Transform targetPoint)
@@ -78,6 +79,7 @@ namespace GreenFlameBlade.Components
             transform.localPosition = Vector3.zero;
             transform.localEulerAngles = Vector3.zero;
             _warpTime = WARP_DURATION;
+            gameObject.SetActive(_targetPoint != null);
         }
     }
 }
