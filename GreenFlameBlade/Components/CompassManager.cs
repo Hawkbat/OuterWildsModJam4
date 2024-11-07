@@ -41,6 +41,10 @@ namespace GreenFlameBlade.Components
             {
                 MakeTarget(reel.gameObject, CompassFrequency.SlideReel);
             }
+            foreach (var socket in FindObjectsOfType<SlideReelSocket>())
+            {
+                MakeTarget(socket.gameObject, CompassFrequency.SlideReel);
+            }
             foreach (var signal in FindObjectsOfType<AudioSignal>())
             {
                 if (signal._frequency == SignalFrequency.Quantum)

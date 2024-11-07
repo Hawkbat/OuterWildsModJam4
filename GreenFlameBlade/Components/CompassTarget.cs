@@ -10,6 +10,7 @@ namespace GreenFlameBlade.Components
         bool _cloaked;
         Campfire _campfire;
         SimpleLanternItem _simpleLantern;
+        SlideReelSocket _slideReelSocket;
         bool _registerWhenReady;
 
         public CompassFrequency GetFrequency() => _frequency;
@@ -43,6 +44,13 @@ namespace GreenFlameBlade.Components
                 _simpleLantern.OnLanternExtinguished += OnLanternExtinguished;
                 enabled = enabled && _simpleLantern.IsLit();
             }
+            _slideReelSocket = GetComponent<SlideReelSocket>();
+            if (_slideReelSocket != null)
+            {
+                _slideReelSocket.OnSocketablePlaced += OnSocketablePlaced;
+                _slideReelSocket.OnSocketableRemoved += OnSocketableRemoved;
+                enabled = enabled && _slideReelSocket.IsSocketOccupied();
+            }
         }
 
         void OnDestroy()
@@ -54,6 +62,11 @@ namespace GreenFlameBlade.Components
             if (_simpleLantern != null)
             {
                 _simpleLantern.OnLanternExtinguished -= OnLanternExtinguished;
+            }
+            if (_slideReelSocket != null)
+            {
+                _slideReelSocket.OnSocketablePlaced -= OnSocketablePlaced;
+                _slideReelSocket.OnSocketableRemoved -= OnSocketableRemoved;
             }
         }
 
@@ -99,6 +112,16 @@ namespace GreenFlameBlade.Components
         void OnLanternExtinguished()
         {
             enabled = _simpleLantern.IsLit();
+        }
+
+        void OnSocketablePlaced(OWItem item)
+        {
+            enabled = true;
+        }
+
+        void OnSocketableRemoved(OWItem item)
+        {
+            enabled = false;
         }
     }
 }
