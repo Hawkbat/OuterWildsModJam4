@@ -6,7 +6,17 @@ A mysterious ringed planet has appeared around Giant's Deep...
 
 An Echoes of the Eye based adventure created for the 17-day [October 2024 Mod Jam](https://outerwildsmods.com/jam/oct-2024/).
 
+Contains major spoilers for Echoes of the Eye!
+
 Ernesto has hidden away somewhere in the solar system-- if only you had a tool that might help track him down...
+
+### Known Issues
+
+- 3D-positioned audio (such as the ship thruster noises, dam breaking, etc.) can become distorted or entirely inaudible. This does not affect gameplay.
+- Alt-tabbing out or crashing the ship while holding a new tool and flying the ship may cause the controls to stop responding.
+- The photos taken by the new tool may not display correctly. The tool mechanic still works correctly.
+- Some objects are visible through the Stranger's cloaking field.
+- A potential softlock can occur when forcibly woken up from a dream while looking through a peephole.
 
 ### Credits
 
