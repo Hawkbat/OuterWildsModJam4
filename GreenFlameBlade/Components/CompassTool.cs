@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using OWML.Utils;
+using UnityEngine;
 
 namespace GreenFlameBlade.Components
 {
@@ -10,9 +11,11 @@ namespace GreenFlameBlade.Components
         [SerializeField] OWCamera _snapshotCamera;
         RenderTexture _snapshotTexture;
         ScreenPrompt _scanPrompt;
+        NotificationData _notificationData;
         Quaternion _needleTargetRot;
         CompassTarget _potentialTarget;
         CompassTarget _currentTarget;
+        bool _heldInShip;
 
         public CompassFrequency GetFrequency() => _frequency;
 
@@ -43,25 +46,24 @@ namespace GreenFlameBlade.Components
             var isHeld = Locator.GetToolModeSwapper().GetItemCarryTool().GetHeldItemType() == Enums.ItemType_Compass;
             var isInItemToolMode = OWInput.IsInputMode(InputMode.Character) && Locator.GetToolModeSwapper().GetToolMode() == ToolMode.Item;
             var isInSuitMode = Locator.GetToolModeSwapper().GetToolGroup() == ToolGroup.Suit;
-            
+
             if (_scanPrompt != null) _scanPrompt.SetVisibility(isHeld && isInItemToolMode && isInSuitMode);
-            
+
             if (!isHeld) return;
 
-            if (Locator.GetToolModeSwapper().IsInToolMode(ToolMode.None, ToolGroup.Ship))
+            var heldInShip = PlayerState.AtFlightConsole();
+            if (heldInShip != _heldInShip)
             {
-                Locator.GetToolModeSwapper().EquipToolMode(ToolMode.Item);
-            }
-
-            if (Locator.GetToolModeSwapper().IsInToolMode(ToolMode.Item, ToolGroup.Ship))
-            {
-                if (OWInput.IsNewlyPressed(InputLibrary.cancel, InputMode.All) && !PlayerState.InMapView())
+                _heldInShip = heldInShip;
+                if (heldInShip)
                 {
-                    var cockpitController = Locator.GetShipBody().GetComponentInChildren<ShipCockpitController>();
-                    if (cockpitController != null)
-                    {
-                        cockpitController.ExitFlightConsole();
-                    }
+                    transform.localPosition = new Vector3(0.1f, 0.65f, -0.1f);
+                    transform.localEulerAngles = new Vector3(330f, 30f, 330f);
+                }
+                else
+                {
+                    transform.localPosition = new Vector3(0f, 0.3f, 0f);
+                    transform.localEulerAngles = new Vector3(345f, 10f, 345f);
                 }
             }
 
@@ -101,6 +103,14 @@ namespace GreenFlameBlade.Components
                 _screenRenderer.material.SetTexture("_EmissionMap", _snapshotTexture);
                 Locator.GetPlayerAudioController().PlayProbeSnapshot();
                 Locator.GetPlayerAudioController().PlayLockOn();
+                var msgTemplate = GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI("GFB_CompassToolNotification");
+                var msgText = string.Format(msgTemplate, GreenFlameBlade.Instance.NewHorizons.GetTranslationForUI($"GFB_{nameof(CompassFrequency)}_{EnumUtils.GetName(_frequency)}"));
+                if (_notificationData == null)
+                {
+                    _notificationData = new NotificationData(NotificationTarget.All, msgText);
+                }
+                _notificationData.displayMessage = msgText;
+                NotificationManager.SharedInstance.PostNotification(_notificationData);
             }
 
             var targets = CompassManager.Get().GetTargets(_frequency);
