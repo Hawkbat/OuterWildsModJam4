@@ -24,6 +24,7 @@ namespace GreenFlameBlade.Components
         {
             transform.position = Locator.GetPlayerTransform().position;
             transform.rotation = Locator.GetPlayerTransform().rotation;
+            transform.position -= transform.up * 0.8f;
             var isGrounded = Locator.GetPlayerController().IsGrounded();
             var shouldEmit = _inWraithDream && isGrounded;
 
