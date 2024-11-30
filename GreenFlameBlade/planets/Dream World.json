@@ -15,8 +15,7 @@
           "x": 0,
           "y": 186.35,
           "z": 0
-        },
-        "keepLoaded": true
+        }
       },
       {
         "path": "DreamWorld_Body/Sector_DreamWorld/Sector_Underground/Sector_SecretLibrary_2/Interactibles_SecretLibrary_2/Prefab_IP_SlideProjector_Dream (1)/Props_IP_SlideProjectorTotem",
@@ -44,8 +43,7 @@
           "x": 0,
           "y": 6.35,
           "z": 0
-        },
-        "keepLoaded": true
+        }
       },
       {
         "path": "RingWorld_Body/Sector_RingInterior/Sector_Zone2/Sector_DreamFireLighthouse_Zone2_AnimRoot/Interactibles_DreamFireLighthouse_Zone2/Lanterns/Prefab_IP_SimpleLanternItem_Zone2DFH_1",

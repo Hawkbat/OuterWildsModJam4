@@ -44,7 +44,8 @@
           "x": 62.382,
           "y": -30.973,
           "z": -42.867
-        }
+        },
+        "keepLoaded": true
       },
       {
         "assetBundle": "assetbundles/greenflameblade",
