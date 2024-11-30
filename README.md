@@ -20,6 +20,9 @@ Ernesto has hidden away somewhere in the solar system-- if only you had a tool t
 - Hawkbar: Programming, Environment Design, Music
 - Insmoshable: Art, Scenario Design
 
+Translations:
+- Chinese (Simplified): redsu721
+
 Special thanks to our playtesters: NonoGry, Oshyu18, Sugeema
 
 Music track "Can You Feel My Hearth" by Blookerstein used under a royalty-free license, courtesy of SiIvaGunner
