@@ -22,6 +22,7 @@ Ernesto has hidden away somewhere in the solar system-- if only you had a tool t
 
 Translations:
 - Chinese (Simplified): redsu721
+- French: Lumine0409
 
 Special thanks to our playtesters: NonoGry, Oshyu18, Sugeema
 
