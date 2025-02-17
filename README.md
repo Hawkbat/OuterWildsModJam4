@@ -24,6 +24,7 @@ Translations:
 - Chinese (Simplified): redsu721
 - French: Lumine0409
 - Japanese: orclecle
+- Russion: OrWest
 
 Special thanks to our playtesters: NonoGry, Oshyu18, Sugeema
 
