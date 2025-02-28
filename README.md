@@ -25,6 +25,7 @@ Translations:
 - French: Lumine0409
 - Japanese: orclecle
 - Russion: OrWest
+- Korean: Barim
 
 Special thanks to our playtesters: NonoGry, Oshyu18, Sugeema
 
