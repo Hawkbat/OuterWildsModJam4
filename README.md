@@ -26,6 +26,7 @@ Translations:
 - Japanese: orclecle
 - Russion: OrWest
 - Korean: Barim
+- Polish: Haishi
 
 Special thanks to our playtesters: NonoGry, Oshyu18, Sugeema
 
